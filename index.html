@@ -560,10 +560,12 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
 }
 </style>
 <style id="soluciones-dropdown-style">
-#primary-menu > .menu-item-has-children > .sub-menu,
-#mobile-menu > .menu-item-has-children > .sub-menu{
+.header-navigation .header-menu-container ul ul.sub-menu{
   border-radius:0 0 6px 6px;
   overflow:hidden;
+}
+.header-navigation .header-menu-container ul ul.sub-menu li:last-child > a{
+  border-radius:0 0 6px 6px;
 }
 </style>
 </head>
