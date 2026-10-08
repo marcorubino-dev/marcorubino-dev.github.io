@@ -1347,12 +1347,18 @@ var kadenceConfig = {"screenReader":{"expand":"Child menu","expandOf":"Child men
     e.preventDefault();
     error.hidden = true;
     button.disabled = true;
-    fetch('/', {
+
+    var formData = new FormData(form);
+    formData.append('access_key', '2d391046-d9ec-4e66-97df-980f877933e3');
+
+    fetch('https://api.web3forms.com/submit', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams(new FormData(form)).toString()
+      body: formData
     }).then(function (res) {
       if (!res.ok) throw new Error('HTTP ' + res.status);
+      return res.json();
+    }).then(function (data) {
+      if (!data.success) throw new Error('Web3Forms error');
       form.hidden = true;
       success.hidden = false;
     }).catch(function () {
