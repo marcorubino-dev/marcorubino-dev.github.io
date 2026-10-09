@@ -562,22 +562,65 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
 </style>
 </style>
 
-<style id="mobile-soluciones-submenu">
+<style id="mobile-menu-refinement">
 @media (max-width: 1024px) {
+  #mobile-menu > li > a {
+    font-size: 18px;
+    line-height: 1.45;
+    padding: 14px 22px;
+  }
+  #mobile-menu > li.menu-item-has-children {
+    position: relative;
+  }
+  #mobile-menu > li.menu-item-has-children > a {
+    padding-right: 58px;
+  }
+  #mobile-menu > li.menu-item-has-children > button.submenu-toggle {
+    position: absolute;
+    z-index: 2;
+    top: 3px;
+    right: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 0;
+    border-radius: 4px;
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+  }
+  #mobile-menu > li.menu-item-has-children > button.submenu-toggle svg {
+    width: 18px;
+    height: 18px;
+    transition: transform .2s ease;
+  }
+  #mobile-menu > li.menu-item-has-children.mobile-submenu-open > button.submenu-toggle svg {
+    transform: rotate(180deg);
+  }
   #mobile-menu > li.menu-item-has-children > .sub-menu {
     display: none;
+    padding: 4px 0 10px;
   }
   #mobile-menu > li.menu-item-has-children.mobile-submenu-open > .sub-menu {
     display: block;
   }
-  #mobile-menu > li.menu-item-has-children > a[aria-expanded]::after {
-    content: "＋";
-    display: inline-block;
-    margin-left: .6em;
-    font-size: .85em;
+  #mobile-menu > li.menu-item-has-children > .sub-menu > li > a {
+    padding: 12px 22px 12px 34px;
+    font-size: 17px;
+    line-height: 1.45;
   }
-  #mobile-menu > li.menu-item-has-children.mobile-submenu-open > a[aria-expanded]::after {
-    content: "−";
+}
+@media (max-width: 480px) {
+  #mobile-menu > li > a {
+    font-size: 19px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+  #mobile-menu > li.menu-item-has-children > .sub-menu > li > a {
+    font-size: 17px;
   }
 }
 </style>
@@ -1432,19 +1475,31 @@ var kadenceConfig = {"screenReader":{"expand":"Child menu","expandOf":"Child men
 var e="script#wp-emoji-settings",t=document.querySelector(e);if(!(t instanceof HTMLScriptElement))throw new Error("Element missing: "+e);const r=JSON.parse(t.text),s=(window._wpemojiSettings=r,"wpEmojiSettingsSupports"),o=["flag","emoji"];function i(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(s,JSON.stringify(t))}catch(e){}}function c(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0);const r=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);return t.every((e,t)=>e===r[t])}function p(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var n=e.getImageData(16,16,1,1);for(let e=0;e<n.data.length;e++)if(0!==n.data[e])return!1;return!0}function u(e,t,n,r){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!r(e,"\ud83e\u1fac8")}return!1}function f(e,t,n,r){let a;const s=(a="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):document.createElement("canvas")).getContext("2d",{willReadFrequently:!0}),o=(s.textBaseline="top",s.font="600 32px Arial",{});return e.forEach(e=>{o[e]=t(s,e,n,r)}),o}function a(e){var t=document.createElement("script");t.src=e,t.defer=!0,document.head.appendChild(t)}r.supports={everything:!0,everythingExceptFlag:!0},new Promise(t=>{let n=function(){try{var e=JSON.parse(sessionStorage.getItem(s));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(o),u.toString(),c.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"});const a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=e=>{i(n=e.data),a.terminate(),t(n)})}catch(e){}i(n=f(o,u,c,p))}t(n)}).then(e=>{for(const n in e)r.supports[n]=e[n],r.supports.everything=r.supports.everything&&r.supports[n],"flag"!==n&&(r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&r.supports[n]);var t;r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&!r.supports.flag,r.supports.everything||((t=r.source||{}).concatemoji?a(t.concatemoji):t.wpemoji&&t.twemoji&&(a(t.twemoji),a(t.wpemoji)))});
 //# sourceURL=/wp-includes/js/wp-emoji-loader.min.js
 </script>
-<script id="mobile-soluciones-submenu-js">
+<script id="mobile-menu-refinement-js">
 document.addEventListener('DOMContentLoaded', function () {
   var menu = document.getElementById('mobile-menu');
   if (!menu) return;
-  menu.querySelectorAll(':scope > li.menu-item-has-children > a[href="#"]').forEach(function (link) {
-    var item = link.parentElement;
+  menu.querySelectorAll(':scope > li.menu-item-has-children').forEach(function (item) {
+    var link = item.querySelector(':scope > a');
     var submenu = item.querySelector(':scope > .sub-menu');
-    if (!submenu) return;
-    link.setAttribute('aria-expanded', 'false');
+    if (!link || !submenu || item.querySelector(':scope > .submenu-toggle')) return;
+
+    var toggle = document.createElement('button');
+    toggle.type = 'button';
+    toggle.className = 'submenu-toggle';
+    toggle.setAttribute('aria-label', 'Mostrar submenú de ' + link.textContent.trim());
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>';
+    item.insertBefore(toggle, submenu);
     link.setAttribute('aria-haspopup', 'true');
-    link.addEventListener('click', function (event) {
+    link.setAttribute('aria-expanded', 'false');
+
+    toggle.addEventListener('click', function (event) {
       event.preventDefault();
+      event.stopPropagation();
       var isOpen = item.classList.toggle('mobile-submenu-open');
+      toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      toggle.setAttribute('aria-label', (isOpen ? 'Ocultar' : 'Mostrar') + ' submenú de ' + link.textContent.trim());
       link.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     });
   });
