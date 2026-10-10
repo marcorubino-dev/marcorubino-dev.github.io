@@ -704,6 +704,96 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
   }
 }
 </style>
+<style id="mws-about-refinement">
+/* MWS — refinamiento visual de la sección Sobre mí */
+#Sobremi > .kt-row-column-wrap {
+    grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr) !important;
+    column-gap: clamp(2rem, 5.5vw, 5.5rem) !important;
+    padding-top: clamp(4rem, 7vw, 6.5rem) !important;
+    padding-bottom: clamp(4rem, 7vw, 6.5rem) !important;
+}
+
+#Sobremi .kadence-column133_2c4b78-f8 .kt-inside-inner-col {
+    align-items: center;
+}
+
+#Sobremi .kb-image133_6a83cf-72 {
+    width: 100%;
+    max-width: 430px;
+    margin-inline: auto;
+}
+
+#Sobremi .kadence-column133_6325a1-12 .kt-inside-inner-col {
+    align-items: flex-start;
+}
+
+#Sobremi .kt-adv-heading133_a9b2d1-02 {
+    margin-bottom: 0.8rem;
+    letter-spacing: 0.09em;
+}
+
+#Sobremi h2.kt-adv-heading133_6f28be-cb {
+    max-width: 15ch;
+    margin-top: 0;
+    margin-bottom: clamp(1.25rem, 2.2vw, 1.75rem);
+    font-size: clamp(2rem, 3.2vw, 3.15rem);
+    line-height: 1.13;
+    letter-spacing: -0.035em;
+    text-wrap: balance;
+}
+
+#Sobremi p.kt-adv-heading133_c63a72-3f {
+    max-width: 62ch;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: clamp(1rem, 1.15vw, 1.1rem);
+    line-height: 1.8;
+}
+
+#Sobremi .kb-btns133_1bbb8b-26 {
+    margin-top: clamp(1.5rem, 2.5vw, 2rem);
+}
+
+@media (max-width: 1024px) {
+    #Sobremi > .kt-row-column-wrap {
+        grid-template-columns: minmax(0, 1fr) !important;
+        row-gap: 2.5rem;
+    }
+
+    #Sobremi .kb-image133_6a83cf-72 {
+        max-width: 360px;
+    }
+
+    #Sobremi h2.kt-adv-heading133_6f28be-cb {
+        max-width: 19ch;
+        font-size: clamp(2rem, 4.5vw, 2.8rem);
+    }
+}
+
+@media (max-width: 767px) {
+    #Sobremi > .kt-row-column-wrap {
+        row-gap: 1.75rem;
+        padding-top: 3.5rem !important;
+        padding-bottom: 3.5rem !important;
+    }
+
+    #Sobremi .kb-image133_6a83cf-72 {
+        max-width: 270px;
+    }
+
+    #Sobremi h2.kt-adv-heading133_6f28be-cb {
+        max-width: 100%;
+        font-size: clamp(1.9rem, 7.5vw, 2.35rem);
+        line-height: 1.16;
+    }
+
+    #Sobremi p.kt-adv-heading133_c63a72-3f {
+        font-size: 1rem;
+        line-height: 1.75;
+    }
+}
+</style>
+
 </head>
 
 <body class="home wp-singular page-template-default page page-id-133 wp-custom-logo wp-embed-responsive wp-theme-kadence footer-on-bottom hide-focus-outline link-style-no-underline content-title-style-hide content-width-fullwidth content-style-unboxed content-vertical-padding-hide transparent-header mobile-transparent-header">
