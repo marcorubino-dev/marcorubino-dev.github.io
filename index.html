@@ -469,6 +469,33 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
 .motion-stagger.is-visible > *:nth-child(4) { transition-delay: 0.36s; }
 .motion-stagger.is-visible > *:nth-child(5) { transition-delay: 0.48s; }
 
+/* En Servicios, animar cada tarjeta individualmente */
+#servicios.motion-stagger > .kt-row-column-wrap {
+    opacity: 1;
+    transform: none;
+    transition: none;
+}
+
+#servicios.motion-stagger > .kt-row-column-wrap > .wp-block-kadence-column {
+    opacity: 0;
+    transform: translateY(24px);
+}
+
+#servicios.motion-stagger.is-visible > .kt-row-column-wrap > .wp-block-kadence-column {
+    opacity: 1;
+    transform: translateY(0);
+    transition:
+        opacity 1.2s ease,
+        transform 2s cubic-bezier(.22, 1, .36, 1);
+}
+
+#servicios.motion-stagger.is-visible > .kt-row-column-wrap > .wp-block-kadence-column:nth-child(1) { transition-delay: 0s; }
+#servicios.motion-stagger.is-visible > .kt-row-column-wrap > .wp-block-kadence-column:nth-child(2) { transition-delay: 0.12s; }
+#servicios.motion-stagger.is-visible > .kt-row-column-wrap > .wp-block-kadence-column:nth-child(3) { transition-delay: 0.24s; }
+#servicios.motion-stagger.is-visible > .kt-row-column-wrap > .wp-block-kadence-column:nth-child(4) { transition-delay: 0.36s; }
+#servicios.motion-stagger.is-visible > .kt-row-column-wrap > .wp-block-kadence-column:nth-child(5) { transition-delay: 0.48s; }
+#servicios.motion-stagger.is-visible > .kt-row-column-wrap > .wp-block-kadence-column:nth-child(6) { transition-delay: 0.60s; }
+
 /* En el proceso de trabajo, animar cada columna, no toda la fila junta */
 .proceso-conector.motion-stagger > .kt-row-column-wrap > .wp-block-kadence-column {
     opacity: 0;
@@ -491,6 +518,8 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
 
 @media (prefers-reduced-motion: reduce) {
     .motion-stagger > *,
+    #servicios.motion-stagger > .kt-row-column-wrap,
+    #servicios.motion-stagger > .kt-row-column-wrap > .wp-block-kadence-column,
     .proceso-conector.motion-stagger > .kt-row-column-wrap > .wp-block-kadence-column {
         opacity: 1;
         transform: none;
