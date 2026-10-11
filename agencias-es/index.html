@@ -903,6 +903,22 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
   .agency-page .agency-visual-window { transition: none; transform: none; }
 }
 </style>
+<style id="agency-market-switch-styles">
+.agency-page .agency-market-switch{position:relative;z-index:5;width:max-content;max-width:100%;margin:0 0 22px;font-size:13px}
+.agency-page .agency-market-switch summary{display:flex;align-items:center;gap:9px;min-height:38px;padding:6px 11px;border:1px solid rgba(148,183,222,.3);border-radius:7px;background:rgba(255,255,255,.045);color:#D8E6F8;cursor:pointer;list-style:none}
+.agency-page .agency-market-switch summary::-webkit-details-marker{display:none}
+.agency-page .agency-market-switch summary:focus-visible,.agency-page .agency-market-options a:focus-visible{outline:2px solid #4DA3FF;outline-offset:3px}
+.agency-page .agency-market-code{display:inline-flex;align-items:center;justify-content:center;min-width:27px;height:23px;border-radius:4px;background:rgba(77,163,255,.16);color:#9CCBFF;font-size:10px;font-weight:800;letter-spacing:.06em}
+.agency-page .agency-market-current{font-weight:650}
+.agency-page .agency-market-chevron{margin-left:4px;color:#9CCBFF;font-size:16px;line-height:1;transition:transform .18s ease}
+.agency-page .agency-market-switch[open] .agency-market-chevron{transform:rotate(180deg)}
+.agency-page .agency-market-options{position:absolute;top:calc(100% + 7px);left:0;min-width:190px;padding:5px;border:1px solid rgba(148,183,222,.24);border-radius:9px;background:#111C2E;box-shadow:0 16px 40px rgba(0,0,0,.3)}
+.agency-page .agency-market-options a{display:flex;align-items:center;gap:9px;padding:10px;border-radius:5px;color:#D8E6F8;text-decoration:none;font-size:13px}
+.agency-page .agency-market-options a:hover,.agency-page .agency-market-options a.is-current{background:rgba(77,163,255,.12)}
+.agency-page .agency-market-check{margin-left:auto;color:#77D8B6;font-weight:800}
+@media(max-width:700px){.agency-page .agency-market-switch{margin-bottom:19px}}
+@media(prefers-reduced-motion:reduce){.agency-page .agency-market-chevron{transition:none}}
+</style>
 </head>
 
 <body class="wp-singular page-template-default page page-id-135 wp-custom-logo wp-embed-responsive wp-theme-kadence footer-on-bottom hide-focus-outline link-style-no-underline content-title-style-hide content-width-fullwidth content-style-unboxed content-vertical-padding-hide transparent-header mobile-transparent-header">
@@ -1086,7 +1102,7 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
 @media(prefers-reduced-motion:reduce){.agency-page .motion-reveal,.agency-page .motion-stagger>*{opacity:1;transform:none;transition:none}.agency-card,.agency-button{transition:none}}
 </style>
 <div class="agency-page">
-<section class="agency-hero motion-reveal"><div class="agency-container"><div class="agency-hero-copy"><p class="agency-eyebrow">Soporte técnico WordPress para agencias</p><h1>¿Tenéis una incidencia WordPress que no merece consumir tiempo de vuestro equipo?</h1><p>Puedo asumirla como soporte técnico externo, desde intervenciones puntuales hasta tareas de troubleshooting y mantenimiento.</p><div class="agency-hero-actions"><div class="agency-price">Intervenciones desde €19</div><a class="agency-button" href="../contacto/">Enviar una incidencia</a></div></div><div class="agency-visual" aria-hidden="true">
+<section class="agency-hero motion-reveal"><div class="agency-container"><div class="agency-hero-copy"><details class="agency-market-switch"><summary aria-label="Elegir versión regional"><span class="agency-market-code">ES</span><span class="agency-market-current">España</span><span class="agency-market-chevron" aria-hidden="true">⌄</span></summary><div class="agency-market-options"><a href="/agencias-ar/"><span>🇦🇷</span><span>Argentina</span></a><a href="/agencias-es/" aria-current="page" class="is-current"><span>🇪🇸</span><span>España</span><span class="agency-market-check" aria-hidden="true">✓</span></a></div></details><p class="agency-eyebrow">Soporte técnico WordPress para agencias</p><h1>¿Tenéis una incidencia WordPress que no merece consumir tiempo de vuestro equipo?</h1><p>Puedo asumirla como soporte técnico externo, desde intervenciones puntuales hasta tareas de troubleshooting y mantenimiento.</p><div class="agency-hero-actions"><div class="agency-price">Intervenciones desde €19</div><a class="agency-button" href="../contacto/">Enviar una incidencia</a></div></div><div class="agency-visual" aria-hidden="true">
   <div class="agency-visual-orbit agency-visual-orbit-one"></div>
   <div class="agency-visual-orbit agency-visual-orbit-two"></div>
   <div class="agency-visual-window">
