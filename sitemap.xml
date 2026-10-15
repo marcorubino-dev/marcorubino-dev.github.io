@@ -4,15 +4,15 @@
 <?xml-stylesheet type="text/xsl" href="/main-sitemap.xsl"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 	<sitemap>
-		<loc><![CDATA[/post-sitemap.xml]]></loc>
+		<loc><![CDATA[https://marcorubino-dev.github.io/post-sitemap.xml]]></loc>
 		<lastmod><![CDATA[2026-09-13T07:22:01+00:00]]></lastmod>
 	</sitemap>
 	<sitemap>
-		<loc><![CDATA[/page-sitemap.xml]]></loc>
+		<loc><![CDATA[https://marcorubino-dev.github.io/page-sitemap.xml]]></loc>
 		<lastmod><![CDATA[2026-09-29T19:02:28+00:00]]></lastmod>
 	</sitemap>
 	<sitemap>
-		<loc><![CDATA[/category-sitemap.xml]]></loc>
+		<loc><![CDATA[https://marcorubino-dev.github.io/category-sitemap.xml]]></loc>
 		<lastmod><![CDATA[2025-03-19T14:18:03+00:00]]></lastmod>
 	</sitemap>
 </sitemapindex>
