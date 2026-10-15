@@ -2,5 +2,4 @@ User-agent: *
 Disallow: /wp-admin/
 Allow: /wp-admin/admin-ajax.php
 
-Sitemap: http://marco-developer.local/sitemap.xml
-Sitemap: http://marco-developer.local/sitemap.rss
+Sitemap: https://marcorubino-dev.github.io/sitemap.xml

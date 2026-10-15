@@ -8,153 +8,130 @@
 	xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
 >
 	<url>
-		<loc><![CDATA[/]]></loc>
+		<loc><![CDATA[https://marcorubino-dev.github.io/]]></loc>
 		<lastmod><![CDATA[2026-09-29T19:02:28+00:00]]></lastmod>
 		<changefreq><![CDATA[always]]></changefreq>
 		<priority><![CDATA[1]]></priority>
 		<image:image>
-			<image:loc>
-				<![CDATA[/wp-content/uploads/2026/09/WooCommerce-Store-Optimization.png]]>			</image:loc>
+			<image:loc><![CDATA[https://marcorubino-dev.github.io/wp-content/uploads/2026/09/WooCommerce-Store-Optimization.png]]></image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>
-				<![CDATA[/wp-content/uploads/2026/09/polycor-2.png]]>			</image:loc>
+			<image:loc><![CDATA[https://marcorubino-dev.github.io/wp-content/uploads/2026/09/polycor-2.png]]></image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>
-				<![CDATA[/wp-content/uploads/2026/09/polycor-tienda-e1790612289991.png]]>			</image:loc>
+			<image:loc><![CDATA[https://marcorubino-dev.github.io/wp-content/uploads/2026/09/polycor-tienda-e1790612289991.png]]></image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>
-				<![CDATA[/wp-content/uploads/2026/09/Captura-de-pantalla-2026-09-22-215412.png]]>			</image:loc>
+			<image:loc><![CDATA[https://marcorubino-dev.github.io/wp-content/uploads/2026/09/Captura-de-pantalla-2026-09-22-215412.png]]></image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>
-				<![CDATA[/wp-content/uploads/2026/09/Captura-de-pantalla-2026-09-22-215329.png]]>			</image:loc>
+			<image:loc><![CDATA[https://marcorubino-dev.github.io/wp-content/uploads/2026/09/Captura-de-pantalla-2026-09-22-215329.png]]></image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>
-				<![CDATA[/wp-content/uploads/2026/09/foto-fondo-azul2.png]]>			</image:loc>
+			<image:loc><![CDATA[https://marcorubino-dev.github.io/wp-content/uploads/2026/09/foto-fondo-azul2.png]]></image:loc>
 		</image:image>
 	</url>
 	<url>
-		<loc><![CDATA[/contacto/]]></loc>
+		<loc><![CDATA[https://marcorubino-dev.github.io/contacto/]]></loc>
 		<lastmod><![CDATA[2026-09-28T22:59:51+00:00]]></lastmod>
 		<changefreq><![CDATA[weekly]]></changefreq>
 		<priority><![CDATA[0.7]]></priority>
 	</url>
 	<url>
-		<loc><![CDATA[/about/]]></loc>
+		<loc><![CDATA[https://marcorubino-dev.github.io/about/]]></loc>
 		<lastmod><![CDATA[2025-03-19T14:36:03+00:00]]></lastmod>
 		<changefreq><![CDATA[weekly]]></changefreq>
 		<priority><![CDATA[0.7]]></priority>
 		<image:image>
-			<image:loc>
-				<![CDATA[/wp-content/uploads/2025/03/scrabble-tiles-on-a-wooden-surface-forming.jpeg]]>			</image:loc>
+			<image:loc><![CDATA[https://marcorubino-dev.github.io/wp-content/uploads/2025/03/scrabble-tiles-on-a-wooden-surface-forming.jpeg]]></image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>
-				<![CDATA[/wp-content/uploads/2025/03/portrait-of-a-young-man-with-a.jpeg]]>			</image:loc>
+			<image:loc><![CDATA[https://marcorubino-dev.github.io/wp-content/uploads/2025/03/portrait-of-a-young-man-with-a.jpeg]]></image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>
-				<![CDATA[/wp-content/uploads/2025/03/woman-working-remotely-from-a-cozy-home.jpeg]]>			</image:loc>
+			<image:loc><![CDATA[https://marcorubino-dev.github.io/wp-content/uploads/2025/03/woman-working-remotely-from-a-cozy-home.jpeg]]></image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>
-				<![CDATA[/wp-content/uploads/2025/03/smartphone-showing-chatgpt-website-with-warm-tone.jpeg]]>			</image:loc>
+			<image:loc><![CDATA[https://marcorubino-dev.github.io/wp-content/uploads/2025/03/smartphone-showing-chatgpt-website-with-warm-tone.jpeg]]></image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>
-				<![CDATA[/wp-content/uploads/2025/03/smartphone-screen-showing-chatgpt-introduction-by-openai.jpeg]]>			</image:loc>
+			<image:loc><![CDATA[https://marcorubino-dev.github.io/wp-content/uploads/2025/03/smartphone-screen-showing-chatgpt-introduction-by-openai.jpeg]]></image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>
-				<![CDATA[/wp-content/uploads/2025/03/close-up-of-a-laptop-with-code-on.jpeg]]>			</image:loc>
+			<image:loc><![CDATA[https://marcorubino-dev.github.io/wp-content/uploads/2025/03/close-up-of-a-laptop-with-code-on.jpeg]]></image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>
-				<![CDATA[/wp-content/uploads/2025/03/tech-savvy-woman-with-sticker-decorated-laptop-working-indoors.jpeg]]>			</image:loc>
+			<image:loc><![CDATA[https://marcorubino-dev.github.io/wp-content/uploads/2025/03/tech-savvy-woman-with-sticker-decorated-laptop-working-indoors.jpeg]]></image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>
-				<![CDATA[/wp-content/uploads/2025/03/logo-placeholder.png]]>			</image:loc>
+			<image:loc><![CDATA[https://marcorubino-dev.github.io/wp-content/uploads/2025/03/logo-placeholder.png]]></image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>
-				<![CDATA[/wp-content/uploads/2025/03/logo-placeholder-6.png]]>			</image:loc>
+			<image:loc><![CDATA[https://marcorubino-dev.github.io/wp-content/uploads/2025/03/logo-placeholder-6.png]]></image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>
-				<![CDATA[/wp-content/uploads/2025/03/logo-placeholder-5.png]]>			</image:loc>
+			<image:loc><![CDATA[https://marcorubino-dev.github.io/wp-content/uploads/2025/03/logo-placeholder-5.png]]></image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>
-				<![CDATA[/wp-content/uploads/2025/03/logo-placeholder-4.png]]>			</image:loc>
+			<image:loc><![CDATA[https://marcorubino-dev.github.io/wp-content/uploads/2025/03/logo-placeholder-4.png]]></image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>
-				<![CDATA[/wp-content/uploads/2025/03/logo-placeholder-3.png]]>			</image:loc>
+			<image:loc><![CDATA[https://marcorubino-dev.github.io/wp-content/uploads/2025/03/logo-placeholder-3.png]]></image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>
-				<![CDATA[/wp-content/uploads/2025/03/logo-placeholder-2.png]]>			</image:loc>
+			<image:loc><![CDATA[https://marcorubino-dev.github.io/wp-content/uploads/2025/03/logo-placeholder-2.png]]></image:loc>
 		</image:image>
 	</url>
 	<url>
-		<loc><![CDATA[/services/]]></loc>
+		<loc><![CDATA[https://marcorubino-dev.github.io/services/]]></loc>
 		<lastmod><![CDATA[2025-03-19T14:18:36+00:00]]></lastmod>
 		<changefreq><![CDATA[weekly]]></changefreq>
 		<priority><![CDATA[0.7]]></priority>
 		<image:image>
-			<image:loc>
-				<![CDATA[/wp-content/uploads/2025/03/logo-placeholder.png]]>			</image:loc>
+			<image:loc><![CDATA[https://marcorubino-dev.github.io/wp-content/uploads/2025/03/logo-placeholder.png]]></image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>
-				<![CDATA[/wp-content/uploads/2025/03/logo-placeholder-6.png]]>			</image:loc>
+			<image:loc><![CDATA[https://marcorubino-dev.github.io/wp-content/uploads/2025/03/logo-placeholder-6.png]]></image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>
-				<![CDATA[/wp-content/uploads/2025/03/logo-placeholder-5.png]]>			</image:loc>
+			<image:loc><![CDATA[https://marcorubino-dev.github.io/wp-content/uploads/2025/03/logo-placeholder-5.png]]></image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>
-				<![CDATA[/wp-content/uploads/2025/03/logo-placeholder-4.png]]>			</image:loc>
+			<image:loc><![CDATA[https://marcorubino-dev.github.io/wp-content/uploads/2025/03/logo-placeholder-4.png]]></image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>
-				<![CDATA[/wp-content/uploads/2025/03/logo-placeholder-3.png]]>			</image:loc>
+			<image:loc><![CDATA[https://marcorubino-dev.github.io/wp-content/uploads/2025/03/logo-placeholder-3.png]]></image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>
-				<![CDATA[/wp-content/uploads/2025/03/logo-placeholder-2.png]]>			</image:loc>
+			<image:loc><![CDATA[https://marcorubino-dev.github.io/wp-content/uploads/2025/03/logo-placeholder-2.png]]></image:loc>
 		</image:image>
 	</url>
 	<url>
-		<loc><![CDATA[/pricing/]]></loc>
+		<loc><![CDATA[https://marcorubino-dev.github.io/pricing/]]></loc>
 		<lastmod><![CDATA[2025-03-19T14:18:36+00:00]]></lastmod>
 		<changefreq><![CDATA[weekly]]></changefreq>
 		<priority><![CDATA[0.7]]></priority>
 		<image:image>
-			<image:loc>
-				<![CDATA[/wp-content/uploads/2025/03/a-developers-hand-interacting-with-code-on.jpeg]]>			</image:loc>
+			<image:loc><![CDATA[https://marcorubino-dev.github.io/wp-content/uploads/2025/03/a-developers-hand-interacting-with-code-on.jpeg]]></image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>
-				<![CDATA[/wp-content/uploads/2025/03/two-young-professionals-in-an-office-setting.jpeg]]>			</image:loc>
+			<image:loc><![CDATA[https://marcorubino-dev.github.io/wp-content/uploads/2025/03/two-young-professionals-in-an-office-setting.jpeg]]></image:loc>
 		</image:image>
 		<image:image>
 			<image:loc>
 				<![CDATA[https://patterns.startertemplatecloud.com/wp-content/uploads/2023/11/pexels-andrea-piacquadio-3769021-150x150.jpg]]>			</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>
-				<![CDATA[/wp-content/uploads/2025/03/focused-woman-points-to-financial-graph-showcasing.jpeg]]>			</image:loc>
+			<image:loc><![CDATA[https://marcorubino-dev.github.io/wp-content/uploads/2025/03/focused-woman-points-to-financial-graph-showcasing.jpeg]]></image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>
-				<![CDATA[/wp-content/uploads/2025/03/high-angle-crop-anonymous-person-using-netbook.jpeg]]>			</image:loc>
+			<image:loc><![CDATA[https://marcorubino-dev.github.io/wp-content/uploads/2025/03/high-angle-crop-anonymous-person-using-netbook.jpeg]]></image:loc>
 		</image:image>
+	</url>
+	<url>
+		<loc><![CDATA[https://marcorubino-dev.github.io/en/]]></loc>
+		<lastmod><![CDATA[2026-10-14T00:00:00+00:00]]></lastmod>
+		<changefreq><![CDATA[weekly]]></changefreq>
+		<priority><![CDATA[0.9]]></priority>
 	</url>
 </urlset>
