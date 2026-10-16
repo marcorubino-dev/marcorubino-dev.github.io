@@ -628,6 +628,70 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
   }
 }
 </style>
+<style id="mws-language-switcher-styles">
+/* MWS segmented language selector */
+#primary-menu > .mws-language-switch,
+#mobile-menu > .mws-language-switch {
+  display: flex;
+  align-items: center;
+}
+.mws-language-switch .mws-language-switch__control {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 3px;
+  border: 1px solid rgba(77, 163, 255, 0.48);
+  border-radius: 8px;
+  background: #0B1120;
+  line-height: 1;
+}
+.mws-language-switch .mws-language-switch__control > a,
+.mws-language-switch .mws-language-switch__control > span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 34px;
+  min-height: 30px;
+  padding: 0 9px;
+  border: 0;
+  border-radius: 5px;
+  color: #F1F5F9;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+  transition: background-color 160ms ease, color 160ms ease;
+}
+.mws-language-switch .mws-language-switch__control > a:hover,
+.mws-language-switch .mws-language-switch__control > a:focus-visible {
+  background: #1F2937;
+  color: #FFFFFF;
+}
+.mws-language-switch .mws-language-switch__control > a:focus-visible {
+  outline: 2px solid #4DA3FF;
+  outline-offset: 2px;
+}
+.mws-language-switch .mws-language-switch__control > .mws-language-switch__current {
+  background: #3B82C4;
+  color: #FFFFFF;
+  cursor: default;
+}
+#mobile-menu > .mws-language-switch {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+#mobile-menu .mws-language-switch .mws-language-switch__control > a,
+#mobile-menu .mws-language-switch .mws-language-switch__control > span {
+  min-width: 40px;
+  min-height: 40px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .mws-language-switch .mws-language-switch__control > a,
+  .mws-language-switch .mws-language-switch__control > span {
+    transition: none;
+  }
+}
+</style>
 </head>
 
 <body class="wp-singular page-template-default page page-id-135 wp-custom-logo wp-embed-responsive wp-theme-kadence footer-on-bottom hide-focus-outline link-style-no-underline content-title-style-hide content-width-fullwidth content-style-unboxed content-vertical-padding-hide transparent-header mobile-transparent-header">
@@ -662,7 +726,7 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
 <li id="menu-item-144" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-135 current_page_item menu-item-144"><a href="/contacto/" aria-current="page">Contacto</a></li>
 <li id="menu-item-958" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-958"><a href="/#proyectos">Proyectos</a></li>
 <li id="menu-item-286" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-286"><a href="/#Sobremi">Sobre mi</a></li>
-<li class="menu-item mws-language-switch"><a href="/contact/">English</a></li></ul>		</div>
+<li class="menu-item mws-language-switch"><div class="mws-language-switch__control" role="group" aria-label="Language selector"><span class="mws-language-switch__current" lang="es" aria-current="page">ES</span><a class="mws-language-switch__link" href="/contact/" lang="en" hreflang="en" aria-label="English">EN</a></div></li></ul>		</div>
 	</nav><!-- #site-navigation -->
 	</div><!-- data-section="primary_navigation" -->
 					</div>
@@ -1431,7 +1495,7 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
 <li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-135 current_page_item menu-item-144"><a href="/contacto/" aria-current="page">Contacto</a></li>
 <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-958"><a href="/#proyectos">Proyectos</a></li>
 <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-286"><a href="/#Sobremi">Sobre mi</a></li>
-<li class="menu-item mws-language-switch"><a href="/contact/">English</a></li></ul>		</div>
+<li class="menu-item mws-language-switch"><div class="mws-language-switch__control" role="group" aria-label="Language selector"><span class="mws-language-switch__current" lang="es" aria-current="page">ES</span><a class="mws-language-switch__link" href="/contact/" lang="en" hreflang="en" aria-label="English">EN</a></div></li></ul>		</div>
 	</nav><!-- #site-navigation -->
 	</div><!-- data-section="mobile_navigation" -->
 							</div>
