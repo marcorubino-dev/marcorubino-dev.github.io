@@ -134,4 +134,28 @@
 		<changefreq><![CDATA[weekly]]></changefreq>
 		<priority><![CDATA[0.9]]></priority>
 	</url>
+	<url>
+		<loc><![CDATA[https://marcorubino-dev.github.io/agencias-ar/]]></loc>
+		<lastmod><![CDATA[2026-10-16T00:00:00+00:00]]></lastmod>
+		<changefreq><![CDATA[weekly]]></changefreq>
+		<priority><![CDATA[0.9]]></priority>
+	</url>
+	<url>
+		<loc><![CDATA[https://marcorubino-dev.github.io/agencias-es/]]></loc>
+		<lastmod><![CDATA[2026-10-16T00:00:00+00:00]]></lastmod>
+		<changefreq><![CDATA[weekly]]></changefreq>
+		<priority><![CDATA[0.9]]></priority>
+	</url>
+	<url>
+		<loc><![CDATA[https://marcorubino-dev.github.io/agencies-us/]]></loc>
+		<lastmod><![CDATA[2026-10-16T00:00:00+00:00]]></lastmod>
+		<changefreq><![CDATA[weekly]]></changefreq>
+		<priority><![CDATA[0.9]]></priority>
+	</url>
+	<url>
+		<loc><![CDATA[https://marcorubino-dev.github.io/contact/]]></loc>
+		<lastmod><![CDATA[2026-10-16T00:00:00+00:00]]></lastmod>
+		<changefreq><![CDATA[weekly]]></changefreq>
+		<priority><![CDATA[0.7]]></priority>
+	</url>
 </urlset>
