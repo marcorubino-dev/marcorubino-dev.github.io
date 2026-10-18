@@ -803,30 +803,37 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
 </style>
 
 <style id="mws-typewriter-styles">
-/* MWS homepage: one typewriter reveal, then calm phrase transitions */
+/* MWS homepage: one restrained typewriter reveal, no recurring animation */
 .mws-typewriter-heading .mws-typewriter-fixed,
-.mws-typewriter-heading .mws-typewriter-line { display: block; }
-.mws-typewriter-heading .mws-typewriter-line { min-height: 1.1em; opacity: 1; transition: opacity 320ms ease; }
-.mws-typewriter-heading .mws-typewriter-line.mws-copy-hidden,
-.mws-typewriter-subtitle .mws-subtitle-text.mws-copy-hidden { opacity: 0; }
-.mws-typewriter-caret::after {
-  content: ""; display: inline-block; width: 2px; height: 0.82em;
-  margin-left: 0.12em; vertical-align: -0.02em; background: currentColor;
-  animation: mws-caret-blink 900ms steps(2, start) infinite;
+.mws-typewriter-heading .mws-typewriter-line {
+  display: block;
 }
-.mws-typewriter-subtitle { min-height: 2.8em; }
-.mws-typewriter-subtitle .mws-subtitle-text { opacity: 1; transition: opacity 320ms ease; }
-@keyframes mws-caret-blink { to { visibility: hidden; } }
+.mws-typewriter-heading .mws-typewriter-line {
+  min-height: 1.1em;
+}
+.mws-typewriter-subtitle {
+  min-height: 2.8em;
+}
 @media (max-width: 767px) {
-  #mobile-menu > .mws-language-switch { width: 100%; justify-content: center; box-sizing: border-box; }
-  #mobile-menu > .mws-language-switch .mws-language-switch__control { margin-inline: auto; }
-  .mws-typewriter-heading .mws-typewriter-line { min-height: 2.2em; }
-  .mws-typewriter-subtitle { min-height: 4.2em; }
+  #mobile-menu > .mws-language-switch {
+    width: 100%;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+  #mobile-menu > .mws-language-switch .mws-language-switch__control {
+    margin-inline: auto;
+  }
+  .mws-typewriter-heading .mws-typewriter-line {
+    min-height: 2.2em;
+  }
+  .mws-typewriter-subtitle {
+    min-height: 4.2em;
+  }
 }
 @media (prefers-reduced-motion: reduce) {
-  .mws-typewriter-caret::after { animation: none; visibility: hidden; }
-  .mws-typewriter-heading .mws-typewriter-line,
-  .mws-typewriter-subtitle .mws-subtitle-text { transition: none; }
+  .mws-typewriter-heading .mws-typewriter-line {
+    animation: none;
+  }
 }
 </style>
 
@@ -1853,66 +1860,52 @@ document.addEventListener('DOMContentLoaded', function () {
   var heading = document.querySelector('h1.kt-adv-heading133_0ab6fd-63');
   var subtitle = document.querySelector('p.kt-adv-heading133_f9b37e-30');
   if (!heading || !subtitle) return;
+
   var originalHeading = heading.textContent.trim();
   var originalSubtitle = subtitle.textContent.trim();
-  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var reduceMotion = window.matchMedia &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (reduceMotion) return;
 
   var fixedText = "WordPress that works.";
-  var phrases = [{"headline":"Problems get solved.","subtitle":"Technical support for WordPress errors, conflicts and bugs."},{"headline":"Projects move forward.","subtitle":"Development and improvements for WordPress websites."},{"headline":"Your technical WordPress partner.","subtitle":"Reliable development support for agencies and their clients."}];
-  if (!phrases.length) return;
+  var headline = "Problems get solved.";
+  var supportingText = "Technical support for WordPress errors, conflicts and bugs.";
 
   heading.classList.add('mws-typewriter-heading');
   heading.setAttribute('aria-label', originalHeading);
   heading.innerHTML = '';
+
   var fixed = document.createElement('span');
-  fixed.className = 'mws-typewriter-fixed'; fixed.textContent = fixedText;
+  fixed.className = 'mws-typewriter-fixed';
+  fixed.textContent = fixedText;
+
   var line = document.createElement('span');
-  line.className = 'mws-typewriter-line mws-typewriter-caret';
+  line.className = 'mws-typewriter-line';
   line.setAttribute('aria-hidden', 'true');
-  heading.appendChild(fixed); heading.appendChild(line);
+  heading.appendChild(fixed);
+  heading.appendChild(line);
 
   subtitle.classList.add('mws-typewriter-subtitle');
   subtitle.setAttribute('aria-label', originalSubtitle);
-  subtitle.textContent = '';
-  var subtitleText = document.createElement('span');
-  subtitleText.className = 'mws-subtitle-text';
-  subtitleText.setAttribute('aria-hidden', 'true');
-  subtitle.appendChild(subtitleText);
+  subtitle.textContent = supportingText;
 
-  var phraseIndex = 0, charIndex = 0, timer, disposed = false;
-  function revealFirstPhrase() {
+  var index = 0;
+  var timer;
+  var disposed = false;
+
+  function typeOnce() {
     if (disposed) return;
-    var first = phrases[0];
-    charIndex += 1;
-    line.textContent = first.headline.slice(0, charIndex);
-    subtitleText.textContent = first.subtitle;
-    if (charIndex < first.headline.length) {
-      timer = window.setTimeout(revealFirstPhrase, 62);
-      return;
+    index += 1;
+    line.textContent = headline.slice(0, index);
+    if (index < headline.length) {
+      timer = window.setTimeout(typeOnce, 62);
     }
-    line.classList.remove('mws-typewriter-caret');
-    timer = window.setTimeout(showNextPhrase, 6500);
   }
-  function showNextPhrase() {
-    if (disposed) return;
-    phraseIndex = (phraseIndex + 1) % phrases.length;
-    line.classList.add('mws-copy-hidden');
-    subtitleText.classList.add('mws-copy-hidden');
-    timer = window.setTimeout(function () {
-      if (disposed) return;
-      line.textContent = phrases[phraseIndex].headline;
-      subtitleText.textContent = phrases[phraseIndex].subtitle;
-      line.setAttribute('aria-label', phrases[phraseIndex].headline);
-      subtitleText.setAttribute('aria-label', phrases[phraseIndex].subtitle);
-      line.classList.remove('mws-copy-hidden');
-      subtitleText.classList.remove('mws-copy-hidden');
-      timer = window.setTimeout(showNextPhrase, 6500);
-    }, 340);
-  }
-  timer = window.setTimeout(revealFirstPhrase, 450);
+
+  timer = window.setTimeout(typeOnce, 450);
   window.addEventListener('pagehide', function () {
-    disposed = true; window.clearTimeout(timer);
+    disposed = true;
+    window.clearTimeout(timer);
   }, { once: true });
 });
 </script>
