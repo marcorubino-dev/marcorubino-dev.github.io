@@ -1898,11 +1898,11 @@ document.addEventListener('DOMContentLoaded', function () {
     index += 1;
     line.textContent = headline.slice(0, index);
     if (index < headline.length) {
-      timer = window.setTimeout(typeOnce, 62);
+      timer = window.setTimeout(typeOnce, 95);
     }
   }
 
-  timer = window.setTimeout(typeOnce, 450);
+  timer = window.setTimeout(typeOnce, 650);
   window.addEventListener('pagehide', function () {
     disposed = true;
     window.clearTimeout(timer);
