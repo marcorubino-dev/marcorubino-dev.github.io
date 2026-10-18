@@ -803,39 +803,16 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
 </style>
 
 <style id="mws-typewriter-styles">
-/* MWS homepage: one typewriter reveal, then calm phrase transitions */
+/* MWS homepage: one restrained typewriter reveal, no recurring animation */
 .mws-typewriter-heading .mws-typewriter-fixed,
 .mws-typewriter-heading .mws-typewriter-line {
   display: block;
 }
 .mws-typewriter-heading .mws-typewriter-line {
   min-height: 1.1em;
-  opacity: 1;
-  transition: opacity 320ms ease;
-}
-.mws-typewriter-heading .mws-typewriter-line.mws-copy-hidden,
-.mws-typewriter-subtitle .mws-subtitle-text.mws-copy-hidden {
-  opacity: 0;
-}
-.mws-typewriter-caret::after {
-  content: "";
-  display: inline-block;
-  width: 2px;
-  height: 0.82em;
-  margin-left: 0.12em;
-  vertical-align: -0.02em;
-  background: currentColor;
-  animation: mws-caret-blink 900ms steps(2, start) infinite;
 }
 .mws-typewriter-subtitle {
   min-height: 2.8em;
-}
-.mws-typewriter-subtitle .mws-subtitle-text {
-  opacity: 1;
-  transition: opacity 320ms ease;
-}
-@keyframes mws-caret-blink {
-  to { visibility: hidden; }
 }
 @media (max-width: 767px) {
   #mobile-menu > .mws-language-switch {
@@ -854,13 +831,8 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .mws-typewriter-caret::after {
+  .mws-typewriter-heading .mws-typewriter-line {
     animation: none;
-    visibility: hidden;
-  }
-  .mws-typewriter-heading .mws-typewriter-line,
-  .mws-typewriter-subtitle .mws-subtitle-text {
-    transition: none;
   }
 }
 </style>
@@ -1896,69 +1868,41 @@ document.addEventListener('DOMContentLoaded', function () {
   if (reduceMotion) return;
 
   var fixedText = "WordPress que funciona.";
-  var phrases = [{"headline":"Problemas que se resuelven.","subtitle":"Soporte técnico para errores, conflictos y fallos de WordPress."},{"headline":"Proyectos que salen adelante.","subtitle":"Desarrollo y mejoras para sitios WordPress."},{"headline":"Agencias con un partner técnico.","subtitle":"Colaboración técnica para agencias que necesitan apoyo WordPress."}];
-  if (!phrases.length) return;
+  var headline = "Problemas que se resuelven.";
+  var supportingText = "Soporte técnico para errores, conflictos y fallos de WordPress.";
 
   heading.classList.add('mws-typewriter-heading');
   heading.setAttribute('aria-label', originalHeading);
   heading.innerHTML = '';
+
   var fixed = document.createElement('span');
   fixed.className = 'mws-typewriter-fixed';
   fixed.textContent = fixedText;
+
   var line = document.createElement('span');
-  line.className = 'mws-typewriter-line mws-typewriter-caret';
+  line.className = 'mws-typewriter-line';
   line.setAttribute('aria-hidden', 'true');
   heading.appendChild(fixed);
   heading.appendChild(line);
 
   subtitle.classList.add('mws-typewriter-subtitle');
   subtitle.setAttribute('aria-label', originalSubtitle);
-  subtitle.textContent = '';
-  var subtitleText = document.createElement('span');
-  subtitleText.className = 'mws-subtitle-text';
-  subtitleText.setAttribute('aria-hidden', 'true');
-  subtitle.appendChild(subtitleText);
+  subtitle.textContent = supportingText;
 
-  var phraseIndex = 0;
-  var charIndex = 0;
+  var index = 0;
   var timer;
   var disposed = false;
 
-  function revealFirstPhrase() {
+  function typeOnce() {
     if (disposed) return;
-    var first = phrases[0];
-    charIndex += 1;
-    line.textContent = first.headline.slice(0, charIndex);
-    subtitleText.textContent = first.subtitle;
-
-    if (charIndex < first.headline.length) {
-      timer = window.setTimeout(revealFirstPhrase, 62);
-      return;
+    index += 1;
+    line.textContent = headline.slice(0, index);
+    if (index < headline.length) {
+      timer = window.setTimeout(typeOnce, 62);
     }
-
-    line.classList.remove('mws-typewriter-caret');
-    timer = window.setTimeout(showNextPhrase, 6500);
   }
 
-  function showNextPhrase() {
-    if (disposed) return;
-    phraseIndex = (phraseIndex + 1) % phrases.length;
-    line.classList.add('mws-copy-hidden');
-    subtitleText.classList.add('mws-copy-hidden');
-
-    timer = window.setTimeout(function () {
-      if (disposed) return;
-      line.textContent = phrases[phraseIndex].headline;
-      subtitleText.textContent = phrases[phraseIndex].subtitle;
-      line.setAttribute('aria-label', phrases[phraseIndex].headline);
-      subtitleText.setAttribute('aria-label', phrases[phraseIndex].subtitle);
-      line.classList.remove('mws-copy-hidden');
-      subtitleText.classList.remove('mws-copy-hidden');
-      timer = window.setTimeout(showNextPhrase, 6500);
-    }, 340);
-  }
-
-  timer = window.setTimeout(revealFirstPhrase, 450);
+  timer = window.setTimeout(typeOnce, 450);
   window.addEventListener('pagehide', function () {
     disposed = true;
     window.clearTimeout(timer);
