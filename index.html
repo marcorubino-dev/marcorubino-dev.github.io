@@ -803,13 +803,19 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
 </style>
 
 <style id="mws-typewriter-styles">
-/* MWS homepage: restrained typewriter effect */
+/* MWS homepage: one typewriter reveal, then calm phrase transitions */
 .mws-typewriter-heading .mws-typewriter-fixed,
 .mws-typewriter-heading .mws-typewriter-line {
   display: block;
 }
 .mws-typewriter-heading .mws-typewriter-line {
   min-height: 1.1em;
+  opacity: 1;
+  transition: opacity 320ms ease;
+}
+.mws-typewriter-heading .mws-typewriter-line.mws-copy-hidden,
+.mws-typewriter-subtitle .mws-subtitle-text.mws-copy-hidden {
+  opacity: 0;
 }
 .mws-typewriter-caret::after {
   content: "";
@@ -823,6 +829,10 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
 }
 .mws-typewriter-subtitle {
   min-height: 2.8em;
+}
+.mws-typewriter-subtitle .mws-subtitle-text {
+  opacity: 1;
+  transition: opacity 320ms ease;
 }
 @keyframes mws-caret-blink {
   to { visibility: hidden; }
@@ -847,6 +857,10 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
   .mws-typewriter-caret::after {
     animation: none;
     visibility: hidden;
+  }
+  .mws-typewriter-heading .mws-typewriter-line,
+  .mws-typewriter-subtitle .mws-subtitle-text {
+    transition: none;
   }
 }
 </style>
@@ -1900,50 +1914,53 @@ document.addEventListener('DOMContentLoaded', function () {
   subtitle.classList.add('mws-typewriter-subtitle');
   subtitle.setAttribute('aria-label', originalSubtitle);
   subtitle.textContent = '';
-
   var subtitleText = document.createElement('span');
+  subtitleText.className = 'mws-subtitle-text';
   subtitleText.setAttribute('aria-hidden', 'true');
   subtitle.appendChild(subtitleText);
 
   var phraseIndex = 0;
   var charIndex = 0;
-  var deleting = false;
   var timer;
+  var disposed = false;
 
-  function type() {
-    var phrase = phrases[phraseIndex];
-    var target = phrase.headline;
-    var description = phrase.subtitle;
+  function revealFirstPhrase() {
+    if (disposed) return;
+    var first = phrases[0];
+    charIndex += 1;
+    line.textContent = first.headline.slice(0, charIndex);
+    subtitleText.textContent = first.subtitle;
 
-    if (!deleting) {
-      charIndex = Math.min(charIndex + 1, target.length);
-      line.textContent = target.slice(0, charIndex);
-      subtitleText.textContent = description;
-      if (charIndex >= target.length) {
-        deleting = true;
-        timer = window.setTimeout(type, 1900);
-      } else {
-        timer = window.setTimeout(type, 38);
-      }
+    if (charIndex < first.headline.length) {
+      timer = window.setTimeout(revealFirstPhrase, 62);
       return;
     }
 
-    charIndex = Math.max(0, charIndex - 1);
-    line.textContent = target.slice(0, charIndex);
-    if (charIndex === 0) {
-      deleting = false;
-      phraseIndex = (phraseIndex + 1) % phrases.length;
-      timer = window.setTimeout(type, 280);
-    } else {
-      timer = window.setTimeout(type, 18);
-    }
+    line.classList.remove('mws-typewriter-caret');
+    timer = window.setTimeout(showNextPhrase, 6500);
   }
 
-  line.textContent = '';
-  subtitleText.textContent = phrases[0].subtitle;
-  timer = window.setTimeout(type, 350);
+  function showNextPhrase() {
+    if (disposed) return;
+    phraseIndex = (phraseIndex + 1) % phrases.length;
+    line.classList.add('mws-copy-hidden');
+    subtitleText.classList.add('mws-copy-hidden');
 
+    timer = window.setTimeout(function () {
+      if (disposed) return;
+      line.textContent = phrases[phraseIndex].headline;
+      subtitleText.textContent = phrases[phraseIndex].subtitle;
+      line.setAttribute('aria-label', phrases[phraseIndex].headline);
+      subtitleText.setAttribute('aria-label', phrases[phraseIndex].subtitle);
+      line.classList.remove('mws-copy-hidden');
+      subtitleText.classList.remove('mws-copy-hidden');
+      timer = window.setTimeout(showNextPhrase, 6500);
+    }, 340);
+  }
+
+  timer = window.setTimeout(revealFirstPhrase, 450);
   window.addEventListener('pagehide', function () {
+    disposed = true;
     window.clearTimeout(timer);
   }, { once: true });
 });
