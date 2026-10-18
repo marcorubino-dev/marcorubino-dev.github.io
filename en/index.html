@@ -803,7 +803,7 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
 </style>
 
 <style id="mws-typewriter-styles">
-/* MWS homepage: restrained typewriter effect */
+/* MWS homepage: one restrained typewriter reveal, no recurring animation */
 .mws-typewriter-heading .mws-typewriter-fixed,
 .mws-typewriter-heading .mws-typewriter-line {
   display: block;
@@ -811,21 +811,8 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
 .mws-typewriter-heading .mws-typewriter-line {
   min-height: 1.1em;
 }
-.mws-typewriter-caret::after {
-  content: "";
-  display: inline-block;
-  width: 2px;
-  height: 0.82em;
-  margin-left: 0.12em;
-  vertical-align: -0.02em;
-  background: currentColor;
-  animation: mws-caret-blink 900ms steps(2, start) infinite;
-}
 .mws-typewriter-subtitle {
   min-height: 2.8em;
-}
-@keyframes mws-caret-blink {
-  to { visibility: hidden; }
 }
 @media (max-width: 767px) {
   #mobile-menu > .mws-language-switch {
@@ -844,9 +831,8 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .mws-typewriter-caret::after {
+  .mws-typewriter-heading .mws-typewriter-line {
     animation: none;
-    visibility: hidden;
   }
 }
 </style>
@@ -1882,68 +1868,43 @@ document.addEventListener('DOMContentLoaded', function () {
   if (reduceMotion) return;
 
   var fixedText = "WordPress that works.";
-  var phrases = [{"headline":"Problems get solved.","subtitle":"Technical support for WordPress errors, conflicts and bugs."},{"headline":"Projects move forward.","subtitle":"Development and improvements for WordPress websites."},{"headline":"Your technical WordPress partner.","subtitle":"Reliable development support for agencies and their clients."}];
-  if (!phrases.length) return;
+  var headline = "Problems get solved.";
+  var supportingText = "Technical support for WordPress errors, conflicts and bugs.";
 
   heading.classList.add('mws-typewriter-heading');
   heading.setAttribute('aria-label', originalHeading);
   heading.innerHTML = '';
+
   var fixed = document.createElement('span');
   fixed.className = 'mws-typewriter-fixed';
   fixed.textContent = fixedText;
+
   var line = document.createElement('span');
-  line.className = 'mws-typewriter-line mws-typewriter-caret';
+  line.className = 'mws-typewriter-line';
   line.setAttribute('aria-hidden', 'true');
   heading.appendChild(fixed);
   heading.appendChild(line);
 
   subtitle.classList.add('mws-typewriter-subtitle');
   subtitle.setAttribute('aria-label', originalSubtitle);
-  subtitle.textContent = '';
+  subtitle.textContent = supportingText;
 
-  var subtitleText = document.createElement('span');
-  subtitleText.setAttribute('aria-hidden', 'true');
-  subtitle.appendChild(subtitleText);
-
-  var phraseIndex = 0;
-  var charIndex = 0;
-  var deleting = false;
+  var index = 0;
   var timer;
+  var disposed = false;
 
-  function type() {
-    var phrase = phrases[phraseIndex];
-    var target = phrase.headline;
-    var description = phrase.subtitle;
-
-    if (!deleting) {
-      charIndex = Math.min(charIndex + 1, target.length);
-      line.textContent = target.slice(0, charIndex);
-      subtitleText.textContent = description;
-      if (charIndex >= target.length) {
-        deleting = true;
-        timer = window.setTimeout(type, 1900);
-      } else {
-        timer = window.setTimeout(type, 38);
-      }
-      return;
-    }
-
-    charIndex = Math.max(0, charIndex - 1);
-    line.textContent = target.slice(0, charIndex);
-    if (charIndex === 0) {
-      deleting = false;
-      phraseIndex = (phraseIndex + 1) % phrases.length;
-      timer = window.setTimeout(type, 280);
-    } else {
-      timer = window.setTimeout(type, 18);
+  function typeOnce() {
+    if (disposed) return;
+    index += 1;
+    line.textContent = headline.slice(0, index);
+    if (index < headline.length) {
+      timer = window.setTimeout(typeOnce, 95);
     }
   }
 
-  line.textContent = '';
-  subtitleText.textContent = phrases[0].subtitle;
-  timer = window.setTimeout(type, 350);
-
+  timer = window.setTimeout(typeOnce, 650);
   window.addEventListener('pagehide', function () {
+    disposed = true;
     window.clearTimeout(timer);
   }, { once: true });
 });
