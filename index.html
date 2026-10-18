@@ -801,6 +801,56 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
   }
 }
 </style>
+
+<style id="mws-typewriter-styles">
+/* MWS homepage: restrained typewriter effect */
+.mws-typewriter-heading .mws-typewriter-fixed,
+.mws-typewriter-heading .mws-typewriter-line {
+  display: block;
+}
+.mws-typewriter-heading .mws-typewriter-line {
+  min-height: 1.1em;
+}
+.mws-typewriter-caret::after {
+  content: "";
+  display: inline-block;
+  width: 2px;
+  height: 0.82em;
+  margin-left: 0.12em;
+  vertical-align: -0.02em;
+  background: currentColor;
+  animation: mws-caret-blink 900ms steps(2, start) infinite;
+}
+.mws-typewriter-subtitle {
+  min-height: 2.8em;
+}
+@keyframes mws-caret-blink {
+  to { visibility: hidden; }
+}
+@media (max-width: 767px) {
+  #mobile-menu > .mws-language-switch {
+    width: 100%;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+  #mobile-menu > .mws-language-switch .mws-language-switch__control {
+    margin-inline: auto;
+  }
+  .mws-typewriter-heading .mws-typewriter-line {
+    min-height: 2.2em;
+  }
+  .mws-typewriter-subtitle {
+    min-height: 4.2em;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mws-typewriter-caret::after {
+    animation: none;
+    visibility: hidden;
+  }
+}
+</style>
+
 </head>
 
 <body class="home wp-singular page-template-default page page-id-133 wp-custom-logo wp-embed-responsive wp-theme-kadence footer-on-bottom hide-focus-outline link-style-no-underline content-title-style-hide content-width-fullwidth content-style-unboxed content-vertical-padding-hide transparent-header mobile-transparent-header">
@@ -1818,5 +1868,86 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 </script>
+
+<script id="mws-typewriter-script">
+document.addEventListener('DOMContentLoaded', function () {
+  var heading = document.querySelector('h1.kt-adv-heading133_0ab6fd-63');
+  var subtitle = document.querySelector('p.kt-adv-heading133_f9b37e-30');
+  if (!heading || !subtitle) return;
+
+  var originalHeading = heading.textContent.trim();
+  var originalSubtitle = subtitle.textContent.trim();
+  var reduceMotion = window.matchMedia &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduceMotion) return;
+
+  var fixedText = "WordPress que funciona.";
+  var phrases = [{"headline":"Problemas que se resuelven.","subtitle":"Soporte técnico para errores, conflictos y fallos de WordPress."},{"headline":"Proyectos que salen adelante.","subtitle":"Desarrollo y mejoras para sitios WordPress."},{"headline":"Agencias con un partner técnico.","subtitle":"Colaboración técnica para agencias que necesitan apoyo WordPress."}];
+  if (!phrases.length) return;
+
+  heading.classList.add('mws-typewriter-heading');
+  heading.setAttribute('aria-label', originalHeading);
+  heading.innerHTML = '';
+  var fixed = document.createElement('span');
+  fixed.className = 'mws-typewriter-fixed';
+  fixed.textContent = fixedText;
+  var line = document.createElement('span');
+  line.className = 'mws-typewriter-line mws-typewriter-caret';
+  line.setAttribute('aria-hidden', 'true');
+  heading.appendChild(fixed);
+  heading.appendChild(line);
+
+  subtitle.classList.add('mws-typewriter-subtitle');
+  subtitle.setAttribute('aria-label', originalSubtitle);
+  subtitle.textContent = '';
+
+  var subtitleText = document.createElement('span');
+  subtitleText.setAttribute('aria-hidden', 'true');
+  subtitle.appendChild(subtitleText);
+
+  var phraseIndex = 0;
+  var charIndex = 0;
+  var deleting = false;
+  var timer;
+
+  function type() {
+    var phrase = phrases[phraseIndex];
+    var target = phrase.headline;
+    var description = phrase.subtitle;
+
+    if (!deleting) {
+      charIndex = Math.min(charIndex + 1, target.length);
+      line.textContent = target.slice(0, charIndex);
+      subtitleText.textContent = description;
+      if (charIndex >= target.length) {
+        deleting = true;
+        timer = window.setTimeout(type, 1900);
+      } else {
+        timer = window.setTimeout(type, 38);
+      }
+      return;
+    }
+
+    charIndex = Math.max(0, charIndex - 1);
+    line.textContent = target.slice(0, charIndex);
+    if (charIndex === 0) {
+      deleting = false;
+      phraseIndex = (phraseIndex + 1) % phrases.length;
+      timer = window.setTimeout(type, 280);
+    } else {
+      timer = window.setTimeout(type, 18);
+    }
+  }
+
+  line.textContent = '';
+  subtitleText.textContent = phrases[0].subtitle;
+  timer = window.setTimeout(type, 350);
+
+  window.addEventListener('pagehide', function () {
+    window.clearTimeout(timer);
+  }, { once: true });
+});
+</script>
+
 </body>
 </html>
