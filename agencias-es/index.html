@@ -692,8 +692,10 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
   overflow: hidden;
   padding: clamp(64px, 8vw, 104px) 24px;
   text-align: left;
-  background: #0B1120 !important;
-  background-image: none !important;
+  background-color: #0B1120 !important;
+  background-image: radial-gradient(ellipse at 78% 48%, rgba(59,130,196,.13), transparent 42%), linear-gradient(rgba(148,183,222,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(148,183,222,.035) 1px, transparent 1px) !important;
+  background-size: auto, 36px 36px, 36px 36px;
+  background-position: center, center, center;
 }
 .agency-page .agency-hero:before {
   content: "";
@@ -818,11 +820,12 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
 .agency-page .agency-visual-window {
   position: relative;
   overflow: hidden;
-  border: 1px solid rgba(148,183,222,.27);
-  border-radius: 15px;
-  background: linear-gradient(145deg, rgba(21,34,56,.98), rgba(13,23,40,.98));
+  border: 1px solid rgba(77,163,255,.34);
+  border-top-color: rgba(156,203,255,.58);
+  border-radius: 8px;
+  background: linear-gradient(145deg, rgba(21,34,56,.99), rgba(13,23,40,.99));
   box-shadow: 0 28px 80px rgba(0,0,0,.32), inset 0 1px rgba(255,255,255,.04);
-  transform: perspective(1200px) rotateY(-3deg) rotateX(1deg);
+  transform: none;
 }
 .agency-page .agency-visual-windowbar {
   display: flex;
