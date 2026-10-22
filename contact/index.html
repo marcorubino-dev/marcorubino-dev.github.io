@@ -666,68 +666,103 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
 }
 </style>
 <style id="mws-contact-polish-en">
-/* MWS contact form: clearer labels, deliberate typography and restrained motion */
+/* Contact form surface, contrast, and interaction */
+.kadence-form-135_47c460-36 {
+  padding: clamp(20px, 3vw, 32px);
+  border-radius: 14px;
+  background: #FFFFFF;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, .16);
+}
+
 .kadence-form-135_47c460-36 .kb-form .kadence-blocks-form-field > label {
   display: block;
   margin-bottom: 8px;
-  color: #F1F5F9;
+  color: #111827;
   font-family: Montserrat, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-size: 14px;
   font-weight: 600;
-  letter-spacing: .025em;
+  letter-spacing: .015em;
   line-height: 1.45;
 }
+
 .kadence-form-135_47c460-36 .kb-form .kadence-blocks-form-field .kb-field {
-  border: 1px solid rgba(148,175,199,.38);
+  box-sizing: border-box;
+  width: 100%;
+  border: 1px solid rgba(148, 175, 199, .55);
   border-radius: 7px;
-  background: rgba(17,24,39,.82);
-  color: #F1F5F9;
+  background-color: #3C424E !important;
+  color: #F1F5F9 !important;
   font-family: Montserrat, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-size: 15px;
   line-height: 1.55;
   transition: border-color 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
 }
+
 .kadence-form-135_47c460-36 .kb-form .kadence-blocks-form-field .kb-field::placeholder {
-  color: #94AFC7;
-  opacity: .88;
+  color: #788DA0 !important;
+  opacity: 1;
   font-size: 14px;
-  letter-spacing: .005em;
 }
+
 .kadence-form-135_47c460-36 .kb-form .kadence-blocks-form-field .kb-field:hover {
-  border-color: rgba(77,163,255,.7);
-}
-.kadence-form-135_47c460-36 .kb-form .kadence-blocks-form-field .kb-field:focus {
   border-color: #4DA3FF;
-  background: #111827;
-  box-shadow: 0 0 0 3px rgba(77,163,255,.16);
+}
+
+.kadence-form-135_47c460-36 .kb-form .kadence-blocks-form-field .kb-field:focus {
+  border-color: #4DA3FF !important;
+  background-color: #111827 !important;
+  color: #F1F5F9 !important;
+  box-shadow: 0 0 0 3px rgba(77, 163, 255, .18);
   outline: none;
 }
-.kadence-form-135_47c460-36 .kb-form .kadence-blocks-form-field .kb-forms-submit {
+
+.kadence-form-135_47c460-36 .kb-form textarea.kb-field {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.kadence-form-135_47c460-36 .kb-form .kb-forms-submit {
   transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
 }
-.kadence-form-135_47c460-36 .kb-form .kadence-blocks-form-field .kb-forms-submit:hover {
+
+.kadence-form-135_47c460-36 .kb-form .kb-forms-submit:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 22px rgba(59,130,196,.24);
+  box-shadow: 0 8px 22px rgba(59, 130, 196, .24);
 }
+
+.kadence-form-135_47c460-36 .kb-form .kb-forms-submit:focus-visible {
+  outline: 3px solid #4DA3FF;
+  outline-offset: 3px;
+}
+
+/* Subtle entrance motion; honor the visitor's motion preference */
 #inner-wrap .kb-row-layout-id135_c77d13-50 .kt-inside-inner-col,
 #inner-wrap .kb-row-layout-id135_d99415-7e > .kt-row-column-wrap > .wp-block-kadence-column {
-  animation: mws-contact-enter 650ms cubic-bezier(.2,.7,.25,1) both;
+  animation: mws-contact-enter 650ms cubic-bezier(.2, .7, .25, 1) both;
 }
+
 #inner-wrap .kb-row-layout-id135_d99415-7e > .kt-row-column-wrap > .wp-block-kadence-column:nth-child(2) {
   animation-delay: 100ms;
 }
+
 @keyframes mws-contact-enter {
   from { opacity: 0; transform: translateY(14px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
 @media (prefers-reduced-motion: reduce) {
   #inner-wrap .kb-row-layout-id135_c77d13-50 .kt-inside-inner-col,
   #inner-wrap .kb-row-layout-id135_d99415-7e > .kt-row-column-wrap > .wp-block-kadence-column {
     animation: none;
   }
+
   .kadence-form-135_47c460-36 .kb-form .kadence-blocks-form-field .kb-field,
-  .kadence-form-135_47c460-36 .kb-form .kadence-blocks-form-field .kb-forms-submit {
+  .kadence-form-135_47c460-36 .kb-form .kb-forms-submit {
     transition: none;
+  }
+
+  .kadence-form-135_47c460-36 .kb-form .kb-forms-submit:hover {
+    transform: none;
   }
 }
 </style>
