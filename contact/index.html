@@ -666,18 +666,51 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
 }
 </style>
 <style id="mws-contact-polish-en">
-/* Contact form surface, contrast, and interaction */
+/* Contact: align the form with the site's dark service-card palette */
+#inner-wrap .kb-row-layout-id135_d99415-7e > .kt-row-column-wrap {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr);
+  align-items: start;
+  gap: clamp(24px, 4vw, 56px);
+}
+
+#inner-wrap .kb-row-layout-id135_d99415-7e > .kt-row-column-wrap > .kadence-column135_8a56f2-0f {
+  min-width: 0;
+}
+
+#inner-wrap .kadence-column135_8a56f2-0f > .kt-inside-inner-col {
+  padding: clamp(22px, 3vw, 36px);
+  border: 1px solid rgba(148, 175, 199, .2);
+  border-radius: 16px;
+  background: #111827;
+  box-shadow: 0 18px 48px rgba(0, 0, 0, .22);
+}
+
+#inner-wrap .kadence-column135_8a56f2-0f h2 {
+  margin-top: 0;
+  margin-bottom: 24px;
+  color: #F1F5F9;
+  font-size: clamp(25px, 2.4vw, 32px);
+  line-height: 1.2;
+}
+
 .kadence-form-135_47c460-36 {
-  padding: clamp(20px, 3vw, 32px);
-  border-radius: 14px;
-  background: #FFFFFF;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, .16);
+  width: 100%;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.kadence-form-135_47c460-36 .kb-form .kadence-blocks-form-field {
+  margin-bottom: 18px;
 }
 
 .kadence-form-135_47c460-36 .kb-form .kadence-blocks-form-field > label {
   display: block;
   margin-bottom: 8px;
-  color: #111827;
+  color: #F1F5F9;
   font-family: Montserrat, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-size: 14px;
   font-weight: 600;
@@ -688,9 +721,10 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
 .kadence-form-135_47c460-36 .kb-form .kadence-blocks-form-field .kb-field {
   box-sizing: border-box;
   width: 100%;
-  border: 1px solid rgba(148, 175, 199, .55);
+  min-height: 46px;
+  border: 1px solid rgba(148, 175, 199, .35);
   border-radius: 7px;
-  background-color: #3C424E !important;
+  background-color: #0B1120 !important;
   color: #F1F5F9 !important;
   font-family: Montserrat, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-size: 15px;
@@ -699,7 +733,7 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
 }
 
 .kadence-form-135_47c460-36 .kb-form .kadence-blocks-form-field .kb-field::placeholder {
-  color: #788DA0 !important;
+  color: #94AFC7 !important;
   opacity: 1;
   font-size: 14px;
 }
@@ -712,27 +746,42 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
   border-color: #4DA3FF !important;
   background-color: #111827 !important;
   color: #F1F5F9 !important;
-  box-shadow: 0 0 0 3px rgba(77, 163, 255, .18);
+  box-shadow: 0 0 0 3px rgba(77, 163, 255, .2);
   outline: none;
 }
 
 .kadence-form-135_47c460-36 .kb-form textarea.kb-field {
-  min-height: 120px;
+  min-height: 140px;
   resize: vertical;
 }
 
 .kadence-form-135_47c460-36 .kb-form .kb-forms-submit {
-  transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+  width: 100%;
+  min-height: 48px;
+  border: 1px solid #3B82C4;
+  border-radius: 7px;
+  background: #3B82C4 !important;
+  color: #FFFFFF !important;
+  font-family: Montserrat, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease, border-color 180ms ease;
 }
 
 .kadence-form-135_47c460-36 .kb-form .kb-forms-submit:hover {
   transform: translateY(-2px);
+  border-color: #4DA3FF;
+  background: #3182CE !important;
   box-shadow: 0 8px 22px rgba(59, 130, 196, .24);
 }
 
 .kadence-form-135_47c460-36 .kb-form .kb-forms-submit:focus-visible {
   outline: 3px solid #4DA3FF;
   outline-offset: 3px;
+}
+
+#inner-wrap .kb-row-layout-id135_d99415-7e > .kt-row-column-wrap > .wp-block-kadence-column:nth-child(2) {
+  padding-top: clamp(8px, 2vw, 24px);
 }
 
 /* Subtle entrance motion; honor the visitor's motion preference */
@@ -748,6 +797,21 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
 @keyframes mws-contact-enter {
   from { opacity: 0; transform: translateY(14px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 767px) {
+  #inner-wrap .kb-row-layout-id135_d99415-7e > .kt-row-column-wrap {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+  }
+
+  #inner-wrap .kadence-column135_8a56f2-0f > .kt-inside-inner-col {
+    padding: 22px;
+  }
+
+  #inner-wrap .kb-row-layout-id135_d99415-7e > .kt-row-column-wrap > .wp-block-kadence-column:nth-child(2) {
+    padding-top: 0;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
