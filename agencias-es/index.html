@@ -931,6 +931,8 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
 @media(max-width:1024px){.agency-page .agency-process{grid-template-columns:repeat(3,minmax(0,1fr));gap:34px 22px;}.agency-page .agency-process:before{display:none;}}
 @media(max-width:640px){.agency-page .agency-hero{padding-top:124px;}.agency-page .agency-process{grid-template-columns:repeat(2,minmax(0,1fr));gap:30px 16px;margin-top:38px;}.agency-page .agency-step{padding:0 8px;}.agency-page .agency-step span{font-size:13px;}}
 @media(max-width:420px){.agency-page .agency-process{grid-template-columns:1fr;gap:28px;}}
+/* Mobile agency workflow connectors: short separators between steps. */
+@media(max-width:640px){.agency-page .agency-step:not(:last-child):after{content:"";position:absolute;left:50%;bottom:-16px;width:34px;height:1px;background:rgba(77,163,255,.55);transform:translateX(-50%);z-index:2;}}
 </style>
 <style id="agency-market-switch-styles">
 .agency-page .agency-market-switch{position:relative;z-index:5;width:max-content;max-width:100%;margin:0 0 22px;font-size:13px}
