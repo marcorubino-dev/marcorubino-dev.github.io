@@ -905,6 +905,21 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
   .agency-page .agency-button,
   .agency-page .agency-visual-window { transition: none; transform: none; }
 }
+
+/* Responsive agency workflow: preserve readable steps without broken connector lines. */
+@media (max-width: 1024px) {
+  .agency-page .agency-process { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 34px 22px; }
+  .agency-page .agency-process:before { display: none; }
+  .agency-page .agency-step { padding: 0 8px; }
+}
+@media (max-width: 640px) {
+  .agency-page .agency-hero { padding-top: 124px; }
+  .agency-page .agency-process { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 30px 16px; margin-top: 38px; }
+  .agency-page .agency-step span { font-size: 13px; }
+}
+@media (max-width: 420px) {
+  .agency-page .agency-process { grid-template-columns: 1fr; gap: 28px; }
+}
 </style>
 <style id="agency-market-switch-styles">
 .agency-page .agency-market-switch{position:relative;z-index:5;width:max-content;max-width:100%;margin:0 0 22px;font-size:13px}
