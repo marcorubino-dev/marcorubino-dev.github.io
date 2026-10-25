@@ -690,7 +690,7 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
 .agency-page .agency-hero {
   isolation: isolate;
   overflow: hidden;
-  padding: clamp(64px, 8vw, 104px) 24px;
+  padding: clamp(132px, 14vw, 176px) 24px clamp(64px, 8vw, 104px);
   text-align: left;
   background-color: #0B1120 !important;
   background-image: radial-gradient(ellipse at 78% 48%, rgba(59,130,196,.13), transparent 42%) !important;
@@ -919,6 +919,17 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
 @media (max-width: 420px) {
   .agency-page .agency-process { grid-template-columns: 1fr; gap: 28px; }
 }
+
+/* Responsive agency workflow: shared layout across AR, ES and US. */
+.agency-page .agency-process{grid-template-columns:repeat(5,minmax(0,1fr));gap:20px;}
+.agency-page .agency-process:before{content:"";position:absolute;top:23px;left:10%;right:10%;height:1px;background:#4DA3FF66;z-index:0;}
+.agency-page .agency-step{position:relative;z-index:1;min-width:0;padding:0 10px;}
+.agency-page .agency-step:not(:last-child):after{content:none;}
+.agency-page .agency-step-number{position:relative;z-index:1;}
+.agency-page .agency-step span{display:block;max-width:190px;margin:0 auto;font-size:14px;line-height:1.55;}
+@media(max-width:1024px){.agency-page .agency-process{grid-template-columns:repeat(3,minmax(0,1fr));gap:34px 22px;}.agency-page .agency-process:before{display:none;}}
+@media(max-width:640px){.agency-page .agency-hero{padding-top:124px;}.agency-page .agency-process{grid-template-columns:repeat(2,minmax(0,1fr));gap:30px 16px;margin-top:38px;}.agency-page .agency-step{padding:0 8px;}.agency-page .agency-step span{font-size:13px;}}
+@media(max-width:420px){.agency-page .agency-process{grid-template-columns:1fr;gap:28px;}}
 </style>
 <style id="agency-market-switch-styles">
 .agency-page .agency-market-switch{position:relative;z-index:5;width:max-content;max-width:100%;margin:0 0 22px;font-size:13px}
@@ -971,6 +982,16 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
 @media (prefers-reduced-motion:reduce) {
  .mws-language-switch .mws-language-switch__control > a,
  .mws-language-switch .mws-language-switch__control > span { transition:none; }
+}
+</style>
+
+<style id="mobile-agency-submenu-state">
+@media(max-width:1024px){
+ #mobile-menu > li.menu-item-has-children.mobile-submenu-open > a,
+ #mobile-menu > li.menu-item-has-children.mobile-submenu-open > button.submenu-toggle{background:rgba(77,163,255,.16)!important;color:#F1F5F9!important;}
+ #mobile-menu > li.menu-item-has-children.mobile-submenu-open > a{box-shadow:inset 3px 0 0 #4DA3FF;}
+ #mobile-menu > li.menu-item-has-children.mobile-submenu-open > button.submenu-toggle svg{transform:rotate(180deg);}
+ #mobile-menu > li.menu-item-has-children > button.submenu-toggle svg{transition:transform .2s ease;}
 }
 </style>
 </head>
@@ -1868,6 +1889,13 @@ document.addEventListener('DOMContentLoaded', function () {
     item.insertBefore(toggle, submenu);
     link.setAttribute('aria-haspopup', 'true');
     link.setAttribute('aria-expanded', 'false');
+
+    link.addEventListener('click', function (event) {
+      if (window.matchMedia('(max-width: 1024px)').matches) {
+        event.preventDefault();
+        toggle.click();
+      }
+    });
 
     toggle.addEventListener('click', function (event) {
       event.preventDefault();
