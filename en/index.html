@@ -1775,6 +1775,208 @@ const projects = [
        ESTADO INICIAL
        ======================================== */
 
+
+    /* ========================================
+       MWS PORTFOLIO NAVIGATION CONTROLS
+       ======================================== */
+
+    const mwsGallery = document.querySelector('.portfolio-main-image');
+    const mwsProjectRow = projectColumns[0] && projectColumns[0].parentElement;
+
+    if (mwsGallery && mwsProjectRow) {
+
+        const mwsStyle = document.createElement('style');
+
+        mwsStyle.textContent = `
+            #portfolio .portfolio-main-image {
+                position: relative;
+                isolation: isolate;
+            }
+
+            #portfolio .mws-gallery-arrow {
+                position: absolute;
+                z-index: 4;
+                top: 50%;
+                transform: translateY(-50%);
+                display: grid;
+                place-items: center;
+                width: 42px;
+                height: 42px;
+                padding: 0;
+                border: 1px solid rgba(255,255,255,.24);
+                border-radius: 50%;
+                color: #fff;
+                background: rgba(11,17,32,.78);
+                box-shadow: 0 4px 18px rgba(0,0,0,.18);
+                font: inherit;
+                font-size: 27px;
+                line-height: 1;
+                cursor: pointer;
+                opacity: .84;
+                transition: background .2s ease, border-color .2s ease, opacity .2s ease, transform .2s ease;
+                backdrop-filter: blur(8px);
+                -webkit-backdrop-filter: blur(8px);
+            }
+
+            #portfolio .mws-gallery-arrow:hover,
+            #portfolio .mws-gallery-arrow:focus-visible {
+                opacity: 1;
+                background: #0B1120;
+                border-color: #4DA3FF;
+                outline: none;
+            }
+
+            #portfolio .mws-gallery-arrow:active {
+                transform: translateY(-50%) scale(.96);
+            }
+
+            #portfolio .mws-gallery-arrow--prev { left: 14px; }
+            #portfolio .mws-gallery-arrow--next { right: 14px; }
+
+            #portfolio .mws-project-navigation {
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+                gap: 9px;
+                margin: 12px 0 0;
+            }
+
+            #portfolio .mws-project-arrow {
+                display: grid;
+                place-items: center;
+                width: 34px;
+                height: 34px;
+                padding: 0;
+                border: 1px solid rgba(148,175,199,.38);
+                border-radius: 50%;
+                color: #EAF3FC;
+                background: transparent;
+                font: inherit;
+                font-size: 21px;
+                line-height: 1;
+                cursor: pointer;
+                transition: color .2s ease, background .2s ease, border-color .2s ease, transform .2s ease;
+            }
+
+            #portfolio .mws-project-arrow:hover,
+            #portfolio .mws-project-arrow:focus-visible {
+                color: #fff;
+                background: rgba(77,163,255,.14);
+                border-color: #4DA3FF;
+                outline: none;
+            }
+
+            #portfolio .mws-project-arrow:active { transform: scale(.96); }
+
+            @media (max-width: 640px) {
+                #portfolio .mws-gallery-arrow {
+                    width: 38px;
+                    height: 38px;
+                    font-size: 24px;
+                }
+                #portfolio .mws-gallery-arrow--prev { left: 8px; }
+                #portfolio .mws-gallery-arrow--next { right: 8px; }
+                #portfolio .mws-project-navigation { margin-top: 10px; }
+            }
+
+            @media (prefers-reduced-motion: reduce) {
+                #portfolio .mws-gallery-arrow,
+                #portfolio .mws-project-arrow { transition: none; }
+            }
+        `;
+
+        document.head.appendChild(mwsStyle);
+
+        function mwsButton(label, className, glyph) {
+            const button = document.createElement('button');
+            button.type = 'button';
+            button.className = className;
+            button.setAttribute('aria-label', label);
+            button.innerHTML = glyph;
+            return button;
+        }
+
+        const mwsPreviousImage = mwsButton(
+            'Previous image',
+            'mws-gallery-arrow mws-gallery-arrow--prev',
+            '&#8249;'
+        );
+
+        const mwsNextImage = mwsButton(
+            'Next image',
+            'mws-gallery-arrow mws-gallery-arrow--next',
+            '&#8250;'
+        );
+
+        mwsGallery.append(mwsPreviousImage, mwsNextImage);
+
+        function mwsVisibleThumbnails() {
+            return thumbnailImages.filter(image =>
+                image.parentElement && image.parentElement.style.display !== 'none'
+            );
+        }
+
+        function mwsMoveImage(direction) {
+            const visible = mwsVisibleThumbnails();
+            if (!visible.length) return;
+
+            let activeIndex = visible.findIndex(image =>
+                image.classList.contains('is-active')
+            );
+
+            if (activeIndex < 0) activeIndex = 0;
+
+            const nextIndex = (activeIndex + direction + visible.length) % visible.length;
+            const target = visible[nextIndex];
+
+            if (target && target.parentElement) target.parentElement.click();
+        }
+
+        mwsPreviousImage.addEventListener('click', () => mwsMoveImage(-1));
+        mwsNextImage.addEventListener('click', () => mwsMoveImage(1));
+
+        const mwsProjectNavigation = document.createElement('nav');
+
+        mwsProjectNavigation.className = 'mws-project-navigation';
+        mwsProjectNavigation.setAttribute(
+            'aria-label',
+            'Project navigation'
+        );
+
+        const mwsPreviousProject = mwsButton(
+            'Previous project',
+            'mws-project-arrow',
+            '&#8249;'
+        );
+
+        const mwsNextProject = mwsButton(
+            'Next project',
+            'mws-project-arrow',
+            '&#8250;'
+        );
+
+        mwsProjectNavigation.append(mwsPreviousProject, mwsNextProject);
+        mwsProjectRow.insertAdjacentElement('afterend', mwsProjectNavigation);
+
+        function mwsMoveProject(direction) {
+            const activeIndex = projectColumns.findIndex(column => {
+                const heading = column.querySelector('h4');
+                return heading && heading.getAttribute('aria-selected') === 'true';
+            });
+
+            const baseIndex = activeIndex < 0 ? 0 : activeIndex;
+            const nextIndex = (baseIndex + direction + projectColumns.length) % projectColumns.length;
+            const heading = projectColumns[nextIndex].querySelector('h4');
+
+            if (heading) heading.click();
+        }
+
+        mwsPreviousProject.addEventListener('click', () => mwsMoveProject(-1));
+        mwsNextProject.addEventListener('click', () => mwsMoveProject(1));
+
+    }
+
+
     updateProject(0);
 
 });
