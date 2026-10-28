@@ -1535,7 +1535,7 @@ const projects = [
 
         thumbnailImages.forEach((image, index) => {
 
-            const imageUrl = project.images[index + 1];
+            const imageUrl = project.images[index];
 
             if (imageUrl) {
 
@@ -1701,7 +1701,7 @@ const projects = [
 
             if (
                 !project ||
-                !project.images[index + 1]
+                !project.images[index]
             ) {
                 return;
             }
@@ -1713,8 +1713,8 @@ const projects = [
 
             updateImage(
                 mainImage,
-                project.images[index + 1],
-                `${project.name} - image ${index + 2}`
+                project.images[index],
+                `${project.name} - image ${index + 1}`
             );
 
 
