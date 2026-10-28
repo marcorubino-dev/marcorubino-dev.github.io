@@ -1805,8 +1805,9 @@ const projects = [
                 z-index: 4;
                 top: 50%;
                 transform: translateY(-50%);
-                display: grid;
-                place-items: center;
+                display: flex;
+                align-items: center;
+                justify-content: center;
                 width: 42px;
                 height: 42px;
                 padding: 0;
@@ -1815,9 +1816,6 @@ const projects = [
                 color: #fff;
                 background: rgba(11,17,32,.78);
                 box-shadow: 0 4px 18px rgba(0,0,0,.18);
-                font: inherit;
-                font-size: 27px;
-                line-height: 1;
                 cursor: pointer;
                 opacity: .84;
                 transition: background .2s ease, border-color .2s ease, opacity .2s ease, transform .2s ease;
@@ -1843,14 +1841,25 @@ const projects = [
             #portfolio .mws-project-navigation {
                 display: flex;
                 align-items: center;
-                justify-content: flex-end;
-                gap: 9px;
-                margin: 12px 0 0;
+                justify-content: center;
+                gap: 12px;
+                margin: 14px 0 0;
+                color: #94AFC7;
+                font-size: 12px;
+                letter-spacing: .08em;
+                font-variant-numeric: tabular-nums;
+            }
+
+            #portfolio .mws-project-counter {
+                min-width: 54px;
+                text-align: center;
+                white-space: nowrap;
             }
 
             #portfolio .mws-project-arrow {
-                display: grid;
-                place-items: center;
+                display: flex;
+                align-items: center;
+                justify-content: center;
                 width: 34px;
                 height: 34px;
                 padding: 0;
@@ -1858,11 +1867,26 @@ const projects = [
                 border-radius: 50%;
                 color: #EAF3FC;
                 background: transparent;
-                font: inherit;
-                font-size: 21px;
-                line-height: 1;
                 cursor: pointer;
                 transition: color .2s ease, background .2s ease, border-color .2s ease, transform .2s ease;
+            }
+
+            #portfolio .mws-gallery-arrow svg,
+            #portfolio .mws-project-arrow svg {
+                display: block;
+                width: 21px;
+                height: 21px;
+                fill: none;
+                stroke: currentColor;
+                stroke-width: 1.8;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+                flex: 0 0 auto;
+            }
+
+            #portfolio .mws-project-arrow svg {
+                width: 18px;
+                height: 18px;
             }
 
             #portfolio .mws-project-arrow:hover,
@@ -1906,13 +1930,13 @@ const projects = [
         const mwsPreviousImage = mwsButton(
             'Imagen anterior',
             'mws-gallery-arrow mws-gallery-arrow--prev',
-            '&#8249;'
+            '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14.5 5.5 8 12l6.5 6.5"/></svg>'
         );
 
         const mwsNextImage = mwsButton(
             'Imagen siguiente',
             'mws-gallery-arrow mws-gallery-arrow--next',
-            '&#8250;'
+            '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9.5 5.5 6.5 6.5-6.5 6.5"/></svg>'
         );
 
         mwsGallery.append(mwsPreviousImage, mwsNextImage);
@@ -1962,7 +1986,34 @@ const projects = [
             '&#8250;'
         );
 
-        mwsProjectNavigation.append(mwsPreviousProject, mwsNextProject);
+        const mwsProjectCounter = document.createElement('span');
+        mwsProjectCounter.className = 'mws-project-counter';
+        mwsProjectCounter.setAttribute('aria-live', 'polite');
+        mwsProjectNavigation.append(mwsPreviousProject, mwsProjectCounter, mwsNextProject);
+
+        function mwsSyncProjectCounter() {
+            const activeIndex = projectColumns.findIndex(column => {
+                const heading = column.querySelector('h4');
+                return heading && heading.getAttribute('aria-selected') === 'true';
+            });
+
+            const current = activeIndex < 0 ? 0 : activeIndex;
+            mwsProjectCounter.textContent =
+                `${String(current + 1).padStart(2, '0')} / ${String(projectColumns.length).padStart(2, '0')}`;
+        }
+
+        projectColumns.forEach(column => {
+            const heading = column.querySelector('h4');
+            if (!heading) return;
+            heading.addEventListener('click', mwsSyncProjectCounter);
+            heading.addEventListener('keydown', event => {
+                if (event.key === 'Enter' || event.key === ' ') {
+                    window.setTimeout(mwsSyncProjectCounter, 0);
+                }
+            });
+        });
+
+        mwsSyncProjectCounter();
         mwsProjectRow.insertAdjacentElement('afterend', mwsProjectNavigation);
 
         function mwsMoveProject(direction) {
@@ -1975,7 +2026,10 @@ const projects = [
             const nextIndex = (baseIndex + direction + projectColumns.length) % projectColumns.length;
             const heading = projectColumns[nextIndex].querySelector('h4');
 
-            if (heading) heading.click();
+            if (heading) {
+                heading.click();
+                mwsSyncProjectCounter();
+            }
         }
 
         mwsPreviousProject.addEventListener('click', () => mwsMoveProject(-1));
