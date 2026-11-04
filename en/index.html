@@ -1158,7 +1158,8 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
 
 
 
-<p class="has-theme-palette-8-color has-text-color has-link-color wp-elements-16 wp-block-paragraph">E-commerce, catalogue and technical development.</p>
+<p class="has-theme-palette-8-color has-text-color has-link-color wp-elements-16 wp-block-paragraph">WooCommerce feature development: dynamic filters and category-based brand management.</p>
+<p class="portfolio-context has-theme-palette-6-color has-text-color"><small>Completed project. Website currently offline.</small></p>
 </div></div>
 
 </div></div>
@@ -1398,7 +1399,8 @@ const projects = [
     {
         name: 'PolyCor',
         stack: 'WordPress · WooCommerce · XStore · Custom Plugins',
-        description: 'E-commerce and product catalog. Developed dynamic filters, category-based brand management, and other custom features to improve catalog navigation and management.',
+        description: 'WooCommerce feature development: dynamic filters and category-based brand management.',
+        context: 'Completed project. Website currently offline.',
         images: [
             '/wp-content/uploads/2026/09/woocommerce-store-optimization-1024x496.png',
             '/wp-content/uploads/2026/09/polycor-2-1024x482.png',
@@ -1411,7 +1413,8 @@ const projects = [
     {
         name: 'Tattoo Carpe',
         stack: 'WordPress · Kadence · Kadence Blocks',
-        description: 'Website built from scratch for a tattoo studio, featuring individual artist profiles and galleries, a presentation of the studio, and content for courses and services.',
+        description: 'Website development for a tattoo studio, including artist profiles, individual galleries, and sections for courses and services.',
+        context: 'Completed project. Website currently offline.',
         images: [
             '/wp-content/uploads/2026/09/tattoo-carpe-1.png',
             '/wp-content/uploads/2026/09/tattoo-carpe-2.png',
@@ -1424,7 +1427,7 @@ const projects = [
     {
         name: 'Schefferlii',
         stack: 'WordPress · WooCommerce · WPML · Custom Development',
-        description: 'Technical support and hosting migration for a multilingual WooCommerce site. Developed a custom solution to manage language-based redirects.',
+        description: 'Technical intervention on an existing multilingual WooCommerce site, including a solution for language-based redirects.',
         images: [
             '/wp-content/uploads/2026/09/schefferlii-1.png',
             '/wp-content/uploads/2026/09/schefferlii-2.png',
@@ -1436,7 +1439,7 @@ const projects = [
     {
         name: 'WellForm MD',
         stack: 'WordPress · Kadence · Custom Post Types',
-        description: 'Structured content development for a medical website. Created pages and a treatment system using Custom Post Types to organize content.',
+        description: 'Development of treatment pages and structured content using Custom Post Types (CPTs).',
         images: [
             '/wp-content/uploads/2026/09/wellformmd-1.png',
             '/wp-content/uploads/2026/09/wellformmd-2.png',
@@ -1491,7 +1494,8 @@ const projects = [
 
     const nameElement = infoColumn.querySelector('h3');
     const stackElement = infoColumn.querySelector('h4');
-    const descriptionElement = infoColumn.querySelector('p');
+    const descriptionElement = infoColumn.querySelector('p:not(.portfolio-context)');
+    const contextElement = infoColumn.querySelector('.portfolio-context');
 
 
     /* ========================================
@@ -1539,6 +1543,11 @@ const projects = [
 
         if (descriptionElement) {
             descriptionElement.textContent = project.description;
+        }
+
+        if (contextElement) {
+            contextElement.textContent = project.context || '';
+            contextElement.hidden = !project.context;
         }
 
 
