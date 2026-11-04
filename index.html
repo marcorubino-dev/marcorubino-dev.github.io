@@ -1165,7 +1165,8 @@ body.page-id-133 .qlwapp-container { display: none !important; }
 
 
 
-<p class="has-theme-palette-8-color has-text-color has-link-color wp-elements-16 wp-block-paragraph">E-commerce, catálogo y desarrollo técnico.</p>
+<p class="has-theme-palette-8-color has-text-color has-link-color wp-elements-16 wp-block-paragraph">Desarrollo de funcionalidades para WooCommerce: filtros dinámicos y gestión de marcas por categoría.</p>
+<p class="portfolio-context has-theme-palette-6-color has-text-color"><small>Proyecto realizado. Sitio actualmente fuera de línea.</small></p>
 </div></div>
 
 </div></div>
@@ -1405,7 +1406,8 @@ const projects = [
     {
         name: 'PolyCor',
         stack: 'WordPress · WooCommerce · XStore · Custom Plugins',
-        description: 'E-commerce y catálogo de productos. Desarrollo de filtros dinámicos, gestión de marcas por categoría y otras funcionalidades personalizadas para mejorar la navegación y gestión del catálogo.',
+        description: 'Desarrollo de funcionalidades para WooCommerce: filtros dinámicos y gestión de marcas por categoría.',
+        context: 'Proyecto realizado. Sitio actualmente fuera de línea.',
         images: [
             '/wp-content/uploads/2026/09/woocommerce-store-optimization-1024x496.png',
             '/wp-content/uploads/2026/09/polycor-2-1024x482.png',
@@ -1418,7 +1420,8 @@ const projects = [
     {
         name: 'Tattoo Carpe',
         stack: 'WordPress · Kadence · Kadence Blocks',
-        description: 'Sitio web desarrollado desde cero para un estudio de tatuajes. Estructura de perfiles de artistas con galerías individuales, presentación del estudio y contenidos orientados a cursos y servicios.',
+        description: 'Desarrollo de un sitio para un estudio de tatuajes, con perfiles de artistas, galerías individuales y secciones para cursos y servicios.',
+        context: 'Proyecto realizado. Sitio actualmente fuera de línea.',
         images: [
             '/wp-content/uploads/2026/09/tattoo-carpe-1.png',
             '/wp-content/uploads/2026/09/tattoo-carpe-2.png',
@@ -1431,7 +1434,7 @@ const projects = [
     {
         name: 'Schefferlii',
         stack: 'WordPress · WooCommerce · WPML · Custom Development',
-        description: 'Soporte técnico y migración de hosting para un sitio WooCommerce multidioma. Desarrollo de una solución personalizada para gestionar redirecciones según idioma.',
+        description: 'Intervención técnica en un sitio WooCommerce multidioma y desarrollo de una solución para gestionar redirecciones según el idioma.',
         images: [
             '/wp-content/uploads/2026/09/schefferlii-1.png',
             '/wp-content/uploads/2026/09/schefferlii-2.png',
@@ -1443,7 +1446,7 @@ const projects = [
     {
         name: 'WellForm MD',
         stack: 'WordPress · Kadence · Custom Post Types',
-        description: 'Desarrollo y estructuración de contenido para un sitio médico. Creación de páginas y un sistema de tratamientos basado en Custom Post Types para organizar el contenido de forma estructurada.',
+        description: 'Desarrollo de páginas de tratamientos y estructuración de contenido mediante Custom Post Types (CPTs).',
         images: [
             '/wp-content/uploads/2026/09/wellformmd-1.png',
             '/wp-content/uploads/2026/09/wellformmd-2.png',
@@ -1498,7 +1501,8 @@ const projects = [
 
     const nameElement = infoColumn.querySelector('h3');
     const stackElement = infoColumn.querySelector('h4');
-    const descriptionElement = infoColumn.querySelector('p');
+    const descriptionElement = infoColumn.querySelector('p:not(.portfolio-context)');
+    const contextElement = infoColumn.querySelector('.portfolio-context');
 
 
     /* ========================================
@@ -1546,6 +1550,11 @@ const projects = [
 
         if (descriptionElement) {
             descriptionElement.textContent = project.description;
+        }
+
+        if (contextElement) {
+            contextElement.textContent = project.context || '';
+            contextElement.hidden = !project.context;
         }
 
 
