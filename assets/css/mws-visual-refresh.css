@@ -1,5 +1,5 @@
 /* MWS homepage hero: restrained visual system, using the site's approved palette */
-.mws-hero{--mws-hero-accent:#4DA3FF;--mws-hero-subtitle:#94AFC7;--mws-hero-ink:#111827;position:relative;isolation:isolate;overflow:hidden;color:#fff}
+.mws-hero{--mws-hero-accent:#3B82C4;--mws-hero-subtitle:#94AFC7;--mws-hero-ink:#111827;position:relative;isolation:isolate;overflow:hidden;color:#fff}
 .mws-hero>.kt-row-layout-overlay{display:block!important;opacity:.80!important;background:#0b1120!important;mix-blend-mode:normal!important}
 .mws-hero>.kt-row-column-wrap{position:relative;z-index:1;width:100%;max-width:1290px;min-height:680px;margin-inline:auto;padding:clamp(7rem,11vw,9rem) 32px clamp(5rem,8vw,7rem)}
 .mws-hero .kadence-column133_95ce03-0d>.kt-inside-inner-col{display:flex;flex-direction:column;align-items:center;max-width:100%;margin:0;gap:0}
@@ -21,33 +21,28 @@
 @media(prefers-reduced-motion:reduce){.mws-hero-button{transition:none}.mws-hero-button:hover,.mws-hero-button:active{transform:none}}
 
 
-/* Agency market selector in the homepage hero */
-.mws-agency-selector{position:relative;display:inline-flex;flex-direction:column;align-items:center;min-width:0}
-.mws-agency-trigger{display:inline-flex;min-height:50px;align-items:center;justify-content:center;gap:.7rem;padding:10px 20px;border:1px solid rgba(77,163,255,.85);border-radius:8px;background:transparent;color:#fff;font-family:inherit;font-size:16px;font-weight:600;line-height:1.2;cursor:pointer;text-decoration:none;transition:background-color .18s ease,color .18s ease,border-color .18s ease,transform .18s ease}
+/* Agency market selector: anchored popover, contained within the hero. */
+.mws-agency-selector{position:relative;z-index:5;display:inline-flex;flex-direction:column;align-items:center;min-width:0}
+.mws-agency-trigger{display:inline-flex;min-height:50px;align-items:center;justify-content:center;gap:.7rem;padding:10px 20px;border:1px solid #3B82C4;border-radius:8px;background:transparent;color:#fff;font-family:inherit;font-size:16px;font-weight:600;line-height:1.2;cursor:pointer;text-decoration:none;transition:background-color .18s ease,color .18s ease,border-color .18s ease,transform .18s ease}
 .mws-agency-trigger svg{width:17px;height:17px;flex:0 0 auto;transition:transform .18s ease}
-.mws-agency-trigger:hover,.mws-agency-selector.is-open .mws-agency-trigger{border-color:#4DA3FF;background:#4DA3FF;color:#111827}
+.mws-agency-trigger:hover,.mws-agency-selector.is-open .mws-agency-trigger{border-color:#3B82C4;background:#3B82C4;color:#111827}
 .mws-agency-selector.is-open .mws-agency-trigger svg{transform:rotate(180deg)}
 .mws-agency-trigger:focus-visible,.mws-agency-option:focus-visible{outline:2px solid #fff;outline-offset:4px}
-.mws-agency-menu{position:relative;z-index:2;top:auto;left:auto;width:min(350px,calc(100vw - 36px));margin-top:12px;padding:10px;border:1px solid rgba(148,175,199,.2);border-radius:14px;background:#111827;color:#fff;box-shadow:0 14px 34px rgba(0,0,0,.26);text-align:left;transform:none;animation:mws-agency-menu-in .18s ease-out}
+.mws-agency-menu{position:absolute;z-index:20;top:calc(100% + 12px);left:50%;box-sizing:border-box;width:min(350px,calc(100vw - 32px));max-width:calc(100vw - 32px);max-height:min(420px,calc(100vh - 40px));overflow-y:auto;overscroll-behavior:contain;margin:0;padding:10px;border:1px solid rgba(148,175,199,.2);border-radius:14px;background:#111827;color:#fff;box-shadow:0 14px 34px rgba(0,0,0,.26);text-align:left;transform:translateX(-50%);animation:mws-agency-menu-in .16s ease-out both}
+.mws-agency-menu.opens-up{top:auto;bottom:calc(100% + 12px)}
 .mws-agency-menu[hidden]{display:none}
 .mws-agency-menu__intro{padding:12px 12px 14px}
-.mws-agency-menu__eyebrow{display:block;margin-bottom:7px;color:#4DA3FF;font-size:10px;font-weight:750;letter-spacing:.13em;text-transform:uppercase}
+.mws-agency-menu__eyebrow{display:block;margin-bottom:7px;color:#3B82C4;font-size:10px;font-weight:750;letter-spacing:.13em;text-transform:uppercase}
 .mws-agency-menu__intro>strong{display:block;color:#fff;font-size:18px;font-weight:700;line-height:1.25}
 .mws-agency-menu__intro p{margin:5px 0 0;color:#AFC1D4;font-size:13px;line-height:1.5}
-.mws-agency-option{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px;border:1px solid transparent;border-radius:9px;color:#fff!important;text-decoration:none!important;transition:background-color .16s ease,border-color .16s ease}
+.mws-agency-option{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px;border:1px solid transparent;border-radius:9px;color:#fff!important;font-family:inherit;text-decoration:none!important;transition:background-color .16s ease,border-color .16s ease}
 .mws-agency-option+.mws-agency-option{margin-top:3px}
-.mws-agency-option:hover{border-color:rgba(77,163,255,.28);background:rgba(77,163,255,.1)}
+.mws-agency-option:hover{border-color:rgba(59,130,196,.35);background:rgba(59,130,196,.12)}
 .mws-agency-option__copy{display:flex;flex-direction:column;gap:3px}
 .mws-agency-option__copy strong{color:#F8FAFC;font-size:14px;font-weight:650;line-height:1.3}
 .mws-agency-option__copy small{color:#AFC1D4;font-size:12px;line-height:1.4}
-.mws-agency-option>svg{width:18px;height:18px;flex:0 0 auto;color:#4DA3FF;transition:transform .16s ease}
+.mws-agency-option>svg{width:18px;height:18px;flex:0 0 auto;color:#3B82C4;transition:transform .16s ease}
 .mws-agency-option:hover>svg{transform:translateX(3px)}
-@keyframes mws-agency-menu-in{from{opacity:0;transform:translateY(-5px)}to{opacity:1;transform:translateY(0)}}to{opacity:1;transform:translate(-50%,0)}}
-@media(max-width:767px){.mws-agency-trigger{min-height:48px;padding:10px 17px;font-size:15px}.mws-agency-menu{width:min(340px,calc(100vw - 32px));margin-top:10px}}
+@keyframes mws-agency-menu-in{from{opacity:0}to{opacity:1}}
+@media(max-width:767px){.mws-agency-trigger{min-height:48px;padding:10px 17px;font-size:15px}.mws-agency-menu{width:min(340px,calc(100vw - 32px));max-width:calc(100vw - 32px)}}
 @media(prefers-reduced-motion:reduce){.mws-agency-trigger,.mws-agency-trigger svg,.mws-agency-option,.mws-agency-option>svg{transition:none}.mws-agency-menu{animation:none}}
-
-/* Keep the expanded market choices in the hero's document flow. */
-.mws-hero-actions{align-items:flex-start}
-.mws-agency-selector{align-self:flex-start}
-.mws-agency-menu{box-sizing:border-box;max-width:calc(100vw - 32px)}
-.mws-agency-trigger,.mws-agency-option{font-family:inherit}
