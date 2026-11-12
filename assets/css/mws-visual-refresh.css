@@ -9,12 +9,12 @@
 .mws-hero .kt-adv-heading133_0ab6fd-63 span+span{color:#fff}
 .mws-hero .kt-adv-heading133_f9b37e-30{max-width:760px;margin:1.5rem auto 0;color:rgba(255,255,255,.9)!important;text-align:center;font-size:18px;font-weight:500;line-height:1.65}
 .mws-hero-actions{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:1rem 1.5rem;margin-top:2rem}
-.mws-hero-button{display:inline-flex;min-height:50px;align-items:center;justify-content:center;gap:.65rem;padding:10px 24px;border:1px solid #3b82c4;border-radius:8px;background:#3b82c4;color:#fff!important;font-size:16px;font-weight:600;line-height:1.2;text-decoration:none!important;transition:background-color .18s ease,border-color .18s ease}
-.mws-hero-button:hover{border-color:#4da3ff;background:#4da3ff;color:#fff!important}
+.mws-hero-button{display:inline-flex;min-height:50px;align-items:center;justify-content:center;gap:.65rem;padding:10px 24px;border:1px solid #111827;border-radius:8px;background:#3B82C4;color:#111827!important;font-size:16px;font-weight:600;line-height:1.2;text-decoration:none!important;transition:background-color .18s ease,border-color .18s ease}
+.mws-hero-button:hover{border-color:#3B82C4;background:#111827;color:#3B82C4!important}
 .mws-hero-button:focus-visible,.mws-hero-link:focus-visible{outline:2px solid #fff;outline-offset:4px}
 .mws-hero-button svg{width:18px;height:18px}
 .mws-hero-link{color:#fff!important;font-size:16px;font-weight:600;text-decoration:underline!important;text-decoration-color:rgba(255,255,255,.6)!important;text-underline-offset:5px}
-.mws-hero-link:hover{color:#fff!important;text-decoration-color:#4da3ff!important}
+.mws-hero-link:hover{color:#fff!important;text-decoration-color:#3B82C4!important}
 @media(max-width:1024px){.mws-hero>.kt-row-column-wrap{min-height:600px;padding-top:7rem;padding-bottom:5rem}.mws-hero .kt-adv-heading133_0ab6fd-63{font-size:clamp(2.6rem,5.5vw,3.8rem)}}
 @media(max-width:767px){.mws-hero>.kt-row-column-wrap{min-height:560px;padding:6.5rem 22px 4.5rem}.mws-hero .kt-adv-heading133_4f7b16-c6{margin-bottom:1rem}.mws-hero .kt-adv-heading133_0ab6fd-63{font-size:clamp(2.35rem,9vw,3.2rem);line-height:1.08}.mws-hero .kt-adv-heading133_f9b37e-30{margin-top:1.2rem;font-size:1.02rem;line-height:1.6}.mws-hero-actions{gap:1rem;margin-top:1.6rem}.mws-hero-button{min-height:48px;padding:10px 20px;font-size:15px}.mws-hero-link{font-size:15px}}
 @media(prefers-reduced-motion:reduce){.mws-hero-button{transition:none}}
