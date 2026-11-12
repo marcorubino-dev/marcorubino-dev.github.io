@@ -22,13 +22,13 @@
 
 
 /* Agency market selector in the homepage hero */
-.mws-agency-selector{position:relative;display:inline-flex}
-.mws-agency-trigger{display:inline-flex;min-height:50px;align-items:center;justify-content:center;gap:.7rem;padding:10px 20px;border:1px solid rgba(77,163,255,.85);border-radius:8px;background:rgba(17,24,39,.22);color:#fff;font:600 16px/1.2 inherit;cursor:pointer;text-decoration:none;transition:background-color .18s ease,color .18s ease,border-color .18s ease,transform .18s ease}
+.mws-agency-selector{position:relative;display:inline-flex;flex-direction:column;align-items:center;min-width:0}
+.mws-agency-trigger{display:inline-flex;min-height:50px;align-items:center;justify-content:center;gap:.7rem;padding:10px 20px;border:1px solid rgba(77,163,255,.85);border-radius:8px;background:transparent;color:#fff;font-family:inherit;font-size:16px;font-weight:600;line-height:1.2;cursor:pointer;text-decoration:none;transition:background-color .18s ease,color .18s ease,border-color .18s ease,transform .18s ease}
 .mws-agency-trigger svg{width:17px;height:17px;flex:0 0 auto;transition:transform .18s ease}
 .mws-agency-trigger:hover,.mws-agency-selector.is-open .mws-agency-trigger{border-color:#4DA3FF;background:#4DA3FF;color:#111827}
 .mws-agency-selector.is-open .mws-agency-trigger svg{transform:rotate(180deg)}
 .mws-agency-trigger:focus-visible,.mws-agency-option:focus-visible{outline:2px solid #fff;outline-offset:4px}
-.mws-agency-menu{position:absolute;z-index:20;top:calc(100% + 14px);left:50%;width:min(350px,calc(100vw - 36px));padding:10px;border:1px solid rgba(148,175,199,.2);border-radius:14px;background:#111827;color:#fff;box-shadow:0 18px 48px rgba(0,0,0,.34);text-align:left;transform:translateX(-50%);animation:mws-agency-menu-in .16s ease-out}
+.mws-agency-menu{position:relative;z-index:2;top:auto;left:auto;width:min(350px,calc(100vw - 36px));margin-top:12px;padding:10px;border:1px solid rgba(148,175,199,.2);border-radius:14px;background:#111827;color:#fff;box-shadow:0 14px 34px rgba(0,0,0,.26);text-align:left;transform:none;animation:mws-agency-menu-in .18s ease-out}
 .mws-agency-menu[hidden]{display:none}
 .mws-agency-menu__intro{padding:12px 12px 14px}
 .mws-agency-menu__eyebrow{display:block;margin-bottom:7px;color:#4DA3FF;font-size:10px;font-weight:750;letter-spacing:.13em;text-transform:uppercase}
@@ -42,6 +42,12 @@
 .mws-agency-option__copy small{color:#AFC1D4;font-size:12px;line-height:1.4}
 .mws-agency-option>svg{width:18px;height:18px;flex:0 0 auto;color:#4DA3FF;transition:transform .16s ease}
 .mws-agency-option:hover>svg{transform:translateX(3px)}
-@keyframes mws-agency-menu-in{from{opacity:0;transform:translate(-50%,-5px)}to{opacity:1;transform:translate(-50%,0)}}
-@media(max-width:767px){.mws-agency-trigger{min-height:48px;padding:10px 17px;font-size:15px}.mws-agency-menu{top:calc(100% + 10px);width:min(340px,calc(100vw - 32px))}}
+@keyframes mws-agency-menu-in{from{opacity:0;transform:translateY(-5px)}to{opacity:1;transform:translateY(0)}}to{opacity:1;transform:translate(-50%,0)}}
+@media(max-width:767px){.mws-agency-trigger{min-height:48px;padding:10px 17px;font-size:15px}.mws-agency-menu{width:min(340px,calc(100vw - 32px));margin-top:10px}}
 @media(prefers-reduced-motion:reduce){.mws-agency-trigger,.mws-agency-trigger svg,.mws-agency-option,.mws-agency-option>svg{transition:none}.mws-agency-menu{animation:none}}
+
+/* Keep the expanded market choices in the hero's document flow. */
+.mws-hero-actions{align-items:flex-start}
+.mws-agency-selector{align-self:flex-start}
+.mws-agency-menu{box-sizing:border-box;max-width:calc(100vw - 32px)}
+.mws-agency-trigger,.mws-agency-option{font-family:inherit}
