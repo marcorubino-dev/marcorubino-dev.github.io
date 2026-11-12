@@ -1,5 +1,5 @@
-/* MWS homepage hero: preserve original centered composition and Kadence palette */
-.mws-hero{position:relative;isolation:isolate;overflow:hidden;color:#fff}
+/* MWS homepage hero: restrained visual system, using the site's approved palette */
+.mws-hero{--mws-hero-accent:#4DA3FF;--mws-hero-subtitle:#94AFC7;--mws-hero-ink:#111827;position:relative;isolation:isolate;overflow:hidden;color:#fff}
 .mws-hero>.kt-row-layout-overlay{display:block!important;opacity:.80!important;background:#0b1120!important;mix-blend-mode:normal!important}
 .mws-hero>.kt-row-column-wrap{position:relative;z-index:1;width:100%;max-width:1290px;min-height:680px;margin-inline:auto;padding:clamp(7rem,11vw,9rem) 32px clamp(5rem,8vw,7rem)}
 .mws-hero .kadence-column133_95ce03-0d>.kt-inside-inner-col{display:flex;flex-direction:column;align-items:center;max-width:100%;margin:0;gap:0}
@@ -7,14 +7,15 @@
 .mws-hero .kt-adv-heading133_0ab6fd-63{max-width:1000px;margin:1rem 0 0;color:#fff!important;text-align:center;font-size:clamp(2.8rem,5.3vw,4.25rem);font-weight:700;line-height:1.1;letter-spacing:-.025em;text-wrap:balance}
 .mws-hero .kt-adv-heading133_0ab6fd-63 span{display:block}
 .mws-hero .kt-adv-heading133_0ab6fd-63 span+span{color:#fff}
-.mws-hero .kt-adv-heading133_f9b37e-30{max-width:760px;margin:1.5rem auto 0;color:rgba(255,255,255,.9)!important;text-align:center;font-size:18px;font-weight:500;line-height:1.65}
+.mws-hero .kt-adv-heading133_f9b37e-30{max-width:720px;margin:1.5rem auto 0;color:var(--mws-hero-subtitle)!important;text-align:center;font-size:clamp(1rem,1.25vw,1.125rem);font-weight:500;line-height:1.65;text-wrap:balance}
 .mws-hero-actions{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:1rem 1.5rem;margin-top:2rem}
-.mws-hero-button{display:inline-flex;min-height:50px;align-items:center;justify-content:center;gap:.65rem;padding:10px 24px;border:1px solid #111827;border-radius:8px;background:#3B82C4;color:#111827!important;font-size:16px;font-weight:600;line-height:1.2;text-decoration:none!important;transition:background-color .18s ease,border-color .18s ease}
-.mws-hero-button:hover{border-color:#3B82C4;background:#111827;color:#3B82C4!important}
+.mws-hero-button{display:inline-flex;min-height:50px;align-items:center;justify-content:center;gap:.65rem;padding:10px 24px;border:1px solid var(--mws-hero-ink);border-radius:8px;background:var(--mws-hero-accent);color:var(--mws-hero-ink)!important;font-size:16px;font-weight:650;line-height:1.2;text-decoration:none!important;box-shadow:0 2px 8px rgba(0,0,0,.16);transition:background-color .18s ease,color .18s ease,border-color .18s ease,transform .18s ease,box-shadow .18s ease}
+.mws-hero-button:hover{border-color:var(--mws-hero-accent);background:var(--mws-hero-ink);color:var(--mws-hero-accent)!important;transform:translateY(-1px);box-shadow:0 5px 14px rgba(0,0,0,.22)}
+.mws-hero-button:active{transform:translateY(0);box-shadow:0 1px 4px rgba(0,0,0,.18)}
 .mws-hero-button:focus-visible,.mws-hero-link:focus-visible{outline:2px solid #fff;outline-offset:4px}
 .mws-hero-button svg{width:18px;height:18px}
 .mws-hero-link{color:#fff!important;font-size:16px;font-weight:600;text-decoration:underline!important;text-decoration-color:rgba(255,255,255,.6)!important;text-underline-offset:5px}
-.mws-hero-link:hover{color:#fff!important;text-decoration-color:#3B82C4!important}
+.mws-hero-link:hover{color:var(--mws-hero-subtitle)!important;text-decoration-color:var(--mws-hero-accent)!important}
 @media(max-width:1024px){.mws-hero>.kt-row-column-wrap{min-height:600px;padding-top:7rem;padding-bottom:5rem}.mws-hero .kt-adv-heading133_0ab6fd-63{font-size:clamp(2.6rem,5.5vw,3.8rem)}}
 @media(max-width:767px){.mws-hero>.kt-row-column-wrap{min-height:560px;padding:6.5rem 22px 4.5rem}.mws-hero .kt-adv-heading133_4f7b16-c6{margin-bottom:1rem}.mws-hero .kt-adv-heading133_0ab6fd-63{font-size:clamp(2.35rem,9vw,3.2rem);line-height:1.08}.mws-hero .kt-adv-heading133_f9b37e-30{margin-top:1.2rem;font-size:1.02rem;line-height:1.6}.mws-hero-actions{gap:1rem;margin-top:1.6rem}.mws-hero-button{min-height:48px;padding:10px 20px;font-size:15px}.mws-hero-link{font-size:15px}}
-@media(prefers-reduced-motion:reduce){.mws-hero-button{transition:none}}
+@media(prefers-reduced-motion:reduce){.mws-hero-button{transition:none}.mws-hero-button:hover,.mws-hero-button:active{transform:none}}
