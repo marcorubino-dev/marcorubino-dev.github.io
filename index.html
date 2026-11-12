@@ -861,7 +861,7 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
 }
 </style>
 
-<link rel="stylesheet" id="mws-visual-refresh-css" href="/assets/css/mws-visual-refresh.css?ver=1.2.0" media="all">
+<link rel="stylesheet" id="mws-visual-refresh-css" href="/assets/css/mws-visual-refresh.css?ver=1.3.0" media="all">
 </head>
 
 <body class="home wp-singular page-template-default page page-id-133 wp-custom-logo wp-embed-responsive wp-theme-kadence footer-on-bottom hide-focus-outline link-style-no-underline content-title-style-hide content-width-fullwidth content-style-unboxed content-vertical-padding-hide transparent-header mobile-transparent-header">
@@ -967,7 +967,31 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
 
 
 
-<div class="mws-hero-actions"><a class="mws-hero-button" href="/contacto/">Contame qué está pasando <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a><a class="mws-hero-link" href="/agencias-ar/">Trabajo con agencias</a></div>
+<div class="mws-hero-actions"><a class="mws-hero-button" href="/contacto/">Contame qué está pasando <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a><div class="mws-agency-selector">
+<button class="mws-agency-trigger" type="button" aria-expanded="false" aria-controls="mws-agency-menu">
+<span>Trabajo con agencias</span>
+<svg viewBox="0 0 20 20" fill="none" aria-hidden="true" focusable="false"><path d="m5 7.5 5 5 5-5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</button>
+<div class="mws-agency-menu" id="mws-agency-menu" hidden>
+<div class="mws-agency-menu__intro">
+<span class="mws-agency-menu__eyebrow">Colaboración profesional</span>
+<strong>Elegí tu mercado</strong>
+<p>Soporte y desarrollo WordPress para agencias.</p>
+</div>
+<a class="mws-agency-option" href="/agencias-ar/">
+<span class="mws-agency-option__copy"><strong>Argentina</strong><small>Propuesta para agencias argentinas</small></span>
+<svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h11m-4-4 4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</a>
+<a class="mws-agency-option" href="/agencias-es/">
+<span class="mws-agency-option__copy"><strong>España y Europa</strong><small>Colaboración en español</small></span>
+<svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h11m-4-4 4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</a>
+<a class="mws-agency-option" href="/agencies-us/">
+<span class="mws-agency-option__copy"><strong>United States</strong><small>WordPress support for agencies</small></span>
+<svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h11m-4-4 4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</a>
+</div>
+</div></div>
 </div></div>
 
 </div></div>
@@ -2147,5 +2171,35 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
+<script id="mws-agency-selector-js">
+document.addEventListener('DOMContentLoaded', function () {
+  var selector = document.querySelector('.mws-agency-selector');
+  if (!selector) return;
+  var trigger = selector.querySelector('.mws-agency-trigger');
+  var menu = selector.querySelector('.mws-agency-menu');
+  if (!trigger || !menu) return;
+
+  function setOpen(open) {
+    trigger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    menu.hidden = !open;
+    selector.classList.toggle('is-open', open);
+  }
+
+  trigger.addEventListener('click', function () {
+    setOpen(trigger.getAttribute('aria-expanded') !== 'true');
+  });
+
+  document.addEventListener('click', function (event) {
+    if (!selector.contains(event.target)) setOpen(false);
+  });
+
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape' && trigger.getAttribute('aria-expanded') === 'true') {
+      setOpen(false);
+      trigger.focus();
+    }
+  });
+});
+</script>
 </body>
 </html>
