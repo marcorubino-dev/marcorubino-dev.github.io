@@ -1,46 +1,36 @@
-# ¡Hola! Soy Marco Rubino 👋
+# Marco Rubino — WordPress Developer
 
-### Desarrollador WordPress freelance | Diagnóstico y resolución de problemas técnicos
+Portfolio profesional de Marco Rubino, desarrollador WordPress freelance.
 
-Trabajo con WordPress desde hace años, desarrollando soluciones, personalizando sitios y resolviendo problemas técnicos en entornos reales.
+**Sitio publicado:** https://marcodeveloper.online/
 
-Me interesa entender qué ocurre detrás de un sitio web: investigar fallos, identificar sus causas y aplicar soluciones que puedan verificarse.
+## Contenido
 
-Mi enfoque es práctico: **observar, aislar el problema, diagnosticar, corregir y verificar.**
+Este repositorio contiene la exportación estática del sitio WordPress, junto con recursos y micrositios independientes.
 
-## 🛠️ Tecnologías y herramientas
+- Sitio principal en español e inglés.
+- Páginas de servicios para agencias.
+- Formularios de contacto.
+- Casos de portfolio y recursos visuales.
+- Micrositio de Traslasierra Tango.
 
-- **Desarrollo web:** PHP, JavaScript, HTML y CSS.
-- **WordPress:** desarrollo y personalización de temas y plugins, hooks, shortcodes y funcionalidades a medida.
-- **WooCommerce:** configuración, personalización de tiendas, productos, checkout e integraciones.
-- **Bases de datos:** MySQL y consultas SQL.
-- **Infraestructura web:** cPanel, DNS, SSL, Cloudflare, migraciones y restauraciones.
-- **Diagnóstico técnico:** investigación de errores, compatibilidad entre plugins, actualizaciones y análisis de rendimiento.
+## Publicación
 
-## 🚀 Proyectos
+El repositorio se publica mediante GitHub Pages y utiliza el dominio personalizado configurado en `CNAME`.
 
-### WP Diagnostic Toolkit
+Las páginas principales se exportan desde WordPress. Los cambios de contenido o diseño deben realizarse en la fuente correspondiente y luego volver a exportarse; editar HTML generado directamente puede hacer que los cambios se pierdan en una exportación posterior.
 
-Herramienta en desarrollo para inspeccionar el estado técnico de instalaciones WordPress y reunir información útil para el diagnóstico de problemas.
+Los recursos independientes, como el micrositio de Traslasierra Tango y los archivos de `assets/`, deben mantenerse separados del HTML exportado del sitio principal.
 
-### Incident Manager
+## Desarrollo
 
-Proyecto personal en desarrollo con Laravel y PostgreSQL para registrar incidentes, documentar evidencias, investigar causas y guardar soluciones verificadas.
+No hay un proceso de compilación general ni dependencias de Node/PHP necesarias para publicar el contenido estático actual. Antes de modificar una exportación, comprobar las rutas, los recursos asociados y los formularios de ambas versiones idiomáticas.
 
-También utilizo estos proyectos para profundizar mis conocimientos de backend, Linux y Docker.
+## Contacto
 
-## 🎯 En qué estoy trabajando
-
-- Mejorar mis herramientas de diagnóstico para WordPress.
-- Profundizar en PHP y desarrollo backend.
-- Aprender a administrar aplicaciones y servicios en entornos Linux y Docker.
-- Documentar problemas técnicos y soluciones reproducibles.
-
-## 🌐 Encontrame en
-
-- **Portfolio:** [marcorubino-dev.github.io](https://marcorubino-dev.github.io/)
-- **LinkedIn:** [Marco Rubino](https://www.linkedin.com/in/marco-rubino19/)
-- **GitHub:** [@marcorubino-dev](https://github.com/marcorubino-dev)
+- **Portfolio:** https://marcodeveloper.online/
+- **LinkedIn:** https://www.linkedin.com/in/marco-rubino19/
+- **GitHub:** https://github.com/marcorubino-dev
 
 ---
 
