@@ -1690,7 +1690,7 @@ var kadenceConfig = {"screenReader":{"expand":"Child menu","expandOf":"Child men
   if (modality && selectedModality && modalityLabels[selectedModality]) {
     modality.value = selectedModality;
     if (message && !message.value.trim()) {
-      message.value = 'Me interesa la modalidad de ' + modalityLabels[selectedModality] + '.\\n\\nQuisiera consultar sobre: ';
+      message.value = 'Me interesa la modalidad de ' + modalityLabels[selectedModality] + '.\n\nQuisiera consultar sobre: ';
     }
   }
   var button = form.querySelector('button[type="submit"]');
