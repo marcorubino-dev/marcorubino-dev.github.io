@@ -892,7 +892,70 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
 .mws-engagement-link:hover,.mws-engagement-link:focus-visible{color:#fff;text-decoration:underline}
 @media(max-width:900px){.mws-service-grid{grid-template-columns:1fr 1fr}.mws-service-card:last-child{grid-column:1/-1}.mws-engagement-heading{grid-template-columns:1fr;gap:12px}}
 @media(max-width:600px){.mws-offer-section{padding:58px 20px}.mws-service-grid{grid-template-columns:1fr}.mws-service-card:last-child{grid-column:auto}.mws-service-card{padding:23px 21px}.mws-service-index{margin-bottom:16px}.mws-engagement{margin-top:42px;padding:30px 22px}.mws-price-item{align-items:flex-start;flex-direction:column;gap:8px}.mws-price-item>strong{text-align:left}}
-@media(prefers-reduced-motion:reduce){.mws-engagement-link{transition:none}}
+
+/* ========================================
+   HOME — VISUAL HIERARCHY REFINEMENT
+   ======================================== */
+
+/* Servicios: lectura cómoda y tarjetas equilibradas */
+.mws-service-card{padding:30px 28px}
+.mws-service-card p,
+.mws-service-card li{font-size:16px;line-height:1.72}
+.mws-service-card p{margin-bottom:18px}
+.mws-service-card li+li{margin-top:7px}
+.mws-service-index{margin-bottom:20px}
+.mws-offer-heading>p:last-child{font-size:16px;line-height:1.75}
+
+/* Modalidades: diferenciar mejor concepto, detalle e importe */
+.mws-engagement-heading>p{font-size:16px;line-height:1.75}
+.mws-price-item{padding:21px 0}
+.mws-price-item h3{font-size:17px;line-height:1.4}
+.mws-price-item p{font-size:15px;line-height:1.7}
+.mws-price-item>strong{font-size:17px}
+.mws-engagement-note{font-size:14px;line-height:1.75}
+.mws-engagement-link{padding:5px 0;text-underline-offset:4px}
+.mws-engagement-link:focus-visible{outline:2px solid #7CB8F0;outline-offset:5px;border-radius:3px}
+
+/* Portfolio: reforzar el proyecto activo y la lectura del caso */
+#portfolio .portfolio-project h4{font-size:15px;line-height:1.45;letter-spacing:.02em;padding:5px 0}
+#portfolio .portfolio-project h4:focus-visible{outline:2px solid #4DA3FF;outline-offset:5px;border-radius:3px}
+#portfolio .portfolio-info h3{font-size:clamp(27px,3vw,36px);line-height:1.2;margin-bottom:10px}
+#portfolio .portfolio-info h4{font-size:14px;line-height:1.55;letter-spacing:.035em}
+#portfolio .portfolio-info p{font-size:16px;line-height:1.75}
+#portfolio .portfolio-info .portfolio-context{font-size:14px;line-height:1.6}
+#portfolio .portfolio-main-image img{display:block;width:100%;height:auto;border-radius:12px}
+#portfolio .portfolio-thumbnail{cursor:pointer}
+#portfolio .portfolio-thumbnail img{display:block;width:100%;height:auto;border-radius:7px}
+#portfolio .portfolio-thumbnail:focus-visible{outline:2px solid #4DA3FF;outline-offset:4px;border-radius:7px}
+#portfolio .mws-project-navigation{font-size:13px}
+
+/* Sobre mí: ancho de lectura y ritmo tipográfico */
+#Sobremi h2{font-size:clamp(28px,3.2vw,40px);line-height:1.22}
+#Sobremi .kt-inside-inner-col>p{max-width:66ch;font-size:17px;line-height:1.8}
+#Sobremi figure img{border-radius:12px}
+
+/* Responsive */
+@media(max-width:900px){
+  .mws-service-card{padding:27px 24px}
+  #portfolio .portfolio-project h4{font-size:14px}
+}
+@media(max-width:600px){
+  .mws-offer-section{padding:62px 20px}
+  .mws-service-card{padding:25px 22px}
+  .mws-service-index{margin-bottom:16px}
+  .mws-engagement{padding:28px 22px}
+  .mws-price-item{padding:18px 0}
+  #portfolio .portfolio-info h3{font-size:28px}
+  #portfolio .portfolio-info p{font-size:16px}
+  #portfolio .portfolio-thumbnail img{border-radius:5px}
+  #Sobremi .kt-inside-inner-col>p{font-size:16px;line-height:1.75}
+}
+@media(prefers-reduced-motion:reduce){
+  .mws-engagement-link{transition:none}
+  #portfolio .portfolio-project h4,
+  #portfolio .portfolio-thumbnail img{transition:none}
+}
+
 </style>
 </head>
 
