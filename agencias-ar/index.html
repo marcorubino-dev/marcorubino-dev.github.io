@@ -1115,6 +1115,15 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
 .agency-page .agency-card h3 { margin:0 0 12px; color:#0B1120!important; font-size:20px; line-height:1.3; letter-spacing:-.015em; }
 .agency-page .agency-card p { margin:0; color:#475569!important; font-size:16px; line-height:1.7; }
 .agency-page .agency-card p+p { margin-top:12px; }
+.agency-page .agency-model-card { min-height:100%; }
+.agency-page .agency-model-card .agency-card-actions { display:flex; flex-wrap:wrap; gap:10px; margin-top:auto; padding-top:24px; }
+.agency-page .agency-card-action { display:inline-flex; min-height:42px; align-items:center; justify-content:center; padding:10px 15px; border:1px solid transparent; border-radius:7px; font-size:14px; font-weight:700; line-height:1.25; text-align:center; text-decoration:none; transition:background .2s ease,border-color .2s ease,color .2s ease,transform .2s ease; }
+.agency-page .agency-card-action:hover { transform:translateY(-1px); }
+.agency-page .agency-card-action-primary { background:#16834A; color:#FFF; }
+.agency-page .agency-card-action-primary:hover { background:#116B3B; color:#FFF; }
+.agency-page .agency-card-action-secondary { border-color:#B8C9DC; background:#F8FAFC; color:#174A78; }
+.agency-page .agency-card-action-secondary:hover { border-color:#3B82C4; background:#EAF3FC; color:#0B3559; }
+@media(max-width:700px) { .agency-page .agency-model-card .agency-card-actions { flex-direction:column; align-items:stretch; } }
 
 /* Pricing: dark section, light cards, two-column rhythm. */
 .agency-page .agency-pricing { background:#0B1120; color:#F1F5F9; }
@@ -1222,9 +1231,9 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
 <section class="agency-section agency-team-support"><div class="agency-container">
 <div class="motion-reveal"><h2>¿Ya tenés un equipo de desarrollo?</h2><p class="agency-lead agency-team-intro">No necesitás reemplazar a tu equipo ni incorporar otro desarrollador de forma permanente. Puedo funcionar como apoyo técnico externo cuando necesitás delegar una tarea concreta, absorber trabajo adicional o resolver una incidencia específica de WordPress y WooCommerce.</p></div>
 <div class="agency-grid agency-team-grid motion-stagger">
-<article class="agency-card"><h3>Ticket puntual</h3><p>Delegación de una tarea con alcance definido, entregables acordados y verificación del resultado.</p></article>
-<article class="agency-card"><h3>Soporte por demanda</h3><p>Colaboración cuando aparece una necesidad técnica que tu equipo prefiere derivar o resolver con apoyo externo.</p></article>
-<article class="agency-card"><h3>Colaboración recurrente</h3><p>Posibilidad de trabajar periódicamente según el volumen de tareas, la coordinación necesaria y la disponibilidad acordada.</p></article>
+<article class="agency-card agency-model-card"><h3>Ticket puntual</h3><p>Delegación de una tarea con alcance definido, entregables acordados y verificación del resultado.</p><div class="agency-card-actions"><a class="agency-card-action agency-card-action-primary" href="https://wa.me/5493544312242?text=Hola%2C%20quisiera%20consultar%20por%20la%20modalidad%20de%20Ticket%20puntual.%20Tengo%20una%20tarea%20con%20alcance%20definido%20para%20delegar%20y%20me%20gustar%C3%ADa%20comentarte%20los%20detalles." target="_blank" rel="noopener noreferrer" aria-label="Consultar por WhatsApp sobre Ticket puntual">WhatsApp</a><a class="agency-card-action agency-card-action-secondary" href="/contacto/?modalidad=ticket-puntual">Formulario de contacto</a></div></article>
+<article class="agency-card agency-model-card"><h3>Soporte por demanda</h3><p>Colaboración cuando aparece una necesidad técnica que tu equipo prefiere derivar o resolver con apoyo externo.</p><div class="agency-card-actions"><a class="agency-card-action agency-card-action-primary" href="https://wa.me/5493544312242?text=Hola%2C%20quisiera%20consultar%20por%20la%20modalidad%20de%20Soporte%20por%20demanda.%20Tengo%20una%20necesidad%20t%C3%A9cnica%20para%20derivar%20y%20me%20gustar%C3%ADa%20contarte%20el%20contexto." target="_blank" rel="noopener noreferrer" aria-label="Consultar por WhatsApp sobre Soporte por demanda">WhatsApp</a><a class="agency-card-action agency-card-action-secondary" href="/contacto/?modalidad=soporte-por-demanda">Formulario de contacto</a></div></article>
+<article class="agency-card agency-model-card"><h3>Colaboración recurrente</h3><p>Posibilidad de trabajar periódicamente según el volumen de tareas, la coordinación necesaria y la disponibilidad acordada.</p><div class="agency-card-actions"><a class="agency-card-action agency-card-action-primary" href="https://wa.me/5493544312242?text=Hola%2C%20quisiera%20consultar%20por%20una%20modalidad%20de%20Colaboraci%C3%B3n%20recurrente.%20Me%20gustar%C3%ADa%20conversar%20sobre%20el%20volumen%20de%20tareas%2C%20la%20coordinaci%C3%B3n%20y%20la%20disponibilidad." target="_blank" rel="noopener noreferrer" aria-label="Consultar por WhatsApp sobre Colaboración recurrente">WhatsApp</a><a class="agency-card-action agency-card-action-secondary" href="/contacto/?modalidad=colaboracion-recurrente">Formulario de contacto</a></div></article>
 </div></div></section>
 
 
