@@ -1342,7 +1342,7 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
 
 
 
-<h4 class="kt-adv-heading133_0ea3b8-3b wp-block-kadence-advancedheading has-theme-palette-6-color has-text-color" data-kb-block="kb-adv-heading133_0ea3b8-3b">WordPress · WooCommerce · Performance</h4>
+<div class="portfolio-tech-stack" aria-label="Tecnologías utilizadas"></div>
 
 
 
@@ -1585,6 +1585,24 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
   .mws-engagement-details{min-height:0;padding:22px 0 0;border-left:0;border-top:1px solid rgba(148,177,208,.24)}
 }
 
+
+/* PORTFOLIO — technology chips and clearer navigation controls */
+#portfolio .portfolio-tech-stack{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 16px}
+#portfolio .portfolio-tech-chip{display:inline-flex;align-items:center;min-height:28px;padding:4px 10px;border:1px solid rgba(124,184,240,.28);border-radius:999px;background:rgba(77,163,255,.09);color:#BFD8F0;font-size:12px;font-weight:600;line-height:1.35;letter-spacing:.01em}
+#portfolio .portfolio-info p{max-width:58ch}
+#portfolio .mws-gallery-arrow{width:46px;height:46px;opacity:.96;border-color:rgba(255,255,255,.38);background:rgba(11,17,32,.88)}
+#portfolio .mws-gallery-arrow:focus-visible,#portfolio .mws-project-arrow:focus-visible{outline:3px solid #8CC5FF;outline-offset:3px}
+#portfolio .mws-project-navigation{gap:12px;margin:16px 0 18px}
+#portfolio .mws-project-arrow{width:auto;min-width:40px;height:40px;padding:0 11px;gap:7px;border-radius:8px;font-size:12px;font-weight:600}
+#portfolio .mws-project-arrow svg{width:16px;height:16px}
+#portfolio .mws-project-arrow-label{display:inline}
+#portfolio .portfolio-thumbnail{cursor:pointer;border-radius:8px;transition:transform .18s ease,opacity .18s ease}
+#portfolio .portfolio-thumbnail:hover{transform:translateY(-2px)}
+#portfolio .portfolio-thumbnail:focus-visible{outline:3px solid #8CC5FF;outline-offset:4px}
+#portfolio .portfolio-thumbnail[aria-pressed="true"] img{opacity:1;border:2px solid #4DA3FF !important;box-shadow:0 0 0 2px rgba(77,163,255,.16)}
+@media(max-width:640px){#portfolio .mws-project-navigation{gap:8px}#portfolio .mws-project-arrow{padding:0 9px}}
+@media(prefers-reduced-motion:reduce){#portfolio .portfolio-thumbnail{transition:none}}
+
 </style>
 
 <div class="wp-block-kadence-single-icon kt-svg-style-stacked kt-svg-icon-wrap kt-svg-item-6f34de-d2">
@@ -1700,7 +1718,7 @@ const projects = [
     {
         name: 'PolyCor',
         stack: 'WordPress · WooCommerce · XStore · Custom Plugins',
-        description: 'Desarrollo de funcionalidades para WooCommerce: filtros dinámicos y gestión de marcas por categoría.',
+        description: 'Desarrollo del sitio y de funcionalidades a medida para WooCommerce. Incorporé filtros dinámicos y gestión de marcas vinculada a las categorías, ampliando las opciones de navegación del catálogo.',
         context: 'Proyecto realizado. Sitio actualmente fuera de línea.',
         images: [
             '/wp-content/uploads/2026/09/woocommerce-store-optimization-1024x496.png',
@@ -1714,7 +1732,7 @@ const projects = [
     {
         name: 'Tattoo Carpe',
         stack: 'WordPress · Kadence · Kadence Blocks',
-        description: 'Desarrollo de un sitio para un estudio de tatuajes, con perfiles de artistas, galerías individuales y secciones para cursos y servicios.',
+        description: 'Diseño y desarrollo del sitio para un estudio de tatuajes, organizando la presentación de sus artistas mediante perfiles y galerías individuales. También estructuré secciones específicas para comunicar cursos y servicios.',
         context: 'Proyecto realizado. Sitio actualmente fuera de línea.',
         images: [
             '/wp-content/uploads/2026/09/tattoo-carpe-1.png',
@@ -1728,7 +1746,7 @@ const projects = [
     {
         name: 'Schefferlii',
         stack: 'WordPress · WooCommerce · WPML · Custom Development',
-        description: 'Intervención técnica en un sitio WooCommerce multidioma y desarrollo de una solución para gestionar redirecciones según el idioma.',
+        description: 'Intervención técnica sobre una tienda WooCommerce multidioma, incluyendo tareas de migración y una solución de redirecciones según el idioma para dirigir a cada visitante a la versión correspondiente del sitio.',
         images: [
             '/wp-content/uploads/2026/09/schefferlii-1.png',
             '/wp-content/uploads/2026/09/schefferlii-2.png',
@@ -1740,7 +1758,7 @@ const projects = [
     {
         name: 'WellForm MD',
         stack: 'WordPress · Kadence · Custom Post Types',
-        description: 'Desarrollo de páginas de tratamientos y estructuración de contenido mediante Custom Post Types (CPTs).',
+        description: 'Estructuración del contenido del sitio mediante Custom Post Types y desarrollo de páginas específicas para tratamientos. El trabajo permitió organizar la información con una estructura reutilizable y consistente.',
         images: [
             '/wp-content/uploads/2026/09/wellformmd-1.png',
             '/wp-content/uploads/2026/09/wellformmd-2.png',
@@ -1794,7 +1812,7 @@ const projects = [
        ======================================== */
 
     const nameElement = infoColumn.querySelector('h3');
-    const stackElement = infoColumn.querySelector('h4');
+    const stackElement = infoColumn.querySelector('.portfolio-tech-stack');
     const descriptionElement = infoColumn.querySelector('p:not(.portfolio-context)');
     const contextElement = infoColumn.querySelector('.portfolio-context');
 
@@ -1839,7 +1857,14 @@ const projects = [
         }
 
         if (stackElement) {
-            stackElement.textContent = project.stack;
+            stackElement.replaceChildren(
+                ...project.stack.split(' · ').map(technology => {
+                    const chip = document.createElement('span');
+                    chip.className = 'portfolio-tech-chip';
+                    chip.textContent = technology;
+                    return chip;
+                })
+            );
         }
 
         if (descriptionElement) {
@@ -1874,6 +1899,8 @@ const projects = [
             if (imageUrl) {
 
                 image.parentElement.style.display = '';
+                image.parentElement.setAttribute('aria-label', 'Ver imagen ' + (index + 1) + ' de ' + project.name);
+                image.parentElement.setAttribute('aria-pressed', index === 0 ? 'true' : 'false');
 
                 updateImage(
                     image,
@@ -1916,10 +1943,7 @@ const projects = [
 
             const isActive = index === projectIndex;
 
-            heading.setAttribute(
-                'aria-selected',
-                isActive ? 'true' : 'false'
-            );
+            heading.setAttribute('aria-pressed', isActive ? 'true' : 'false');
 
             heading.classList.toggle(
                 'is-active',
@@ -1942,10 +1966,9 @@ const projects = [
         if (!heading) return;
 
 
-        heading.setAttribute(
-            'role',
-            'button'
-        );
+        heading.setAttribute('role', 'button');
+        heading.setAttribute('aria-pressed', 'false');
+        heading.setAttribute('aria-label', 'Mostrar proyecto ' + projects[index].name);
 
         heading.setAttribute(
             'tabindex',
@@ -2001,15 +2024,9 @@ const projects = [
         const thumbnailContainer = image.parentElement;
 
 
-        thumbnailContainer.setAttribute(
-            'role',
-            'button'
-        );
-
-        thumbnailContainer.setAttribute(
-            'tabindex',
-            '0'
-        );
+        thumbnailContainer.setAttribute('role', 'button');
+        thumbnailContainer.setAttribute('tabindex', '0');
+        thumbnailContainer.setAttribute('aria-pressed', 'false');
 
 
         const selectImage = () => {
@@ -2021,9 +2038,7 @@ const projects = [
 
                     return (
                         heading &&
-                        heading.getAttribute(
-                            'aria-selected'
-                        ) === 'true'
+                        heading.getAttribute('aria-pressed') === 'true'
                     );
 
                 }
@@ -2059,10 +2074,9 @@ const projects = [
             thumbnailImages.forEach(
                 (thumbnail, thumbnailIndex) => {
 
-                    thumbnail.classList.toggle(
-                        'is-active',
-                        thumbnailIndex === index
-                    );
+                    thumbnail.classList.toggle('is-active', thumbnailIndex === index);
+                    thumbnail.parentElement.setAttribute('aria-pressed', thumbnailIndex === index ? 'true' : 'false');
+                    thumbnail.parentElement.setAttribute('aria-label', 'Ver imagen ' + (thumbnailIndex + 1) + ' de ' + project.name);
 
                 }
             );
@@ -2304,13 +2318,13 @@ const projects = [
         const mwsPreviousProject = mwsButton(
             'Proyecto anterior',
             'mws-project-arrow',
-            '&#8249;'
+            '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m14.5 5.5-6.5 6.5 6.5 6.5"/></svg><span class="mws-project-arrow-label">Anterior</span>'
         );
 
         const mwsNextProject = mwsButton(
             'Proyecto siguiente',
             'mws-project-arrow',
-            '&#8250;'
+            '<span class="mws-project-arrow-label">Siguiente</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9.5 5.5 6.5 6.5-6.5 6.5"/></svg>'
         );
 
         const mwsProjectCounter = document.createElement('span');
