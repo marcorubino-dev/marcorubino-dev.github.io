@@ -946,6 +946,66 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
   #portfolio .portfolio-thumbnail img{transition:none}
 }
 
+/* Service cards: stronger identity and clearer information hierarchy */
+.mws-service-card{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  padding:30px 28px;
+  border:1px solid #D8E4F0;
+  border-top:3px solid #4DA3FF;
+  border-radius:14px;
+  background:linear-gradient(145deg,#FFFFFF 0%,#F7FAFE 100%);
+  box-shadow:0 10px 28px rgba(15,23,42,.07);
+  transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease;
+}
+.mws-service-card::after{
+  content:"";
+  position:absolute;
+  z-index:-1;
+  top:-48px;
+  right:-48px;
+  width:150px;
+  height:150px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(77,163,255,.12),rgba(77,163,255,0) 70%);
+  pointer-events:none;
+}
+.mws-service-topline{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:22px}
+.mws-service-icon{display:grid;place-items:center;flex:0 0 48px;width:48px;height:48px;border-radius:13px;background:#E8F2FC;color:#2563EB}
+.mws-service-icon svg{display:block;width:25px;height:25px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.mws-service-index{display:inline-flex;align-items:center;justify-content:center;min-width:38px;height:28px;margin:0;padding:0 9px;border:1px solid #D8E6F5;border-radius:999px;background:#F2F7FC;color:#356B9D;font-size:12px;letter-spacing:.08em}
+.mws-service-card h3{max-width:24ch;margin:0 0 12px;font-size:20px;line-height:1.3}
+.mws-service-card ul{margin:0;padding:0;list-style:none}
+.mws-service-card li{position:relative;padding-left:16px}
+.mws-service-card li::before{content:"";position:absolute;top:.72em;left:0;width:6px;height:6px;border-radius:50%;background:#4DA3FF}
+@media(hover:hover){
+  .mws-service-card:hover{transform:translateY(-4px);border-color:#B8D3ED;box-shadow:0 16px 34px rgba(15,23,42,.11)}
+}
+/* Engagement panel: one deliberate reading path instead of split columns */
+.mws-engagement{padding:42px 44px;border-color:#2B405A;background:linear-gradient(135deg,#0B1120 0%,#14243A 100%);box-shadow:0 16px 38px rgba(11,17,32,.14)}
+.mws-engagement-heading{display:block;max-width:800px;margin-bottom:24px}
+.mws-engagement-heading h2{max-width:22ch;margin:0 0 14px}
+.mws-engagement-heading>p{max-width:68ch;margin:0}
+.mws-engagement-note{max-width:760px;margin:0 0 20px;padding-left:16px;border-left:2px solid #4DA3FF}
+.mws-engagement-link{padding:11px 15px;border:1px solid rgba(156,203,250,.35);border-radius:8px;background:rgba(77,163,255,.09);transition:background .2s ease,border-color .2s ease}
+.mws-engagement-link:hover,.mws-engagement-link:focus-visible{background:rgba(77,163,255,.16);border-color:#7CB8F0}
+@media(max-width:900px){
+  .mws-service-card{padding:27px 24px}
+  .mws-engagement{padding:34px 30px}
+}
+@media(max-width:600px){
+  .mws-service-card{padding:25px 22px}
+  .mws-service-topline{margin-bottom:18px}
+  .mws-service-icon{flex-basis:44px;width:44px;height:44px}
+  .mws-engagement{padding:28px 22px}
+  .mws-engagement-heading h2{max-width:19ch}
+  .mws-engagement-link{max-width:100%;flex-wrap:wrap}
+}
+@media(prefers-reduced-motion:reduce){
+  .mws-service-card,.mws-engagement-link{transition:none}
+  .mws-service-card:hover{transform:none}
+}
 </style>
 </head>
 
@@ -1091,7 +1151,10 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
 
     <div class="mws-service-grid">
       <article class="mws-service-card">
-        <span class="mws-service-index">01</span>
+        <div class="mws-service-topline">
+          <span class="mws-service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14.5 6.5a4.5 4.5 0 0 0-5.9 5.9l-5.4 5.4a2 2 0 0 0 2.8 2.8l5.4-5.4a4.5 4.5 0 0 0 5.9-5.9l-2.8 2.8-2.8-2.8 2.8-2.8Z"/></svg></span>
+          <span class="mws-service-index">01</span>
+        </div>
         <h3>Soporte y resolución de problemas</h3>
         <p>Reviso errores, fallos de funcionamiento y conflictos entre plugins o temas para identificar qué está pasando y cómo corregirlo.</p>
         <ul>
@@ -1101,7 +1164,10 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
         </ul>
       </article>
       <article class="mws-service-card">
-        <span class="mws-service-index">02</span>
+        <div class="mws-service-topline">
+          <span class="mws-service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 3h2l2.2 11.2a2 2 0 0 0 2 1.6h8.9a2 2 0 0 0 1.9-1.4L22 7H6"/><circle cx="10" cy="20" r="1"/><circle cx="18" cy="20" r="1"/><path d="M9 10h8M13 6v8"/></svg></span>
+          <span class="mws-service-index">02</span>
+        </div>
         <h3>WooCommerce</h3>
         <p>Soporte para tiendas online cuando algo falla en el catálogo, el carrito, el checkout o el proceso de pago.</p>
         <ul>
@@ -1111,7 +1177,10 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
         </ul>
       </article>
       <article class="mws-service-card">
-        <span class="mws-service-index">03</span>
+        <div class="mws-service-topline">
+          <span class="mws-service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m8 7-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/></svg></span>
+          <span class="mws-service-index">03</span>
+        </div>
         <h3>Desarrollo y mejoras</h3>
         <p>Implemento funcionalidades y mejoras sobre sitios WordPress existentes, adaptándome a su estructura y a las necesidades del proyecto.</p>
         <ul>
