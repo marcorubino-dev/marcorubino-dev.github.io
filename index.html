@@ -882,17 +882,130 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
 .mws-engagement .mws-offer-eyebrow{color:#7CB8F0}
 .mws-engagement-heading h2{margin:0 0 14px;color:#F8FAFC;font-size:clamp(25px,3vw,32px);line-height:1.2}
 .mws-engagement-heading>p{max-width:680px;margin:0;color:#B8C5D6;line-height:1.7}
-.mws-price-list{border-top:1px solid rgba(148,177,208,.25)}
-.mws-price-item{display:flex;justify-content:space-between;align-items:center;gap:24px;padding:19px 0;border-bottom:1px solid rgba(148,177,208,.25)}
-.mws-price-item h3{margin:0 0 5px;color:#F8FAFC;font-size:16px}
-.mws-price-item p{margin:0;color:#B8C5D6;font-size:14px;line-height:1.6}
-.mws-price-item>strong{flex:0 0 auto;color:#9CCBFA;font-size:16px;text-align:right}
 .mws-engagement-note{max-width:850px;margin:22px 0 16px;color:#AAB9CB;font-size:13px;line-height:1.7}
 .mws-engagement-link{display:inline-flex;align-items:center;gap:10px;color:#9CCBFA;font-weight:700;text-decoration:none}
 .mws-engagement-link:hover,.mws-engagement-link:focus-visible{color:#fff;text-decoration:underline}
 @media(max-width:900px){.mws-service-grid{grid-template-columns:1fr 1fr}.mws-service-card:last-child{grid-column:1/-1}.mws-engagement-heading{grid-template-columns:1fr;gap:12px}}
-@media(max-width:600px){.mws-offer-section{padding:58px 20px}.mws-service-grid{grid-template-columns:1fr}.mws-service-card:last-child{grid-column:auto}.mws-service-card{padding:23px 21px}.mws-service-index{margin-bottom:16px}.mws-engagement{margin-top:42px;padding:30px 22px}.mws-price-item{align-items:flex-start;flex-direction:column;gap:8px}.mws-price-item>strong{text-align:left}}
-@media(prefers-reduced-motion:reduce){.mws-engagement-link{transition:none}}
+@media(max-width:600px){.mws-offer-section{padding:58px 20px}.mws-service-grid{grid-template-columns:1fr}.mws-service-card:last-child{grid-column:auto}.mws-service-card{padding:23px 21px}.mws-service-index{margin-bottom:16px}.mws-engagement{margin-top:42px;padding:30px 22px}}
+
+/* ========================================
+   HOME — VISUAL HIERARCHY REFINEMENT
+   ======================================== */
+
+/* Servicios: lectura cómoda y tarjetas equilibradas */
+.mws-service-card{padding:30px 28px}
+.mws-service-card p,
+.mws-service-card li{font-size:16px;line-height:1.72}
+.mws-service-card p{margin-bottom:18px}
+.mws-service-card li+li{margin-top:7px}
+.mws-service-index{margin-bottom:20px}
+.mws-offer-heading>p:last-child{font-size:16px;line-height:1.75}
+
+/* Modalidades: diferenciar mejor concepto, detalle e importe */
+.mws-engagement-heading>p{font-size:16px;line-height:1.75}
+.mws-engagement-note{font-size:14px;line-height:1.75}
+.mws-engagement-link{padding:5px 0;text-underline-offset:4px}
+.mws-engagement-link:focus-visible{outline:2px solid #7CB8F0;outline-offset:5px;border-radius:3px}
+
+/* Portfolio: reforzar el proyecto activo y la lectura del caso */
+#portfolio .portfolio-project h4{font-size:15px;line-height:1.45;letter-spacing:.02em;padding:5px 0}
+#portfolio .portfolio-project h4:focus-visible{outline:2px solid #4DA3FF;outline-offset:5px;border-radius:3px}
+#portfolio .portfolio-info h3{font-size:clamp(27px,3vw,36px);line-height:1.2;margin-bottom:10px}
+#portfolio .portfolio-info h4{font-size:14px;line-height:1.55;letter-spacing:.035em}
+#portfolio .portfolio-info p{font-size:16px;line-height:1.75}
+#portfolio .portfolio-info .portfolio-context{font-size:14px;line-height:1.6}
+#portfolio .portfolio-main-image img{display:block;width:100%;height:auto;border-radius:12px}
+#portfolio .portfolio-thumbnail{cursor:pointer}
+#portfolio .portfolio-thumbnail img{display:block;width:100%;height:auto;border-radius:7px}
+#portfolio .portfolio-thumbnail:focus-visible{outline:2px solid #4DA3FF;outline-offset:4px;border-radius:7px}
+#portfolio .mws-project-navigation{font-size:13px}
+
+/* Sobre mí: ancho de lectura y ritmo tipográfico */
+#Sobremi h2{font-size:clamp(28px,3.2vw,40px);line-height:1.22}
+#Sobremi .kt-inside-inner-col>p{max-width:66ch;font-size:17px;line-height:1.8}
+#Sobremi figure img{border-radius:12px}
+
+/* Responsive */
+@media(max-width:900px){
+  .mws-service-card{padding:27px 24px}
+  #portfolio .portfolio-project h4{font-size:14px}
+}
+@media(max-width:600px){
+  .mws-offer-section{padding:62px 20px}
+  .mws-service-card{padding:25px 22px}
+  .mws-service-index{margin-bottom:16px}
+  .mws-engagement{padding:28px 22px}
+  #portfolio .portfolio-info h3{font-size:28px}
+  #portfolio .portfolio-info p{font-size:16px}
+  #portfolio .portfolio-thumbnail img{border-radius:5px}
+  #Sobremi .kt-inside-inner-col>p{font-size:16px;line-height:1.75}
+}
+@media(prefers-reduced-motion:reduce){
+  .mws-engagement-link{transition:none}
+  #portfolio .portfolio-project h4,
+  #portfolio .portfolio-thumbnail img{transition:none}
+}
+
+/* Service cards: stronger identity and clearer information hierarchy */
+.mws-service-card{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  padding:30px 28px;
+  border:1px solid #D8E4F0;
+  border-top:3px solid #4DA3FF;
+  border-radius:14px;
+  background:linear-gradient(145deg,#FFFFFF 0%,#F7FAFE 100%);
+  box-shadow:0 10px 28px rgba(15,23,42,.07);
+  transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease;
+}
+.mws-service-card::after{
+  content:"";
+  position:absolute;
+  z-index:-1;
+  top:-48px;
+  right:-48px;
+  width:150px;
+  height:150px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(77,163,255,.12),rgba(77,163,255,0) 70%);
+  pointer-events:none;
+}
+.mws-service-topline{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:22px}
+.mws-service-icon{display:grid;place-items:center;flex:0 0 48px;width:48px;height:48px;border-radius:13px;background:#E8F2FC;color:#2563EB}
+.mws-service-icon svg{display:block;width:25px;height:25px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.mws-service-index{display:inline-flex;align-items:center;justify-content:center;min-width:38px;height:28px;margin:0;padding:0 9px;border:1px solid #D8E6F5;border-radius:999px;background:#F2F7FC;color:#356B9D;font-size:12px;letter-spacing:.08em}
+.mws-service-card h3{max-width:24ch;margin:0 0 12px;font-size:20px;line-height:1.3}
+.mws-service-card ul{margin:0;padding:0;list-style:none}
+.mws-service-card li{position:relative;padding-left:16px}
+.mws-service-card li::before{content:"";position:absolute;top:.72em;left:0;width:6px;height:6px;border-radius:50%;background:#4DA3FF}
+@media(hover:hover){
+  .mws-service-card:hover{transform:translateY(-4px);border-color:#B8D3ED;box-shadow:0 16px 34px rgba(15,23,42,.11)}
+}
+/* Engagement panel: one deliberate reading path instead of split columns */
+.mws-engagement{padding:42px 44px;border-color:#2B405A;background:linear-gradient(135deg,#0B1120 0%,#14243A 100%);box-shadow:0 16px 38px rgba(11,17,32,.14)}
+.mws-engagement-heading{display:block;max-width:800px;margin-bottom:24px}
+.mws-engagement-heading h2{max-width:22ch;margin:0 0 14px}
+.mws-engagement-heading>p{max-width:68ch;margin:0}
+.mws-engagement-note{max-width:760px;margin:0 0 20px;padding-left:16px;border-left:2px solid #4DA3FF}
+.mws-engagement-link{padding:11px 15px;border:1px solid rgba(156,203,250,.35);border-radius:8px;background:rgba(77,163,255,.09);transition:background .2s ease,border-color .2s ease}
+.mws-engagement-link:hover,.mws-engagement-link:focus-visible{background:rgba(77,163,255,.16);border-color:#7CB8F0}
+@media(max-width:900px){
+  .mws-service-card{padding:27px 24px}
+  .mws-engagement{padding:34px 30px}
+}
+@media(max-width:600px){
+  .mws-service-card{padding:25px 22px}
+  .mws-service-topline{margin-bottom:18px}
+  .mws-service-icon{flex-basis:44px;width:44px;height:44px}
+  .mws-engagement{padding:28px 22px}
+  .mws-engagement-heading h2{max-width:19ch}
+  .mws-engagement-link{max-width:100%;flex-wrap:wrap}
+}
+@media(prefers-reduced-motion:reduce){
+  .mws-service-card,.mws-engagement-link{transition:none}
+  .mws-service-card:hover{transform:none}
+}
 </style>
 </head>
 
@@ -1038,19 +1151,25 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
 
     <div class="mws-service-grid">
       <article class="mws-service-card">
-        <span class="mws-service-index">01</span>
-        <h3>Soporte y resolución de problemas</h3>
-        <p>Reviso errores, fallos de funcionamiento y conflictos entre plugins o temas para identificar qué está pasando y cómo corregirlo.</p>
+        <div class="mws-service-topline">
+          <span class="mws-service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14.5 6.5a4.5 4.5 0 0 0-5.9 5.9l-5.4 5.4a2 2 0 0 0 2.8 2.8l5.4-5.4a4.5 4.5 0 0 0 5.9-5.9l-2.8 2.8-2.8-2.8 2.8-2.8Z"/></svg></span>
+          <span class="mws-service-index">01</span>
+        </div>
+        <h3>Soporte y diagnóstico</h3>
+        <p>Diagnóstico de errores y conflictos para identificar su origen y definir una solución.</p>
         <ul>
-          <li>Errores y conflictos entre plugins o temas</li>
-          <li>Sitios lentos o con comportamientos inesperados</li>
-          <li>Actualizaciones, migraciones y restauraciones</li>
+          <li>Conflictos entre plugins o temas</li>
+          <li>Errores y fallos de funcionamiento</li>
+          <li>Rendimiento, actualizaciones y migraciones</li>
         </ul>
       </article>
       <article class="mws-service-card">
-        <span class="mws-service-index">02</span>
+        <div class="mws-service-topline">
+          <span class="mws-service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 3h2l2.2 11.2a2 2 0 0 0 2 1.6h8.9a2 2 0 0 0 1.9-1.4L22 7H6"/><circle cx="10" cy="20" r="1"/><circle cx="18" cy="20" r="1"/><path d="M9 10h8M13 6v8"/></svg></span>
+          <span class="mws-service-index">02</span>
+        </div>
         <h3>WooCommerce</h3>
-        <p>Soporte para tiendas online cuando algo falla en el catálogo, el carrito, el checkout o el proceso de pago.</p>
+        <p>Reviso problemas en el catálogo, carrito, checkout y medios de pago de tu tienda.</p>
         <ul>
           <li>Productos, variaciones y catálogo</li>
           <li>Carrito, checkout y medios de pago</li>
@@ -1058,9 +1177,12 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
         </ul>
       </article>
       <article class="mws-service-card">
-        <span class="mws-service-index">03</span>
+        <div class="mws-service-topline">
+          <span class="mws-service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m8 7-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/></svg></span>
+          <span class="mws-service-index">03</span>
+        </div>
         <h3>Desarrollo y mejoras</h3>
-        <p>Implemento funcionalidades y mejoras sobre sitios WordPress existentes, adaptándome a su estructura y a las necesidades del proyecto.</p>
+        <p>Desarrollo funcionalidades y ajustes para adaptar WordPress a las necesidades del proyecto.</p>
         <ul>
           <li>Funcionalidades a medida</li>
           <li>Conexión con servicios y APIs</li>
@@ -1070,33 +1192,19 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
     </div>
 
     <section class="mws-engagement" aria-labelledby="mws-engagement-title">
-      <div class="mws-engagement-heading">
-        <div>
-          <p class="mws-offer-eyebrow">MODALIDADES DE INTERVENCIÓN</p>
-          <h2 id="mws-engagement-title">Un alcance claro antes de empezar.</h2>
+      <div class="mws-engagement-layout">
+        <div class="mws-engagement-main">
+          <div class="mws-engagement-heading">
+            <p class="mws-offer-eyebrow">CÓMO PODEMOS TRABAJAR</p>
+            <h2 id="mws-engagement-title">Hablemos de lo que necesitás resolver.</h2>
+            <p>Cada proyecto se evalúa según el problema, el alcance y las condiciones del trabajo. Antes de avanzar, definimos qué se necesita y cómo abordarlo.</p>
+          </div>
         </div>
-        <p>El presupuesto depende del tipo de trabajo y de lo que sea necesario revisar. Estos valores son puntos de partida para intervenciones acotadas.</p>
-      </div>
-      <div class="mws-price-list">
-        <div class="mws-price-item">
-          <div><h3>Ajustes puntuales</h3><p>Correcciones CSS, responsive y modificaciones menores con alcance identificado.</p></div>
-          <strong>Desde ARS 19.000</strong>
-        </div>
-        <div class="mws-price-item">
-          <div><h3>Diagnóstico e intervención WordPress</h3><p>Evaluación técnica y primera intervención acotada, cuando el alcance lo permite.</p></div>
-          <strong>Desde ARS 25.000</strong>
-        </div>
-        <div class="mws-price-item">
-          <div><h3>WooCommerce</h3><p>Incidencias y ajustes acotados. Checkout, pagos e integraciones complejas requieren evaluación.</p></div>
-          <strong>Desde ARS 30.000</strong>
-        </div>
-        <div class="mws-price-item">
-          <div><h3>Desarrollo e integraciones</h3><p>Funcionalidades personalizadas presupuestadas según requisitos y alcance.</p></div>
-          <strong>Según alcance</strong>
+        <div class="mws-engagement-details">
+          <p class="mws-engagement-note">Toda intervención parte de un alcance acordado: qué se va a revisar, qué tareas incluye y cómo se comprobará el resultado. Si aparece trabajo adicional, se explica y se presupuesta antes de continuar.</p>
+          <a class="mws-engagement-link" href="/contacto/">Contame qué necesitás resolver <span aria-hidden="true">→</span></a>
         </div>
       </div>
-      <p class="mws-engagement-note">Cada intervención parte de un alcance acordado. Según el trabajo, incluye revisión del problema, cambios dentro del alcance y comprobación del resultado. El precio inicial no implica una resolución garantizada ni investigación ilimitada. Cualquier trabajo adicional se explica y presupuesta para tu aprobación antes de continuar.</p>
-      <a class="mws-engagement-link" href="/contacto/">Contame qué necesitás resolver <span aria-hidden="true">→</span></a>
     </section>
   </div>
 </section>
@@ -1234,7 +1342,7 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
 
 
 
-<h4 class="kt-adv-heading133_0ea3b8-3b wp-block-kadence-advancedheading has-theme-palette-6-color has-text-color" data-kb-block="kb-adv-heading133_0ea3b8-3b">WordPress · WooCommerce · Performance</h4>
+<div class="portfolio-tech-stack" aria-label="Tecnologías utilizadas"></div>
 
 
 
@@ -1364,7 +1472,138 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
 
 
 <!-- Facebook -->
-<style>.kt-svg-item-6f34de-d2 .kb-svg-icon-wrap, .kt-svg-style-stacked.kt-svg-item-6f34de-d2 .kb-svg-icon-wrap{color:var(--global-palette1, #3182CE);font-size:20px;background:var(--global-palette3, #1A202C);border-color:var(--global-palette1, #3182CE);border-width:1px;border-radius:50%;padding-top:var(--global-kb-spacing-xs, 1rem);padding-right:var(--global-kb-spacing-xs, 1rem);padding-bottom:var(--global-kb-spacing-xs, 1rem);padding-left:var(--global-kb-spacing-xs, 1rem);}.kt-svg-item-6f34de-d2:hover .kb-svg-icon-wrap{background:var(--global-palette1, #3182CE);border-color:var(--global-palette3, #1A202C);}.kt-svg-item-6f34de-d2:hover .kb-svg-icon-wrap{color:var(--global-palette3, #1A202C);}</style>
+<style>.kt-svg-item-6f34de-d2 .kb-svg-icon-wrap, .kt-svg-style-stacked.kt-svg-item-6f34de-d2 .kb-svg-icon-wrap{color:var(--global-palette1, #3182CE);font-size:20px;background:var(--global-palette3, #1A202C);border-color:var(--global-palette1, #3182CE);border-width:1px;border-radius:50%;padding-top:var(--global-kb-spacing-xs, 1rem);padding-right:var(--global-kb-spacing-xs, 1rem);padding-bottom:var(--global-kb-spacing-xs, 1rem);padding-left:var(--global-kb-spacing-xs, 1rem);}.kt-svg-item-6f34de-d2:hover .kb-svg-icon-wrap{background:var(--global-palette1, #3182CE);border-color:var(--global-palette3, #1A202C);}.kt-svg-item-6f34de-d2:hover .kb-svg-icon-wrap{color:var(--global-palette3, #1A202C);}/* HOME — refinement after desktop review */
+.mws-service-card li::before{background:#64748B}
+.mws-engagement{padding:42px 44px}
+.mws-engagement-layout{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(250px,.75fr);align-items:center;gap:42px}
+.mws-engagement-main{min-width:0}
+.mws-engagement-heading{display:block;max-width:unset;margin-bottom:22px}
+.mws-engagement-heading h2{max-width:19ch}
+.mws-engagement-heading>p{max-width:62ch}
+.mws-engagement-note{max-width:unset;margin:0 0 20px}
+.mws-engagement-process{position:relative;padding:26px 24px;border:1px solid rgba(148,177,208,.2);border-radius:12px;background:linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.018))}
+.mws-process-eyebrow{margin:0 0 22px;color:#9CB7D3;font-size:11px;font-weight:700;letter-spacing:.14em}
+.mws-engagement-process ol{position:relative;display:grid;gap:20px;margin:0;padding:0;list-style:none}
+.mws-engagement-process ol::before{content:"";position:absolute;top:17px;bottom:17px;left:16px;width:1px;background:rgba(124,184,240,.35)}
+.mws-engagement-process li{position:relative;display:grid;grid-template-columns:34px minmax(0,1fr);align-items:start;gap:12px}
+.mws-engagement-process li>span{position:relative;z-index:1;display:grid;place-items:center;width:33px;height:33px;border:1px solid rgba(124,184,240,.42);border-radius:50%;background:#14243A;color:#B8C5D6;font-size:11px;font-weight:700}
+.mws-engagement-process strong{display:block;margin:1px 0 4px;color:#F1F5F9;font-size:14px;line-height:1.35}
+.mws-engagement-process small{display:block;color:#AAB9CB;font-size:12px;line-height:1.55}
+@media(max-width:900px){
+  .mws-engagement-layout{grid-template-columns:minmax(0,1fr) minmax(220px,.8fr);gap:24px}
+  .mws-engagement{padding:34px 30px}
+}
+@media(max-width:700px){
+  .mws-engagement-layout{grid-template-columns:1fr;gap:26px}
+  .mws-engagement-process{padding:22px 20px}
+  .mws-engagement-process ol{gap:16px}
+}
+@media(max-width:600px){
+  .mws-engagement{padding:28px 22px}
+}
+
+/* HOME — desktop review: balance cards and engagement panel */
+.mws-service-card{
+  display:flex;
+  flex-direction:column;
+}
+.mws-service-card p{
+  max-width:38ch;
+}
+.mws-service-card ul{
+  margin-top:auto;
+  padding-top:18px;
+}
+.mws-service-card li::before{
+  background:#94A3B8;
+}
+.mws-engagement-layout{
+  grid-template-columns:minmax(0,1.2fr) minmax(290px,.8fr);
+  gap:32px;
+}
+.mws-engagement-process{
+  align-self:stretch;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  min-height:100%;
+  padding:32px 30px;
+  border-color:rgba(148,177,208,.28);
+  background:
+    radial-gradient(circle at 100% 0%,rgba(77,163,255,.13),transparent 42%),
+    linear-gradient(145deg,rgba(255,255,255,.075),rgba(255,255,255,.018));
+}
+.mws-process-eyebrow{
+  margin-bottom:26px;
+}
+.mws-engagement-process ol{
+  gap:24px;
+}
+.mws-engagement-process small{
+  max-width:28ch;
+  font-size:13px;
+}
+@media(max-width:900px){
+  .mws-engagement-layout{
+    grid-template-columns:minmax(0,1fr) minmax(250px,.85fr);
+    gap:24px;
+  }
+  .mws-engagement-process{padding:26px 22px}
+}
+@media(max-width:700px){
+  .mws-engagement-layout{grid-template-columns:1fr;gap:26px}
+  .mws-engagement-process{min-height:0}
+}
+
+
+/* HOME — remove duplicated process summary and balance engagement content */
+.mws-engagement-layout{
+  grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);
+  align-items:center;
+  gap:48px;
+}
+.mws-engagement-main{min-width:0}
+.mws-engagement-details{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  min-width:0;
+  min-height:100%;
+  padding:8px 0 8px 30px;
+  border-left:1px solid rgba(148,177,208,.24);
+}
+.mws-engagement-note{
+  max-width:48ch;
+  margin:0 0 24px;
+}
+@media(max-width:900px){
+  .mws-engagement-layout{grid-template-columns:minmax(0,1fr) minmax(0,.9fr);gap:30px}
+  .mws-engagement-details{padding-left:22px}
+}
+@media(max-width:700px){
+  .mws-engagement-layout{grid-template-columns:1fr;gap:22px}
+  .mws-engagement-details{min-height:0;padding:22px 0 0;border-left:0;border-top:1px solid rgba(148,177,208,.24)}
+}
+
+
+/* PORTFOLIO — technology chips and clearer navigation controls */
+#portfolio .portfolio-tech-stack{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 16px}
+#portfolio .portfolio-tech-chip{display:inline-flex;align-items:center;min-height:28px;padding:4px 10px;border:1px solid rgba(124,184,240,.28);border-radius:999px;background:rgba(77,163,255,.09);color:#BFD8F0;font-size:12px;font-weight:600;line-height:1.35;letter-spacing:.01em}
+#portfolio .portfolio-info p{max-width:58ch}
+#portfolio .mws-gallery-arrow{width:46px;height:46px;opacity:.96;border-color:rgba(255,255,255,.38);background:rgba(11,17,32,.88)}
+#portfolio .mws-gallery-arrow:focus-visible,#portfolio .mws-project-arrow:focus-visible{outline:3px solid #8CC5FF;outline-offset:3px}
+#portfolio .mws-project-navigation{gap:12px;margin:16px 0 18px}
+#portfolio .mws-project-arrow{width:auto;min-width:40px;height:40px;padding:0 11px;gap:7px;border-radius:8px;font-size:12px;font-weight:600}
+#portfolio .mws-project-arrow svg{width:16px;height:16px}
+#portfolio .mws-project-arrow-label{display:inline}
+#portfolio .portfolio-thumbnail{cursor:pointer;border-radius:8px;transition:transform .18s ease,opacity .18s ease}
+#portfolio .portfolio-thumbnail:hover{transform:translateY(-2px)}
+#portfolio .portfolio-thumbnail:focus-visible{outline:3px solid #8CC5FF;outline-offset:4px}
+#portfolio .portfolio-thumbnail[aria-pressed="true"] img{opacity:1;border:2px solid #4DA3FF !important;box-shadow:0 0 0 2px rgba(77,163,255,.16)}
+@media(max-width:640px){#portfolio .mws-project-navigation{gap:8px}#portfolio .mws-project-arrow{padding:0 9px}}
+@media(prefers-reduced-motion:reduce){#portfolio .portfolio-thumbnail{transition:none}}
+
+</style>
 
 <div class="wp-block-kadence-single-icon kt-svg-style-stacked kt-svg-icon-wrap kt-svg-item-6f34de-d2">
 <a href="https://www.facebook.com/marco.wp.dev" class="kt-svg-icon-link" aria-label="Facebook">
@@ -1479,7 +1718,7 @@ const projects = [
     {
         name: 'PolyCor',
         stack: 'WordPress · WooCommerce · XStore · Custom Plugins',
-        description: 'Desarrollo de funcionalidades para WooCommerce: filtros dinámicos y gestión de marcas por categoría.',
+        description: 'Desarrollo del sitio y de funcionalidades a medida para WooCommerce. Incorporé filtros dinámicos y gestión de marcas vinculada a las categorías, ampliando las opciones de navegación del catálogo.',
         context: 'Proyecto realizado. Sitio actualmente fuera de línea.',
         images: [
             '/wp-content/uploads/2026/09/woocommerce-store-optimization-1024x496.png',
@@ -1493,7 +1732,7 @@ const projects = [
     {
         name: 'Tattoo Carpe',
         stack: 'WordPress · Kadence · Kadence Blocks',
-        description: 'Desarrollo de un sitio para un estudio de tatuajes, con perfiles de artistas, galerías individuales y secciones para cursos y servicios.',
+        description: 'Diseño y desarrollo del sitio para un estudio de tatuajes, organizando la presentación de sus artistas mediante perfiles y galerías individuales. También estructuré secciones específicas para comunicar cursos y servicios.',
         context: 'Proyecto realizado. Sitio actualmente fuera de línea.',
         images: [
             '/wp-content/uploads/2026/09/tattoo-carpe-1.png',
@@ -1507,7 +1746,7 @@ const projects = [
     {
         name: 'Schefferlii',
         stack: 'WordPress · WooCommerce · WPML · Custom Development',
-        description: 'Intervención técnica en un sitio WooCommerce multidioma y desarrollo de una solución para gestionar redirecciones según el idioma.',
+        description: 'Intervención técnica sobre una tienda WooCommerce multidioma, incluyendo tareas de migración y una solución de redirecciones según el idioma para dirigir a cada visitante a la versión correspondiente del sitio.',
         images: [
             '/wp-content/uploads/2026/09/schefferlii-1.png',
             '/wp-content/uploads/2026/09/schefferlii-2.png',
@@ -1519,7 +1758,7 @@ const projects = [
     {
         name: 'WellForm MD',
         stack: 'WordPress · Kadence · Custom Post Types',
-        description: 'Desarrollo de páginas de tratamientos y estructuración de contenido mediante Custom Post Types (CPTs).',
+        description: 'Estructuración del contenido del sitio mediante Custom Post Types y desarrollo de páginas específicas para tratamientos. El trabajo permitió organizar la información con una estructura reutilizable y consistente.',
         images: [
             '/wp-content/uploads/2026/09/wellformmd-1.png',
             '/wp-content/uploads/2026/09/wellformmd-2.png',
@@ -1573,7 +1812,7 @@ const projects = [
        ======================================== */
 
     const nameElement = infoColumn.querySelector('h3');
-    const stackElement = infoColumn.querySelector('h4');
+    const stackElement = infoColumn.querySelector('.portfolio-tech-stack');
     const descriptionElement = infoColumn.querySelector('p:not(.portfolio-context)');
     const contextElement = infoColumn.querySelector('.portfolio-context');
 
@@ -1618,7 +1857,14 @@ const projects = [
         }
 
         if (stackElement) {
-            stackElement.textContent = project.stack;
+            stackElement.replaceChildren(
+                ...project.stack.split(' · ').map(technology => {
+                    const chip = document.createElement('span');
+                    chip.className = 'portfolio-tech-chip';
+                    chip.textContent = technology;
+                    return chip;
+                })
+            );
         }
 
         if (descriptionElement) {
@@ -1653,6 +1899,8 @@ const projects = [
             if (imageUrl) {
 
                 image.parentElement.style.display = '';
+                image.parentElement.setAttribute('aria-label', 'Ver imagen ' + (index + 1) + ' de ' + project.name);
+                image.parentElement.setAttribute('aria-pressed', index === 0 ? 'true' : 'false');
 
                 updateImage(
                     image,
@@ -1695,10 +1943,7 @@ const projects = [
 
             const isActive = index === projectIndex;
 
-            heading.setAttribute(
-                'aria-selected',
-                isActive ? 'true' : 'false'
-            );
+            heading.setAttribute('aria-pressed', isActive ? 'true' : 'false');
 
             heading.classList.toggle(
                 'is-active',
@@ -1721,10 +1966,9 @@ const projects = [
         if (!heading) return;
 
 
-        heading.setAttribute(
-            'role',
-            'button'
-        );
+        heading.setAttribute('role', 'button');
+        heading.setAttribute('aria-pressed', 'false');
+        heading.setAttribute('aria-label', 'Mostrar proyecto ' + projects[index].name);
 
         heading.setAttribute(
             'tabindex',
@@ -1780,15 +2024,9 @@ const projects = [
         const thumbnailContainer = image.parentElement;
 
 
-        thumbnailContainer.setAttribute(
-            'role',
-            'button'
-        );
-
-        thumbnailContainer.setAttribute(
-            'tabindex',
-            '0'
-        );
+        thumbnailContainer.setAttribute('role', 'button');
+        thumbnailContainer.setAttribute('tabindex', '0');
+        thumbnailContainer.setAttribute('aria-pressed', 'false');
 
 
         const selectImage = () => {
@@ -1800,9 +2038,7 @@ const projects = [
 
                     return (
                         heading &&
-                        heading.getAttribute(
-                            'aria-selected'
-                        ) === 'true'
+                        heading.getAttribute('aria-pressed') === 'true'
                     );
 
                 }
@@ -1838,10 +2074,9 @@ const projects = [
             thumbnailImages.forEach(
                 (thumbnail, thumbnailIndex) => {
 
-                    thumbnail.classList.toggle(
-                        'is-active',
-                        thumbnailIndex === index
-                    );
+                    thumbnail.classList.toggle('is-active', thumbnailIndex === index);
+                    thumbnail.parentElement.setAttribute('aria-pressed', thumbnailIndex === index ? 'true' : 'false');
+                    thumbnail.parentElement.setAttribute('aria-label', 'Ver imagen ' + (thumbnailIndex + 1) + ' de ' + project.name);
 
                 }
             );
@@ -2083,13 +2318,13 @@ const projects = [
         const mwsPreviousProject = mwsButton(
             'Proyecto anterior',
             'mws-project-arrow',
-            '&#8249;'
+            '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m14.5 5.5-6.5 6.5 6.5 6.5"/></svg><span class="mws-project-arrow-label">Anterior</span>'
         );
 
         const mwsNextProject = mwsButton(
             'Proyecto siguiente',
             'mws-project-arrow',
-            '&#8250;'
+            '<span class="mws-project-arrow-label">Siguiente</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9.5 5.5 6.5 6.5-6.5 6.5"/></svg>'
         );
 
         const mwsProjectCounter = document.createElement('span');
@@ -2100,7 +2335,7 @@ const projects = [
         function mwsSyncProjectCounter() {
             const activeIndex = projectColumns.findIndex(column => {
                 const heading = column.querySelector('h4');
-                return heading && heading.getAttribute('aria-selected') === 'true';
+                return heading && heading.getAttribute('aria-pressed') === 'true';
             });
 
             const current = activeIndex < 0 ? 0 : activeIndex;
@@ -2125,7 +2360,7 @@ const projects = [
         function mwsMoveProject(direction) {
             const activeIndex = projectColumns.findIndex(column => {
                 const heading = column.querySelector('h4');
-                return heading && heading.getAttribute('aria-selected') === 'true';
+                return heading && heading.getAttribute('aria-pressed') === 'true';
             });
 
             const baseIndex = activeIndex < 0 ? 0 : activeIndex;
