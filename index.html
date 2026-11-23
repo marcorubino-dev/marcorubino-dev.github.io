@@ -2335,7 +2335,7 @@ const projects = [
         function mwsSyncProjectCounter() {
             const activeIndex = projectColumns.findIndex(column => {
                 const heading = column.querySelector('h4');
-                return heading && heading.getAttribute('aria-selected') === 'true';
+                return heading && heading.getAttribute('aria-pressed') === 'true';
             });
 
             const current = activeIndex < 0 ? 0 : activeIndex;
@@ -2360,7 +2360,7 @@ const projects = [
         function mwsMoveProject(direction) {
             const activeIndex = projectColumns.findIndex(column => {
                 const heading = column.querySelector('h4');
-                return heading && heading.getAttribute('aria-selected') === 'true';
+                return heading && heading.getAttribute('aria-pressed') === 'true';
             });
 
             const baseIndex = activeIndex < 0 ? 0 : activeIndex;
