@@ -1696,8 +1696,11 @@ var kadenceConfig = {"screenReader":{"expand":"Child menu","expandOf":"Child men
     }
   }
   var defaultButtonText = button.textContent;
+  var isSubmitting = false;
   form.addEventListener('submit', function (event) {
     event.preventDefault();
+    if (isSubmitting) return;
+    isSubmitting = true;
     error.hidden = true;
     button.disabled = true;
     button.textContent = 'Enviando...';
@@ -1717,6 +1720,7 @@ var kadenceConfig = {"screenReader":{"expand":"Child menu","expandOf":"Child men
       form.hidden = true;
       success.hidden = false;
     }).catch(function () {
+      isSubmitting = false;
       error.hidden = false;
       button.disabled = false;
       button.textContent = defaultButtonText;
