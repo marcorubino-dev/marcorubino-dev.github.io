@@ -1199,17 +1199,11 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
             <h2 id="mws-engagement-title">Hablemos de lo que necesitás resolver.</h2>
             <p>Cada proyecto se evalúa según el problema, el alcance y las condiciones del trabajo. Antes de avanzar, definimos qué se necesita y cómo abordarlo.</p>
           </div>
+        </div>
+        <div class="mws-engagement-details">
           <p class="mws-engagement-note">Toda intervención parte de un alcance acordado: qué se va a revisar, qué tareas incluye y cómo se comprobará el resultado. Si aparece trabajo adicional, se explica y se presupuesta antes de continuar.</p>
           <a class="mws-engagement-link" href="/contacto/">Contame qué necesitás resolver <span aria-hidden="true">→</span></a>
         </div>
-        <aside class="mws-engagement-process" aria-label="Etapas de trabajo">
-          <p class="mws-process-eyebrow">UN PROCESO CLARO</p>
-          <ol>
-            <li><span>01</span><div><strong>Revisión inicial</strong><small>Entender el problema y su contexto.</small></div></li>
-            <li><span>02</span><div><strong>Alcance definido</strong><small>Acordar tareas y condiciones.</small></div></li>
-            <li><span>03</span><div><strong>Verificación</strong><small>Comprobar el resultado del trabajo.</small></div></li>
-          </ol>
-        </aside>
       </div>
     </section>
   </div>
@@ -1559,6 +1553,36 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
 @media(max-width:700px){
   .mws-engagement-layout{grid-template-columns:1fr;gap:26px}
   .mws-engagement-process{min-height:0}
+}
+
+
+/* HOME — remove duplicated process summary and balance engagement content */
+.mws-engagement-layout{
+  grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);
+  align-items:center;
+  gap:48px;
+}
+.mws-engagement-main{min-width:0}
+.mws-engagement-details{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  min-width:0;
+  min-height:100%;
+  padding:8px 0 8px 30px;
+  border-left:1px solid rgba(148,177,208,.24);
+}
+.mws-engagement-note{
+  max-width:48ch;
+  margin:0 0 24px;
+}
+@media(max-width:900px){
+  .mws-engagement-layout{grid-template-columns:minmax(0,1fr) minmax(0,.9fr);gap:30px}
+  .mws-engagement-details{padding-left:22px}
+}
+@media(max-width:700px){
+  .mws-engagement-layout{grid-template-columns:1fr;gap:22px}
+  .mws-engagement-details{min-height:0;padding:22px 0 0;border-left:0;border-top:1px solid rgba(148,177,208,.24)}
 }
 
 </style>
