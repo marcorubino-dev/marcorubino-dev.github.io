@@ -937,7 +937,7 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
 
 
 
-<div class="wp-block-kadence-form kadence-form-135_47c460-36 kb-form-wrap"><form class="kb-form" name="contact-en" method="POST" action="/contact/" data-netlify="true" netlify-honeypot="bot-field" id="contact-en-form"><input type="hidden" name="form-name" value="contact-en"><input type="hidden" name="subject" value="New contact message from %{siteName}"><div class="kadence-blocks-form-field kb-field-desk-width-100 kb-input-size-standard"><label for="contact-en-name">Name<span class="required">*</span></label><input name="nombre" id="contact-en-name" type="text" placeholder="Enter your name" autocomplete="name" class="kb-field kb-text-style-field kb-text-field kb-field-0" required></div><div class="kadence-blocks-form-field kb-form-field-1 kb-field-desk-width-100 kb-input-size-standard"><label for="contact-en-email">Email address<span class="required">*</span></label><input name="email" id="contact-en-email" type="email" placeholder="you@example.com" autocomplete="email" class="kb-field kb-text-style-field kb-email-field kb-field-1" required></div><div class="kadence-blocks-form-field kb-form-field-2 kb-field-desk-width-100 kb-input-size-standard"><label for="contact-en-website">Website URL</label><input name="sitio" id="contact-en-website" type="text" placeholder="https://yourwebsite.com" autocomplete="url" class="kb-field kb-text-style-field kb-text-field kb-field-2"></div><div class="kadence-blocks-form-field kb-form-field-3 kb-field-desk-width-100 kb-input-size-standard"><label for="contact-en-message">What work do you need done?<span class="required">*</span></label><textarea name="mensaje" id="contact-en-message" placeholder="Example: Build a page, adjust responsive styling, or investigate a WooCommerce issue..." class="kb-field kb-text-style-field kb-textarea-field kb-field-3" rows="4" required></textarea></div><p style="display:none" aria-hidden="true"><label>Please leave this field empty: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p><div class="kadence-blocks-form-field kb-submit-field kb-field-desk-width-100"><button type="submit" class="kb-forms-submit button kb-button-size-standard kb-button-width-full">Send message</button></div></form><div class="kadence-blocks-form-message kadence-blocks-form-success" id="contact-en-form-success" role="status" hidden>Thank you! Your message has been sent. I'll get back to you soon.</div><div class="kadence-blocks-form-message kadence-blocks-form-warning" id="contact-en-form-error" role="alert" hidden>Your message couldn't be sent. Please try again in a few minutes.</div></div>
+<div class="wp-block-kadence-form kadence-form-135_47c460-36 kb-form-wrap"><form class="kb-form" name="contact-en" method="POST" action="/contact/" id="contact-en-form"><input type="hidden" name="subject" value="New contact message from Marco Developer"><div class="kadence-blocks-form-field kb-field-desk-width-100 kb-input-size-standard"><label for="contact-en-name">Name<span class="required">*</span></label><input name="nombre" id="contact-en-name" type="text" placeholder="Enter your name" autocomplete="name" class="kb-field kb-text-style-field kb-text-field kb-field-0" required></div><div class="kadence-blocks-form-field kb-form-field-1 kb-field-desk-width-100 kb-input-size-standard"><label for="contact-en-email">Email address<span class="required">*</span></label><input name="email" id="contact-en-email" type="email" placeholder="you@example.com" autocomplete="email" class="kb-field kb-text-style-field kb-email-field kb-field-1" required></div><div class="kadence-blocks-form-field kb-form-field-2 kb-field-desk-width-100 kb-input-size-standard"><label for="contact-en-website">Website URL</label><input name="sitio" id="contact-en-website" type="text" placeholder="https://yourwebsite.com" autocomplete="url" class="kb-field kb-text-style-field kb-text-field kb-field-2"></div><div class="kadence-blocks-form-field kb-form-field-3 kb-field-desk-width-100 kb-input-size-standard"><label for="contact-en-modality">Collaboration type</label><select name="modalidad" id="contact-en-modality" class="kb-field kb-text-style-field kb-select-field"><option value="">Not sure yet</option><option value="ticket-puntual">One-off task</option><option value="soporte-por-demanda">On-demand support</option><option value="colaboracion-recurrente">Ongoing collaboration</option></select></div><div class="kadence-blocks-form-field kb-form-field-3 kb-field-desk-width-100 kb-input-size-standard"><label for="contact-en-message">What work do you need done?<span class="required">*</span></label><textarea name="mensaje" id="contact-en-message" placeholder="Example: Build a page, adjust responsive styling, or investigate a WooCommerce issue..." class="kb-field kb-text-style-field kb-textarea-field kb-field-3" rows="4" required></textarea></div><input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" autocomplete="off"><div class="kadence-blocks-form-field kb-submit-field kb-field-desk-width-100"><button type="submit" class="kb-forms-submit button kb-button-size-standard kb-button-width-full">Send message</button></div></form><div class="kadence-blocks-form-message kadence-blocks-form-success" id="contact-en-form-success" role="status" hidden>Thank you! Your message has been sent. I'll get back to you soon.</div><div class="kadence-blocks-form-message kadence-blocks-form-warning" id="contact-en-form-error" role="alert" hidden>Your message couldn't be sent. Please try again in a few minutes.</div></div>
 <noscript><div class="kadence-blocks-form-message kadence-blocks-form-warning">Please enable JavaScript in your browser to submit the form</div><style>.kadence-form-135_47c460-36 .kadence-blocks-form-field.kb-submit-field { display: none; }</style></noscript></div></div>
 
 
@@ -1651,10 +1651,28 @@ var kadenceConfig = {"screenReader":{"expand":"Child menu","expandOf":"Child men
   var success = document.getElementById('contact-en-form-success');
   var error = document.getElementById('contact-en-form-error');
   var button = form.querySelector('button[type="submit"]');
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
+  if (!success || !error || !button) return;
+  var modality = document.getElementById('contact-en-modality');
+  var message = document.getElementById('contact-en-message');
+  var selectedModality = new URLSearchParams(window.location.search).get('modalidad');
+  var modalityLabels = {
+    'ticket-puntual': 'a one-off task',
+    'soporte-por-demanda': 'on-demand support',
+    'colaboracion-recurrente': 'ongoing collaboration'
+  };
+  if (modality && selectedModality && modalityLabels[selectedModality]) {
+    modality.value = selectedModality;
+    if (message && !message.value.trim()) {
+      message.value = 'I am interested in ' + modalityLabels[selectedModality] + '.\n\nI would like to discuss: ';
+    }
+  }
+  var defaultButtonText = button.textContent;
+  form.addEventListener('submit', function (event) {
+    event.preventDefault();
     error.hidden = true;
     button.disabled = true;
+    button.textContent = 'Sending...';
+    form.setAttribute('aria-busy', 'true');
 
     var formData = new FormData(form);
     formData.append('access_key', '2d391046-d9ec-4e66-97df-980f877933e3');
@@ -1662,9 +1680,9 @@ var kadenceConfig = {"screenReader":{"expand":"Child menu","expandOf":"Child men
     fetch('https://api.web3forms.com/submit', {
       method: 'POST',
       body: formData
-    }).then(function (res) {
-      if (!res.ok) throw new Error('HTTP ' + res.status);
-      return res.json();
+    }).then(function (response) {
+      if (!response.ok) throw new Error('HTTP ' + response.status);
+      return response.json();
     }).then(function (data) {
       if (!data.success) throw new Error('Web3Forms error');
       form.hidden = true;
@@ -1672,6 +1690,8 @@ var kadenceConfig = {"screenReader":{"expand":"Child menu","expandOf":"Child men
     }).catch(function () {
       error.hidden = false;
       button.disabled = false;
+      button.textContent = defaultButtonText;
+      form.removeAttribute('aria-busy');
     });
   });
 })();
