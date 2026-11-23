@@ -1592,10 +1592,17 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
 #portfolio .portfolio-info p{max-width:58ch}
 #portfolio .mws-gallery-arrow{width:46px;height:46px;opacity:.96;border-color:rgba(255,255,255,.38);background:rgba(11,17,32,.88)}
 #portfolio .mws-gallery-arrow:focus-visible,#portfolio .mws-project-arrow:focus-visible{outline:3px solid #8CC5FF;outline-offset:3px}
-#portfolio .mws-project-navigation{gap:12px;margin:16px 0 18px}
-#portfolio .mws-project-arrow{width:auto;min-width:40px;height:40px;padding:0 11px;gap:7px;border-radius:8px;font-size:12px;font-weight:600}
-#portfolio .mws-project-arrow svg{width:16px;height:16px}
-#portfolio .mws-project-arrow-label{display:inline}
+/* Selector de proyectos: tabs claros, compactos y con estado activo inequívoco */
+#portfolio .mws-project-tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-bottom:26px}
+#portfolio .portfolio-project{min-width:0}
+#portfolio .portfolio-project h4{height:100%;margin:0;padding:0}
+#portfolio .mws-project-tab{display:flex;align-items:center;width:100%;min-height:56px;padding:13px 15px;border:1px solid rgba(148,175,199,.28);border-radius:9px;background:rgba(255,255,255,.035);color:#B8C5D6;font-family:inherit;font-size:14px;font-weight:600;line-height:1.4;text-align:left;cursor:pointer;transition:background .18s ease,border-color .18s ease,color .18s ease,transform .18s ease}
+#portfolio .mws-project-tab:hover{border-color:#7CB8F0;background:rgba(77,163,255,.09);color:#F1F5F9}
+#portfolio .mws-project-tab.is-active,#portfolio .mws-project-tab[aria-pressed="true"]{border-color:#8CC5FF;background:#E8F2FC;color:#0B1120;box-shadow:inset 0 0 0 1px rgba(77,163,255,.12)}
+#portfolio .mws-project-tab:focus-visible{outline:3px solid #8CC5FF;outline-offset:3px}
+@media(max-width:900px){#portfolio .mws-project-tabs{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}}
+@media(max-width:600px){#portfolio .mws-project-tabs{gap:8px;margin-bottom:20px}#portfolio .mws-project-tab{min-height:50px;padding:11px 12px;font-size:13px}}
+@media(prefers-reduced-motion:reduce){#portfolio .mws-project-tab{transition:none}}
 #portfolio .portfolio-thumbnail{cursor:pointer;border-radius:8px;transition:transform .18s ease,opacity .18s ease}
 #portfolio .portfolio-thumbnail:hover{transform:translateY(-2px)}
 #portfolio .portfolio-thumbnail:focus-visible{outline:3px solid #8CC5FF;outline-offset:4px}
@@ -1841,11 +1848,12 @@ const projects = [
        ACTUALIZAR PROYECTO
        ======================================== */
 
+    let activeProjectIndex = 0;
+
     function updateProject(projectIndex) {
-
         const project = projects[projectIndex];
-
         if (!project) return;
+        activeProjectIndex = projectIndex;
 
 
         /* ------------------------------------
@@ -1935,83 +1943,20 @@ const projects = [
            Estado del proyecto
            ------------------------------------ */
 
-        projectColumns.forEach((column, index) => {
-
-            const heading = column.querySelector('h4');
-
-            if (!heading) return;
-
-            const isActive = index === projectIndex;
-
-            heading.setAttribute('aria-pressed', isActive ? 'true' : 'false');
-
-            heading.classList.toggle(
-                'is-active',
-                isActive
-            );
-
-        });
-
-    }
-
-
-    /* ========================================
-       SELECCIÓN DE PROYECTOS
-       ======================================== */
+        const projectRow = projectColumns[0] && projectColumns[0].parentElement;
+    if (projectRow) projectRow.classList.add('mws-project-tabs');
 
     projectColumns.forEach((column, index) => {
-
         const heading = column.querySelector('h4');
-
-        if (!heading) return;
-
-
-        heading.setAttribute('role', 'button');
-        heading.setAttribute('aria-pressed', 'false');
-        heading.setAttribute('aria-label', 'Mostrar proyecto ' + projects[index].name);
-
-        heading.setAttribute(
-            'tabindex',
-            '0'
-        );
-
-        heading.dataset.projectIndex = index;
-
-
-        /* ------------------------------------
-           Click
-           ------------------------------------ */
-
-        heading.addEventListener(
-            'click',
-            () => {
-                updateProject(index);
-            }
-        );
-
-
-        /* ------------------------------------
-           Teclado
-           ------------------------------------ */
-
-        heading.addEventListener(
-            'keydown',
-            (event) => {
-
-                if (
-                    event.key === 'Enter' ||
-                    event.key === ' '
-                ) {
-
-                    event.preventDefault();
-
-                    updateProject(index);
-
-                }
-
-            }
-        );
-
+        if (!heading || !projects[index]) return;
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'mws-project-tab';
+        button.textContent = heading.textContent.trim();
+        button.setAttribute('aria-label', 'Mostrar proyecto ' + projects[index].name);
+        button.setAttribute('aria-pressed', 'false');
+        heading.replaceChildren(button);
+        button.addEventListener('click', () => updateProject(index));
     });
 
 
@@ -2031,20 +1976,7 @@ const projects = [
 
         const selectImage = () => {
 
-            const projectIndex = projectColumns.findIndex(
-                column => {
-
-                    const heading = column.querySelector('h4');
-
-                    return (
-                        heading &&
-                        heading.getAttribute('aria-pressed') === 'true'
-                    );
-
-                }
-            );
-
-
+            const projectIndex = activeProjectIndex;
             const project = projects[projectIndex];
 
 
@@ -2307,74 +2239,7 @@ const projects = [
         mwsPreviousImage.addEventListener('click', () => mwsMoveImage(-1));
         mwsNextImage.addEventListener('click', () => mwsMoveImage(1));
 
-        const mwsProjectNavigation = document.createElement('nav');
-
-        mwsProjectNavigation.className = 'mws-project-navigation';
-        mwsProjectNavigation.setAttribute(
-            'aria-label',
-            'Navegación de proyectos'
-        );
-
-        const mwsPreviousProject = mwsButton(
-            'Proyecto anterior',
-            'mws-project-arrow',
-            '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m14.5 5.5-6.5 6.5 6.5 6.5"/></svg><span class="mws-project-arrow-label">Anterior</span>'
-        );
-
-        const mwsNextProject = mwsButton(
-            'Proyecto siguiente',
-            'mws-project-arrow',
-            '<span class="mws-project-arrow-label">Siguiente</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9.5 5.5 6.5 6.5-6.5 6.5"/></svg>'
-        );
-
-        const mwsProjectCounter = document.createElement('span');
-        mwsProjectCounter.className = 'mws-project-counter';
-        mwsProjectCounter.setAttribute('aria-live', 'polite');
-        mwsProjectNavigation.append(mwsPreviousProject, mwsProjectCounter, mwsNextProject);
-
-        function mwsSyncProjectCounter() {
-            const activeIndex = projectColumns.findIndex(column => {
-                const heading = column.querySelector('h4');
-                return heading && heading.getAttribute('aria-selected') === 'true';
-            });
-
-            const current = activeIndex < 0 ? 0 : activeIndex;
-            mwsProjectCounter.textContent =
-                `${String(current + 1).padStart(2, '0')} / ${String(projectColumns.length).padStart(2, '0')}`;
-        }
-
-        projectColumns.forEach(column => {
-            const heading = column.querySelector('h4');
-            if (!heading) return;
-            heading.addEventListener('click', mwsSyncProjectCounter);
-            heading.addEventListener('keydown', event => {
-                if (event.key === 'Enter' || event.key === ' ') {
-                    window.setTimeout(mwsSyncProjectCounter, 0);
-                }
-            });
-        });
-
-        mwsSyncProjectCounter();
-        mwsProjectRow.insertAdjacentElement('afterend', mwsProjectNavigation);
-
-        function mwsMoveProject(direction) {
-            const activeIndex = projectColumns.findIndex(column => {
-                const heading = column.querySelector('h4');
-                return heading && heading.getAttribute('aria-selected') === 'true';
-            });
-
-            const baseIndex = activeIndex < 0 ? 0 : activeIndex;
-            const nextIndex = (baseIndex + direction + projectColumns.length) % projectColumns.length;
-            const heading = projectColumns[nextIndex].querySelector('h4');
-
-            if (heading) {
-                heading.click();
-                mwsSyncProjectCounter();
-            }
-        }
-
-        mwsPreviousProject.addEventListener('click', () => mwsMoveProject(-1));
-        mwsNextProject.addEventListener('click', () => mwsMoveProject(1));
+        /* La selección de proyecto se realiza desde los cuatro botones superiores. */
 
     }
 
