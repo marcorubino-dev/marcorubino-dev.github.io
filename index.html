@@ -1156,11 +1156,11 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
           <span class="mws-service-index">01</span>
         </div>
         <h3>Soporte y diagnóstico</h3>
-        <p>Identifico errores y conflictos en WordPress para encontrar su causa y definir cómo resolverlos.</p>
+        <p>Diagnóstico de errores y conflictos para identificar su origen y definir una solución.</p>
         <ul>
-          <li>Errores y conflictos entre plugins o temas</li>
-          <li>Sitios lentos o con comportamientos inesperados</li>
-          <li>Actualizaciones, migraciones y restauraciones</li>
+          <li>Conflictos entre plugins o temas</li>
+          <li>Errores y fallos de funcionamiento</li>
+          <li>Rendimiento, actualizaciones y migraciones</li>
         </ul>
       </article>
       <article class="mws-service-card">
@@ -1169,7 +1169,7 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
           <span class="mws-service-index">02</span>
         </div>
         <h3>WooCommerce</h3>
-        <p>Soporte para tiendas online cuando algo falla en el catálogo, el carrito, el checkout o el proceso de pago.</p>
+        <p>Reviso problemas en el catálogo, carrito, checkout y medios de pago de tu tienda.</p>
         <ul>
           <li>Productos, variaciones y catálogo</li>
           <li>Carrito, checkout y medios de pago</li>
@@ -1182,7 +1182,7 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
           <span class="mws-service-index">03</span>
         </div>
         <h3>Desarrollo y mejoras</h3>
-        <p>Implemento funcionalidades y mejoras sobre sitios WordPress existentes, adaptándome a su estructura y a las necesidades del proyecto.</p>
+        <p>Desarrollo funcionalidades y ajustes para adaptar WordPress a las necesidades del proyecto.</p>
         <ul>
           <li>Funcionalidades a medida</li>
           <li>Conexión con servicios y APIs</li>
@@ -1507,6 +1507,60 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
 @media(max-width:600px){
   .mws-engagement{padding:28px 22px}
 }
+
+/* HOME — desktop review: balance cards and engagement panel */
+.mws-service-card{
+  display:flex;
+  flex-direction:column;
+}
+.mws-service-card p{
+  max-width:38ch;
+}
+.mws-service-card ul{
+  margin-top:auto;
+  padding-top:18px;
+}
+.mws-service-card li::before{
+  background:#94A3B8;
+}
+.mws-engagement-layout{
+  grid-template-columns:minmax(0,1.2fr) minmax(290px,.8fr);
+  gap:32px;
+}
+.mws-engagement-process{
+  align-self:stretch;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  min-height:100%;
+  padding:32px 30px;
+  border-color:rgba(148,177,208,.28);
+  background:
+    radial-gradient(circle at 100% 0%,rgba(77,163,255,.13),transparent 42%),
+    linear-gradient(145deg,rgba(255,255,255,.075),rgba(255,255,255,.018));
+}
+.mws-process-eyebrow{
+  margin-bottom:26px;
+}
+.mws-engagement-process ol{
+  gap:24px;
+}
+.mws-engagement-process small{
+  max-width:28ch;
+  font-size:13px;
+}
+@media(max-width:900px){
+  .mws-engagement-layout{
+    grid-template-columns:minmax(0,1fr) minmax(250px,.85fr);
+    gap:24px;
+  }
+  .mws-engagement-process{padding:26px 22px}
+}
+@media(max-width:700px){
+  .mws-engagement-layout{grid-template-columns:1fr;gap:26px}
+  .mws-engagement-process{min-height:0}
+}
+
 </style>
 
 <div class="wp-block-kadence-single-icon kt-svg-style-stacked kt-svg-icon-wrap kt-svg-item-6f34de-d2">
