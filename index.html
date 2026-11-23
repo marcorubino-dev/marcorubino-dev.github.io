@@ -1155,8 +1155,8 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
           <span class="mws-service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14.5 6.5a4.5 4.5 0 0 0-5.9 5.9l-5.4 5.4a2 2 0 0 0 2.8 2.8l5.4-5.4a4.5 4.5 0 0 0 5.9-5.9l-2.8 2.8-2.8-2.8 2.8-2.8Z"/></svg></span>
           <span class="mws-service-index">01</span>
         </div>
-        <h3>Soporte y resolución de problemas</h3>
-        <p>Reviso errores, fallos de funcionamiento y conflictos entre plugins o temas para identificar qué está pasando y cómo corregirlo.</p>
+        <h3>Soporte y diagnóstico</h3>
+        <p>Identifico errores y conflictos en WordPress para encontrar su causa y definir cómo resolverlos.</p>
         <ul>
           <li>Errores y conflictos entre plugins o temas</li>
           <li>Sitios lentos o con comportamientos inesperados</li>
@@ -1192,15 +1192,25 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
     </div>
 
     <section class="mws-engagement" aria-labelledby="mws-engagement-title">
-      <div class="mws-engagement-heading">
-        <div>
-          <p class="mws-offer-eyebrow">CÓMO PODEMOS TRABAJAR</p>
-          <h2 id="mws-engagement-title">Hablemos de lo que necesitás resolver.</h2>
+      <div class="mws-engagement-layout">
+        <div class="mws-engagement-main">
+          <div class="mws-engagement-heading">
+            <p class="mws-offer-eyebrow">CÓMO PODEMOS TRABAJAR</p>
+            <h2 id="mws-engagement-title">Hablemos de lo que necesitás resolver.</h2>
+            <p>Cada proyecto se evalúa según el problema, el alcance y las condiciones del trabajo. Antes de avanzar, definimos qué se necesita y cómo abordarlo.</p>
+          </div>
+          <p class="mws-engagement-note">Toda intervención parte de un alcance acordado: qué se va a revisar, qué tareas incluye y cómo se comprobará el resultado. Si aparece trabajo adicional, se explica y se presupuesta antes de continuar.</p>
+          <a class="mws-engagement-link" href="/contacto/">Contame qué necesitás resolver <span aria-hidden="true">→</span></a>
         </div>
-        <p>Cada proyecto se evalúa según el problema, el alcance y las condiciones del trabajo. Antes de avanzar, definimos qué se necesita y cómo abordarlo.</p>
+        <aside class="mws-engagement-process" aria-label="Etapas de trabajo">
+          <p class="mws-process-eyebrow">UN PROCESO CLARO</p>
+          <ol>
+            <li><span>01</span><div><strong>Revisión inicial</strong><small>Entender el problema y su contexto.</small></div></li>
+            <li><span>02</span><div><strong>Alcance definido</strong><small>Acordar tareas y condiciones.</small></div></li>
+            <li><span>03</span><div><strong>Verificación</strong><small>Comprobar el resultado del trabajo.</small></div></li>
+          </ol>
+        </aside>
       </div>
-      <p class="mws-engagement-note">Toda intervención parte de un alcance acordado: qué se va a revisar, qué tareas incluye y cómo se comprobará el resultado. Si aparece trabajo adicional, se explica y se presupuesta antes de continuar.</p>
-      <a class="mws-engagement-link" href="/contacto/">Contame qué necesitás resolver <span aria-hidden="true">→</span></a>
     </section>
   </div>
 </section>
@@ -1468,7 +1478,36 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
 
 
 <!-- Facebook -->
-<style>.kt-svg-item-6f34de-d2 .kb-svg-icon-wrap, .kt-svg-style-stacked.kt-svg-item-6f34de-d2 .kb-svg-icon-wrap{color:var(--global-palette1, #3182CE);font-size:20px;background:var(--global-palette3, #1A202C);border-color:var(--global-palette1, #3182CE);border-width:1px;border-radius:50%;padding-top:var(--global-kb-spacing-xs, 1rem);padding-right:var(--global-kb-spacing-xs, 1rem);padding-bottom:var(--global-kb-spacing-xs, 1rem);padding-left:var(--global-kb-spacing-xs, 1rem);}.kt-svg-item-6f34de-d2:hover .kb-svg-icon-wrap{background:var(--global-palette1, #3182CE);border-color:var(--global-palette3, #1A202C);}.kt-svg-item-6f34de-d2:hover .kb-svg-icon-wrap{color:var(--global-palette3, #1A202C);}</style>
+<style>.kt-svg-item-6f34de-d2 .kb-svg-icon-wrap, .kt-svg-style-stacked.kt-svg-item-6f34de-d2 .kb-svg-icon-wrap{color:var(--global-palette1, #3182CE);font-size:20px;background:var(--global-palette3, #1A202C);border-color:var(--global-palette1, #3182CE);border-width:1px;border-radius:50%;padding-top:var(--global-kb-spacing-xs, 1rem);padding-right:var(--global-kb-spacing-xs, 1rem);padding-bottom:var(--global-kb-spacing-xs, 1rem);padding-left:var(--global-kb-spacing-xs, 1rem);}.kt-svg-item-6f34de-d2:hover .kb-svg-icon-wrap{background:var(--global-palette1, #3182CE);border-color:var(--global-palette3, #1A202C);}.kt-svg-item-6f34de-d2:hover .kb-svg-icon-wrap{color:var(--global-palette3, #1A202C);}/* HOME — refinement after desktop review */
+.mws-service-card li::before{background:#64748B}
+.mws-engagement{padding:42px 44px}
+.mws-engagement-layout{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(250px,.75fr);align-items:center;gap:42px}
+.mws-engagement-main{min-width:0}
+.mws-engagement-heading{display:block;max-width:unset;margin-bottom:22px}
+.mws-engagement-heading h2{max-width:19ch}
+.mws-engagement-heading>p{max-width:62ch}
+.mws-engagement-note{max-width:unset;margin:0 0 20px}
+.mws-engagement-process{position:relative;padding:26px 24px;border:1px solid rgba(148,177,208,.2);border-radius:12px;background:linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.018))}
+.mws-process-eyebrow{margin:0 0 22px;color:#9CB7D3;font-size:11px;font-weight:700;letter-spacing:.14em}
+.mws-engagement-process ol{position:relative;display:grid;gap:20px;margin:0;padding:0;list-style:none}
+.mws-engagement-process ol::before{content:"";position:absolute;top:17px;bottom:17px;left:16px;width:1px;background:rgba(124,184,240,.35)}
+.mws-engagement-process li{position:relative;display:grid;grid-template-columns:34px minmax(0,1fr);align-items:start;gap:12px}
+.mws-engagement-process li>span{position:relative;z-index:1;display:grid;place-items:center;width:33px;height:33px;border:1px solid rgba(124,184,240,.42);border-radius:50%;background:#14243A;color:#B8C5D6;font-size:11px;font-weight:700}
+.mws-engagement-process strong{display:block;margin:1px 0 4px;color:#F1F5F9;font-size:14px;line-height:1.35}
+.mws-engagement-process small{display:block;color:#AAB9CB;font-size:12px;line-height:1.55}
+@media(max-width:900px){
+  .mws-engagement-layout{grid-template-columns:minmax(0,1fr) minmax(220px,.8fr);gap:24px}
+  .mws-engagement{padding:34px 30px}
+}
+@media(max-width:700px){
+  .mws-engagement-layout{grid-template-columns:1fr;gap:26px}
+  .mws-engagement-process{padding:22px 20px}
+  .mws-engagement-process ol{gap:16px}
+}
+@media(max-width:600px){
+  .mws-engagement{padding:28px 22px}
+}
+</style>
 
 <div class="wp-block-kadence-single-icon kt-svg-style-stacked kt-svg-icon-wrap kt-svg-item-6f34de-d2">
 <a href="https://www.facebook.com/marco.wp.dev" class="kt-svg-icon-link" aria-label="Facebook">
