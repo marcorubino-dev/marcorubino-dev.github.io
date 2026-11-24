@@ -761,41 +761,43 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
   transition: border-color 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
 }
 
-/* Make the native select visibly interactive and keep its palette dark. */
-.kadence-form-135_47c460-36 .kb-form .kb-form-field-3 {
+/* Keep the dropdown affordance anchored to the select, not its label. */
+.kadence-form-135_47c460-36 .kb-form .kb-select-shell {
   position: relative;
+  width: 100%;
 }
 
-/* Dedicated dropdown affordance: a separated panel and a clear chevron. */
-.kadence-form-135_47c460-36 .kb-form .kb-form-field-3::before {
+.kadence-form-135_47c460-36 .kb-form .kb-select-shell::before {
   content: "";
   position: absolute;
+  top: 2px;
   right: 2px;
-  bottom: 0;
+  bottom: 2px;
   z-index: 2;
-  width: 52px;
-  height: 54px;
-  border-left: 1px solid rgba(77, 163, 255, .45);
+  width: 50px;
+  border-left: 1px solid rgba(77, 163, 255, .5);
   border-radius: 0 7px 7px 0;
   background: #172033;
   pointer-events: none;
 }
 
-.kadence-form-135_47c460-36 .kb-form .kb-form-field-3::after {
+.kadence-form-135_47c460-36 .kb-form .kb-select-shell::after {
   content: "";
   position: absolute;
+  top: 50%;
   right: 21px;
-  bottom: 21px;
   z-index: 3;
   width: 11px;
   height: 11px;
   border-right: 3px solid #4DA3FF;
   border-bottom: 3px solid #4DA3FF;
-  transform: rotate(45deg);
+  transform: translateY(-70%) rotate(45deg);
   pointer-events: none;
 }
 
 .kadence-form-135_47c460-36 .kb-form select.kb-field {
+  display: block;
+  width: 100%;
   appearance: none;
   -webkit-appearance: none;
   box-sizing: border-box;
@@ -1035,7 +1037,7 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
 
 
 
-<div class="wp-block-kadence-form kadence-form-135_47c460-36 kb-form-wrap"><form class="kb-form" name="contacto" method="POST" action="/contacto/" id="contacto-form"><input type="hidden" name="subject" value="Nuevo mensaje de contacto desde Marco Developer"><div class="kadence-blocks-form-field kb-field-desk-width-100 kb-input-size-standard"><label for="contacto-nombre">Nombre<span class="required">*</span></label><input name="nombre" id="contacto-nombre" type="text" placeholder="Escribe tu nombre" autocomplete="name" class="kb-field kb-text-style-field kb-text-field kb-field-0" required></div><div class="kadence-blocks-form-field kb-form-field-1 kb-field-desk-width-100 kb-input-size-standard"><label for="contacto-email">Correo electrónico<span class="required">*</span></label><input name="email" id="contacto-email" type="email" placeholder="tu@email.com" autocomplete="email" class="kb-field kb-text-style-field kb-email-field kb-field-1" required></div><div class="kadence-blocks-form-field kb-form-field-2 kb-field-desk-width-100 kb-input-size-standard"><label for="contacto-sitio">URL del sitio</label><input name="sitio" id="contacto-sitio" type="text" placeholder="https://tusitio.com" autocomplete="url" class="kb-field kb-text-style-field kb-text-field kb-field-2"></div><div class="kadence-blocks-form-field kb-form-field-3 kb-field-desk-width-100 kb-input-size-standard"><label for="contacto-modalidad">Modalidad de colaboración</label><select name="modalidad" id="contacto-modalidad" class="kb-field kb-text-style-field kb-select-field"><option value="" selected>Seleccioná una modalidad</option><option value="ticket-puntual">Ticket puntual</option><option value="soporte-por-demanda">Soporte por demanda</option><option value="colaboracion-recurrente">Colaboración recurrente</option></select></div><div class="kadence-blocks-form-field kb-form-field-4 kb-field-desk-width-100 kb-input-size-standard"><label for="contacto-mensaje">¿Qué trabajo necesitás realizar?<span class="required">*</span></label><textarea name="mensaje" id="contacto-mensaje" placeholder="Ej.: Maquetar una página, ajustar el diseño responsive o revisar un problema de WooCommerce..." class="kb-field kb-text-style-field kb-textarea-field kb-field-3" rows="4" required></textarea></div><input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" autocomplete="off"><div class="kadence-blocks-form-field kb-submit-field kb-field-desk-width-100"><button type="submit" class="kb-forms-submit button kb-button-size-standard kb-button-width-full">Enviar mensaje</button></div></form><div class="kadence-blocks-form-message kadence-blocks-form-success" id="contacto-form-success" role="status" hidden>¡Gracias! Recibí tu mensaje y te respondo a la brevedad.</div><div class="kadence-blocks-form-message kadence-blocks-form-warning" id="contacto-form-error" role="alert" hidden>No se pudo enviar el mensaje. Por favor, inténtalo de nuevo en unos minutos.</div></div>
+<div class="wp-block-kadence-form kadence-form-135_47c460-36 kb-form-wrap"><form class="kb-form" name="contacto" method="POST" action="/contacto/" id="contacto-form"><input type="hidden" name="subject" value="Nuevo mensaje de contacto desde Marco Developer"><div class="kadence-blocks-form-field kb-field-desk-width-100 kb-input-size-standard"><label for="contacto-nombre">Nombre<span class="required">*</span></label><input name="nombre" id="contacto-nombre" type="text" placeholder="Escribe tu nombre" autocomplete="name" class="kb-field kb-text-style-field kb-text-field kb-field-0" required></div><div class="kadence-blocks-form-field kb-form-field-1 kb-field-desk-width-100 kb-input-size-standard"><label for="contacto-email">Correo electrónico<span class="required">*</span></label><input name="email" id="contacto-email" type="email" placeholder="tu@email.com" autocomplete="email" class="kb-field kb-text-style-field kb-email-field kb-field-1" required></div><div class="kadence-blocks-form-field kb-form-field-2 kb-field-desk-width-100 kb-input-size-standard"><label for="contacto-sitio">URL del sitio</label><input name="sitio" id="contacto-sitio" type="text" placeholder="https://tusitio.com" autocomplete="url" class="kb-field kb-text-style-field kb-text-field kb-field-2"></div><div class="kadence-blocks-form-field kb-form-field-3 kb-field-desk-width-100 kb-input-size-standard"><label for="contacto-modalidad">Modalidad de colaboración</label><div class="kb-select-shell"><select name="modalidad" id="contacto-modalidad" class="kb-field kb-text-style-field kb-select-field"><option value="" selected>Seleccioná una modalidad</option><option value="ticket-puntual">Ticket puntual</option><option value="soporte-por-demanda">Soporte por demanda</option><option value="colaboracion-recurrente">Colaboración recurrente</option></select></div></div><div class="kadence-blocks-form-field kb-form-field-4 kb-field-desk-width-100 kb-input-size-standard"><label for="contacto-mensaje">¿Qué trabajo necesitás realizar?<span class="required">*</span></label><textarea name="mensaje" id="contacto-mensaje" placeholder="Ej.: Maquetar una página, ajustar el diseño responsive o revisar un problema de WooCommerce..." class="kb-field kb-text-style-field kb-textarea-field kb-field-3" rows="4" required></textarea></div><input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" autocomplete="off"><div class="kadence-blocks-form-field kb-submit-field kb-field-desk-width-100"><button type="submit" class="kb-forms-submit button kb-button-size-standard kb-button-width-full">Enviar mensaje</button></div></form><div class="kadence-blocks-form-message kadence-blocks-form-success" id="contacto-form-success" role="status" hidden>¡Gracias! Recibí tu mensaje y te respondo a la brevedad.</div><div class="kadence-blocks-form-message kadence-blocks-form-warning" id="contacto-form-error" role="alert" hidden>No se pudo enviar el mensaje. Por favor, inténtalo de nuevo en unos minutos.</div></div>
 <noscript><div class="kadence-blocks-form-message kadence-blocks-form-warning">Please enable JavaScript in your browser to submit the form</div><style>.kadence-form-135_47c460-36 .kadence-blocks-form-field.kb-submit-field { display: none; }</style></noscript></div></div>
 
 
