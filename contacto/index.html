@@ -1755,16 +1755,24 @@ var kadenceConfig = {"screenReader":{"expand":"Child menu","expandOf":"Child men
   var modality = document.getElementById('contacto-modalidad');
   var message = document.getElementById('contacto-mensaje');
   var selectedModality = new URLSearchParams(window.location.search).get('modalidad');
-  var modalityLabels = {
-    'ticket-puntual': 'Ticket puntual',
-    'soporte-por-demanda': 'Soporte por demanda',
-    'colaboracion-recurrente': 'Colaboración recurrente'
+  var defaultMessagePlaceholder = "Ej.: Maquetar una página, ajustar el diseño responsive o revisar un problema de WooCommerce...";
+  var modalityPlaceholders = {
+    "ticket-puntual": "Describí el problema que necesitás resolver, qué sucede actualmente y qué resultado esperás...",
+    "soporte-por-demanda": "Contame qué tipo de asistencia necesitás y con qué frecuencia podrías requerirla...",
+    "colaboracion-recurrente": "Describí tu proyecto, las tareas recurrentes y cómo imaginás la colaboración..."
   };
-  if (modality && selectedModality && modalityLabels[selectedModality]) {
-    modality.value = selectedModality;
-    if (message && !message.value.trim()) {
-      message.value = 'Me interesa la modalidad de ' + modalityLabels[selectedModality] + '.\n\nQuisiera consultar sobre: ';
+  function updateMessagePlaceholder() {
+    if (!message) return;
+    message.placeholder = modality && modalityPlaceholders[modality.value]
+      ? modalityPlaceholders[modality.value]
+      : defaultMessagePlaceholder;
+  }
+  if (modality) {
+    if (selectedModality && modalityPlaceholders[selectedModality]) {
+      modality.value = selectedModality;
     }
+    updateMessagePlaceholder();
+    modality.addEventListener('change', updateMessagePlaceholder);
   }
   var defaultButtonText = button.textContent;
   var isSubmitting = false;
