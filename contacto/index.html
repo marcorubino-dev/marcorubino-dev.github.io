@@ -1755,24 +1755,27 @@ var kadenceConfig = {"screenReader":{"expand":"Child menu","expandOf":"Child men
   var modality = document.getElementById('contacto-modalidad');
   var message = document.getElementById('contacto-mensaje');
   var selectedModality = new URLSearchParams(window.location.search).get('modalidad');
-  var defaultMessagePlaceholder = "Ej.: Maquetar una página, ajustar el diseño responsive o revisar un problema de WooCommerce...";
-  var modalityPlaceholders = {
-    "ticket-puntual": "Describí el problema que necesitás resolver, qué sucede actualmente y qué resultado esperás...",
-    "soporte-por-demanda": "Contame qué tipo de asistencia necesitás y con qué frecuencia podrías requerirla...",
-    "colaboracion-recurrente": "Describí tu proyecto, las tareas recurrentes y cómo imaginás la colaboración..."
+  var modalityTemplates = {
+    "ticket-puntual": "Necesito resolver un problema en mi sitio WordPress/WooCommerce.\n\nQué sucede actualmente:\n\nQué resultado necesito:",
+    "soporte-por-demanda": "Necesito asistencia con estas tareas:\n\n1.\n2.\n\nFrecuencia o disponibilidad estimada:",
+    "colaboracion-recurrente": "Estoy buscando colaboración recurrente para:\n\nProyecto o sitio:\n\nTareas habituales:\n\nFrecuencia estimada:"
   };
-  function updateMessagePlaceholder() {
-    if (!message) return;
-    message.placeholder = modality && modalityPlaceholders[modality.value]
-      ? modalityPlaceholders[modality.value]
-      : defaultMessagePlaceholder;
+  var activeMessageTemplate = '';
+  function updateMessageTemplate() {
+    if (!message || !modality) return;
+    var nextTemplate = modalityTemplates[modality.value] || '';
+    var currentValue = message.value;
+    if (!currentValue.trim() || (activeMessageTemplate && currentValue === activeMessageTemplate)) {
+      message.value = nextTemplate;
+    }
+    activeMessageTemplate = nextTemplate;
   }
   if (modality) {
-    if (selectedModality && modalityPlaceholders[selectedModality]) {
+    if (selectedModality && modalityTemplates[selectedModality]) {
       modality.value = selectedModality;
     }
-    updateMessagePlaceholder();
-    modality.addEventListener('change', updateMessagePlaceholder);
+    updateMessageTemplate();
+    modality.addEventListener('change', updateMessageTemplate);
   }
   var defaultButtonText = button.textContent;
   var isSubmitting = false;
