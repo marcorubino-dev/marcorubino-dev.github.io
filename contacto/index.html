@@ -761,6 +761,31 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
   transition: border-color 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
 }
 
+/* Make the native select visibly interactive and keep its palette dark. */
+.kadence-form-135_47c460-36 .kb-form select.kb-field {
+  appearance: none;
+  -webkit-appearance: none;
+  padding: 10px 44px 10px 12px;
+  background-color: #0B1120 !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%234DA3FF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+  background-size: 16px 16px;
+  color: #F1F5F9 !important;
+  color-scheme: dark;
+  cursor: pointer;
+}
+
+.kadence-form-135_47c460-36 .kb-form select.kb-field option {
+  background-color: #111827;
+  color: #F1F5F9;
+}
+
+.kadence-form-135_47c460-36 .kb-form select.kb-field option:checked {
+  background-color: #1F2937;
+  color: #FFFFFF;
+}
+
 .kadence-form-135_47c460-36 .kb-form .kadence-blocks-form-field .kb-field::placeholder {
   color: #94AFC7 !important;
   opacity: 1;
