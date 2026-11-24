@@ -761,6 +761,77 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
   transition: border-color 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
 }
 
+/* Keep the dropdown affordance anchored to the select, not its label. */
+.kadence-form-135_47c460-36 .kb-form .kb-select-shell {
+  position: relative;
+  width: 100%;
+}
+
+.kadence-form-135_47c460-36 .kb-form .kb-select-shell::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  bottom: 2px;
+  z-index: 2;
+  width: 50px;
+  border-left: 1px solid rgba(77, 163, 255, .5);
+  border-radius: 0 7px 7px 0;
+  background: #172033;
+  pointer-events: none;
+}
+
+.kadence-form-135_47c460-36 .kb-form .kb-select-shell::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 21px;
+  z-index: 3;
+  width: 11px;
+  height: 11px;
+  border-right: 3px solid #4DA3FF;
+  border-bottom: 3px solid #4DA3FF;
+  transform: translateY(-70%) rotate(45deg);
+  pointer-events: none;
+}
+
+.kadence-form-135_47c460-36 .kb-form select.kb-field {
+  display: block;
+  width: 100%;
+  appearance: none;
+  -webkit-appearance: none;
+  box-sizing: border-box;
+  min-height: 54px;
+  padding: 12px 62px 12px 16px;
+  border: 1px solid rgba(148, 175, 199, .35) !important;
+  border-radius: 7px;
+  background-color: #0B1120 !important;
+  background-image: none !important;
+  color: #F1F5F9 !important;
+  color-scheme: dark;
+  font-weight: 600;
+  cursor: pointer;
+}
+.kadence-form-135_47c460-36 .kb-form select.kb-field:hover {
+  border-color: rgba(77, 163, 255, .75) !important;
+  box-shadow: 0 0 0 2px rgba(77, 163, 255, .10);
+}
+.kadence-form-135_47c460-36 .kb-form select.kb-field:focus-visible {
+  border-color: #4DA3FF !important;
+  box-shadow: 0 0 0 3px rgba(77, 163, 255, .24);
+  outline: none;
+}
+
+.kadence-form-135_47c460-36 .kb-form select.kb-field option {
+  background-color: #111827;
+  color: #F1F5F9;
+}
+
+.kadence-form-135_47c460-36 .kb-form select.kb-field option:checked {
+  background-color: #1F2937;
+  color: #FFFFFF;
+}
+
 .kadence-form-135_47c460-36 .kb-form .kadence-blocks-form-field .kb-field::placeholder {
   color: #94AFC7 !important;
   opacity: 1;
@@ -859,6 +930,40 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
   }
 }
 </style>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@29.5.8/dist/css/intlTelInput.min.css">
+<style id="mws-phone-input-styles">
+.iti { width: 100%; position: relative; z-index: 30; }
+.iti.iti--container { z-index: 99999 !important; }
+.iti .iti__tel-input { width: 100% !important; }
+.iti__selected-country { background: #111827 !important; color: #F1F5F9 !important; border-radius: 6px 0 0 6px; }
+.iti__selected-country:hover { background: #1E293B !important; }
+.iti__selected-country { padding-bottom: 4px !important; }
+.iti__selected-country { padding-right: 10px !important; }
+.iti__dropdown-content {
+  z-index: 99999 !important;
+  background: #111827 !important;
+  color: #F1F5F9 !important;
+  border: 1px solid rgba(148,175,199,.35) !important;
+  box-shadow: 0 12px 32px rgba(0,0,0,.38) !important;
+}
+.iti__country,
+.iti__country-name { color: #F1F5F9 !important; }
+.iti__country .iti__dial-code { color: #94AFC7 !important; }
+.iti__country.iti__highlight,
+.iti__country:hover,
+.iti__country[aria-selected="true"] { background: #1E293B !important; }
+.iti__country[aria-selected="true"] .iti__country-name { color: #FFFFFF !important; }
+.iti__search-input {
+  background: #0B1120 !important;
+  color: #F1F5F9 !important;
+  border: 1px solid rgba(148,175,199,.5) !important;
+}
+.iti__search-input::placeholder { color: #94AFC7 !important; }
+.iti__no-results { color: #94AFC7 !important; }
+.iti__country-list { background: #111827 !important; }
+</style>
+
 </head>
 
 <body class="wp-singular page-template-default page page-id-135 wp-custom-logo wp-embed-responsive wp-theme-kadence footer-on-bottom hide-focus-outline link-style-no-underline content-title-style-hide content-width-fullwidth content-style-unboxed content-vertical-padding-hide transparent-header mobile-transparent-header">
@@ -966,7 +1071,7 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
 
 
 
-<div class="wp-block-kadence-form kadence-form-135_47c460-36 kb-form-wrap"><form class="kb-form" name="contacto" method="POST" action="/contacto/" data-netlify="true" netlify-honeypot="bot-field" id="contacto-form"><input type="hidden" name="form-name" value="contacto"><input type="hidden" name="subject" value="Nuevo mensaje de contacto desde %{siteName}"><div class="kadence-blocks-form-field kb-field-desk-width-100 kb-input-size-standard"><label for="contacto-nombre">Nombre<span class="required">*</span></label><input name="nombre" id="contacto-nombre" type="text" placeholder="Escribe tu nombre" autocomplete="name" class="kb-field kb-text-style-field kb-text-field kb-field-0" required></div><div class="kadence-blocks-form-field kb-form-field-1 kb-field-desk-width-100 kb-input-size-standard"><label for="contacto-email">Correo electrónico<span class="required">*</span></label><input name="email" id="contacto-email" type="email" placeholder="tu@email.com" autocomplete="email" class="kb-field kb-text-style-field kb-email-field kb-field-1" required></div><div class="kadence-blocks-form-field kb-form-field-2 kb-field-desk-width-100 kb-input-size-standard"><label for="contacto-sitio">URL del sitio</label><input name="sitio" id="contacto-sitio" type="text" placeholder="https://tusitio.com" autocomplete="url" class="kb-field kb-text-style-field kb-text-field kb-field-2"></div><div class="kadence-blocks-form-field kb-form-field-3 kb-field-desk-width-100 kb-input-size-standard"><label for="contacto-modalidad">Modalidad de colaboración</label><select name="modalidad" id="contacto-modalidad" class="kb-field kb-text-style-field kb-select-field"><option value="">Todavía no lo tengo definido</option><option value="ticket-puntual">Ticket puntual</option><option value="soporte-por-demanda">Soporte por demanda</option><option value="colaboracion-recurrente">Colaboración recurrente</option></select></div><div class="kadence-blocks-form-field kb-form-field-4 kb-field-desk-width-100 kb-input-size-standard"><label for="contacto-mensaje">¿Qué trabajo necesitás realizar?<span class="required">*</span></label><textarea name="mensaje" id="contacto-mensaje" placeholder="Ej.: Maquetar una página, ajustar el diseño responsive o revisar un problema de WooCommerce..." class="kb-field kb-text-style-field kb-textarea-field kb-field-3" rows="4" required></textarea></div><p style="display:none" aria-hidden="true"><label>No completes este campo: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p><div class="kadence-blocks-form-field kb-submit-field kb-field-desk-width-100"><button type="submit" class="kb-forms-submit button kb-button-size-standard kb-button-width-full">Enviar mensaje</button></div></form><div class="kadence-blocks-form-message kadence-blocks-form-success" id="contacto-form-success" role="status" hidden>¡Gracias! Recibí tu mensaje y te respondo a la brevedad.</div><div class="kadence-blocks-form-message kadence-blocks-form-warning" id="contacto-form-error" role="alert" hidden>No se pudo enviar el mensaje. Por favor, inténtalo de nuevo en unos minutos.</div></div>
+<div class="wp-block-kadence-form kadence-form-135_47c460-36 kb-form-wrap"><form class="kb-form" name="contacto" method="POST" action="/contacto/" id="contacto-form"><input type="hidden" name="subject" value="Nuevo mensaje de contacto desde Marco Developer"><div class="kadence-blocks-form-field kb-field-desk-width-100 kb-input-size-standard"><label for="contacto-nombre">Nombre<span class="required">*</span></label><input name="nombre" id="contacto-nombre" type="text" placeholder="Escribe tu nombre" autocomplete="name" class="kb-field kb-text-style-field kb-text-field kb-field-0" required></div><div class="kadence-blocks-form-field kb-form-field-1 kb-field-desk-width-100 kb-input-size-standard"><label for="contacto-email">Correo electrónico<span class="required">*</span></label><input name="email" id="contacto-email" type="email" placeholder="tu@email.com" autocomplete="email" class="kb-field kb-text-style-field kb-email-field kb-field-1" required></div><div class="kadence-blocks-form-field kb-form-field-2 kb-field-desk-width-100 kb-input-size-standard"><label for="contacto-telefono">WhatsApp o teléfono (opcional)</label><input name="telefono" id="contacto-telefono" type="tel" inputmode="tel" placeholder="Número de teléfono" autocomplete="tel" aria-describedby="contacto-telefono-help contacto-telefono-error" class="kb-field kb-text-style-field kb-text-field kb-field-2"><p id="contacto-telefono-help" style="margin:6px 0 0;color:#94AFC7;font-size:12px;line-height:1.5;">Si preferís que te contacte por WhatsApp, podés dejar tu número.</p><p id="contacto-telefono-error" role="alert" hidden style="margin:6px 0 0;color:#FCA5A5;font-size:12px;line-height:1.5;">Revisá el número o dejá el campo vacío.</p></div><div class="kadence-blocks-form-field kb-form-field-3 kb-field-desk-width-100 kb-input-size-standard"><label for="contacto-sitio">URL del sitio</label><input name="sitio" id="contacto-sitio" type="text" placeholder="https://tusitio.com" autocomplete="url" class="kb-field kb-text-style-field kb-text-field kb-field-3"></div><div class="kadence-blocks-form-field kb-form-field-4 kb-field-desk-width-100 kb-input-size-standard"><label for="contacto-modalidad">Modalidad de colaboración<span class="required">*</span></label><div class="kb-select-shell"><select name="modalidad" id="contacto-modalidad" class="kb-field kb-text-style-field kb-select-field" required><option value="" selected>Seleccioná una modalidad</option><option value="ticket-puntual">Ticket puntual</option><option value="soporte-por-demanda">Soporte por demanda</option><option value="colaboracion-recurrente">Colaboración recurrente</option></select></div></div><div class="kadence-blocks-form-field kb-form-field-5 kb-field-desk-width-100 kb-input-size-standard"><label for="contacto-mensaje">¿Qué trabajo necesitás realizar?<span class="required">*</span></label><textarea name="mensaje" id="contacto-mensaje" placeholder="Ej.: Maquetar una página, ajustar el diseño responsive o revisar un problema de WooCommerce..." class="kb-field kb-text-style-field kb-textarea-field kb-field-4" rows="4" required></textarea><div class="contact-message-tools" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-top:8px;"><span id="contacto-template-status" style="color:#94AFC7;font-size:12px;">Plantilla para: seleccioná una modalidad</span><div style="display:flex;align-items:center;gap:16px;"><button type="button" id="contacto-template-restore" style="padding:0;border:0;background:transparent;color:#4DA3FF;font:inherit;font-size:13px;cursor:pointer;" disabled>Restaurar plantilla</button><button type="button" id="contacto-template-clear" style="padding:0;border:0;background:transparent;color:#94AFC7;font:inherit;font-size:13px;cursor:pointer;">Limpiar texto</button></div></div></div><input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" autocomplete="off"><p class="contact-form-privacy-note" style="margin:0 0 12px;color:#94AFC7;font-size:12px;line-height:1.5;">Los datos que compartas se utilizarán para responder tu consulta y evaluar una posible colaboración.</p><div class="kadence-blocks-form-field kb-submit-field kb-field-desk-width-100"><button type="submit" class="kb-forms-submit button kb-button-size-standard kb-button-width-full">Enviar mensaje</button></div></form><div class="kadence-blocks-form-message kadence-blocks-form-success" id="contacto-form-success" role="status" hidden>¡Gracias! Recibí tu mensaje y te respondo a la brevedad.</div><div class="kadence-blocks-form-message kadence-blocks-form-warning" id="contacto-form-error" role="alert" hidden>No se pudo enviar el mensaje. Por favor, inténtalo de nuevo en unos minutos.</div></div>
 <noscript><div class="kadence-blocks-form-message kadence-blocks-form-warning">Please enable JavaScript in your browser to submit the form</div><style>.kadence-form-135_47c460-36 .kadence-blocks-form-field.kb-submit-field { display: none; }</style></noscript></div></div>
 
 
@@ -1673,48 +1778,174 @@ var kadenceConfig = {"screenReader":{"expand":"Child menu","expandOf":"Child men
 //# sourceURL=kadence-navigation-js-extra
 </script>
 <script id="kadence-navigation-js" src="/wp-content/themes/kadence/assets/js/navigation.min.js?ver=1.5.2" async></script>
+<script src="https://cdn.jsdelivr.net/npm/intl-tel-input@29.5.8/dist/js/intlTelInput.min.js"></script>
 <script id="contacto-form-js">
 (function () {
   var form = document.getElementById('contacto-form');
   if (!form) return;
   var success = document.getElementById('contacto-form-success');
   var error = document.getElementById('contacto-form-error');
+  var button = form.querySelector('button[type="submit"]');
+  if (!success || !error || !button) return;
   var modality = document.getElementById('contacto-modalidad');
   var message = document.getElementById('contacto-mensaje');
   var selectedModality = new URLSearchParams(window.location.search).get('modalidad');
-  var modalityLabels = {
-    'ticket-puntual': 'Ticket puntual',
-    'soporte-por-demanda': 'Soporte por demanda',
-    'colaboracion-recurrente': 'Colaboración recurrente'
+  var modalityTemplates = {
+    "ticket-puntual": "Necesito resolver un problema en mi sitio WordPress/WooCommerce.\n\nQué sucede actualmente:\n\nQué resultado necesito:",
+    "soporte-por-demanda": "Necesito asistencia con estas tareas:\n\n1.\n2.\n\nFrecuencia o disponibilidad estimada:",
+    "colaboracion-recurrente": "Estoy buscando colaboración recurrente para:\n\nProyecto o sitio:\n\nTareas habituales:\n\nFrecuencia estimada:"
   };
-  if (modality && selectedModality && modalityLabels[selectedModality]) {
-    modality.value = selectedModality;
-    if (message && !message.value.trim()) {
-      message.value = 'Me interesa la modalidad de ' + modalityLabels[selectedModality] + '.\n\nQuisiera consultar sobre: ';
+  var activeMessageTemplate = '';
+  var templateStatus = document.getElementById('contacto-template-status');
+  var restoreTemplateButton = document.getElementById('contacto-template-restore');
+  var clearMessageButton = document.getElementById('contacto-template-clear');
+  var modalityLabels = {
+    "ticket-puntual": "Ticket puntual",
+    "soporte-por-demanda": "Soporte por demanda",
+    "colaboracion-recurrente": "Colaboración recurrente"
+  };
+  function updateTemplateControls() {
+    if (templateStatus) {
+      templateStatus.textContent = modality && modalityLabels[modality.value]
+        ? "Plantilla para: " + modalityLabels[modality.value]
+        : "Plantilla para: seleccioná una modalidad";
+    }
+    if (restoreTemplateButton) {
+      restoreTemplateButton.disabled = !activeMessageTemplate;
+      restoreTemplateButton.style.opacity = activeMessageTemplate ? "1" : ".5";
+      restoreTemplateButton.style.cursor = activeMessageTemplate ? "pointer" : "not-allowed";
     }
   }
-  var button = form.querySelector('button[type="submit"]');
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
+  function updateMessageTemplate() {
+    if (!message || !modality) return;
+    var nextTemplate = modalityTemplates[modality.value] || '';
+    var currentValue = message.value;
+    if (!currentValue.trim() || (activeMessageTemplate && currentValue === activeMessageTemplate)) {
+      message.value = nextTemplate;
+    }
+    activeMessageTemplate = nextTemplate;
+    updateTemplateControls();
+  }
+  if (modality) {
+    if (selectedModality && modalityTemplates[selectedModality]) {
+      modality.value = selectedModality;
+    }
+    updateMessageTemplate();
+    modality.addEventListener('change', updateMessageTemplate);
+  }
+  if (restoreTemplateButton) {
+    restoreTemplateButton.addEventListener('click', function () {
+      if (!activeMessageTemplate || !message) return;
+      var hasCustomContent = message.value.trim() && message.value !== activeMessageTemplate;
+      if (hasCustomContent && !window.confirm("Esto reemplazará el texto actual por la plantilla de la modalidad seleccionada. ¿Querés continuar?")) return;
+      message.value = activeMessageTemplate;
+      message.focus();
+    });
+  }
+  if (clearMessageButton) {
+    clearMessageButton.addEventListener('click', function () {
+      if (!message) return;
+      message.value = '';
+      message.focus();
+    });
+  }
+  var phoneInput = document.getElementById('contacto-telefono');
+  var phoneError = document.getElementById('contacto-telefono-error');
+  var phoneWidget = null;
+
+  if (phoneInput && window.intlTelInput) {
+    phoneWidget = window.intlTelInput(phoneInput, {
+      initialCountry: 'ar',
+      countryOrder: ['ar'],
+      countrySearch: true,
+      countrySelectorMode: 'AUTO',
+      separateDialCode: true,
+      strictMode: false,
+      countryNameLocale: 'es',
+      loadUtils: function () {
+        return import('https://cdn.jsdelivr.net/npm/intl-tel-input@29.5.8/dist/js/utils.js');
+      }
+    });
+
+    phoneInput.addEventListener('input', function () {
+      phoneInput.setCustomValidity('');
+      if (phoneError) phoneError.hidden = true;
+    });
+    phoneInput.addEventListener('countrychange', function () {
+      phoneInput.setCustomValidity('');
+      if (phoneError) phoneError.hidden = true;
+    });
+  }
+
+  var defaultButtonText = button.textContent;
+  var isSubmitting = false;
+  form.addEventListener('submit', async function (event) {
+    event.preventDefault();
+    if (isSubmitting) return;
+
+    var phoneValue = phoneInput ? phoneInput.value.trim() : '';
+    var normalizedPhone = phoneValue;
+
+    if (phoneValue && phoneWidget) {
+      try {
+        await phoneWidget.promise;
+        if (!phoneWidget.isValidNumber()) {
+          phoneInput.setCustomValidity('Revisá el número o dejá el campo vacío.');
+          phoneInput.reportValidity();
+          if (phoneError) phoneError.hidden = false;
+          return;
+        }
+        normalizedPhone = phoneWidget.getNumber();
+      } catch (phoneErrorLoading) {
+        phoneInput.setCustomValidity('Revisá el número o dejá el campo vacío.');
+        phoneInput.reportValidity();
+        if (phoneError) phoneError.hidden = false;
+        return;
+      }
+    }
+
+    isSubmitting = true;
     error.hidden = true;
     button.disabled = true;
+    button.textContent = 'Enviando...';
+    form.setAttribute('aria-busy', 'true');
+
+    var phoneHidden = null;
+    var originalPhoneName = null;
+    if (phoneInput && phoneWidget && phoneValue) {
+      originalPhoneName = phoneInput.name;
+      phoneInput.name = 'telefono_visible';
+      phoneHidden = document.createElement('input');
+      phoneHidden.type = 'hidden';
+      phoneHidden.name = 'telefono';
+      phoneHidden.value = normalizedPhone;
+      form.appendChild(phoneHidden);
+    }
 
     var formData = new FormData(form);
     formData.append('access_key', '2d391046-d9ec-4e66-97df-980f877933e3');
 
+    if (phoneHidden) {
+      phoneHidden.remove();
+      phoneInput.name = originalPhoneName;
+    }
+
     fetch('https://api.web3forms.com/submit', {
       method: 'POST',
       body: formData
-    }).then(function (res) {
-      if (!res.ok) throw new Error('HTTP ' + res.status);
-      return res.json();
+    }).then(function (response) {
+      if (!response.ok) throw new Error('HTTP ' + response.status);
+      return response.json();
     }).then(function (data) {
       if (!data.success) throw new Error('Web3Forms error');
       form.hidden = true;
       success.hidden = false;
     }).catch(function () {
+      isSubmitting = false;
       error.hidden = false;
       button.disabled = false;
+      button.textContent = defaultButtonText;
+      form.removeAttribute('aria-busy');
     });
   });
 })();
