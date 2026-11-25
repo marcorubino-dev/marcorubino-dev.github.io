@@ -1151,6 +1151,40 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
 .agency-page .agency-pricing .agency-price-card p:last-child { color:#475569!important; font-size:16px; line-height:1.65; }
 .agency-page .agency-pricing-note { max-width:900px; margin:26px auto 0; color:#475569!important; text-align:center; font-size:15px; line-height:1.7; }
 
+/* Shared card language: align pricing and capabilities with the home service cards. */
+.agency-page .agency-pricing .agency-price-card,
+.agency-page .agency-capabilities .agency-capability-card {
+  border:1px solid #E2E8F0;
+  border-radius:10px;
+  background:#FFF;
+  box-shadow:0 8px 24px rgba(15,23,42,.045);
+}
+.agency-page .agency-pricing .agency-price-card:before,
+.agency-page .agency-capabilities .agency-capability-card:before { display:none; }
+.agency-page .agency-pricing .agency-price-card:hover,
+.agency-page .agency-capabilities .agency-capability-card:hover {
+  border-color:rgba(59,130,196,.42);
+  box-shadow:0 14px 30px rgba(15,23,42,.075);
+}
+.agency-page .agency-capability-card { padding:28px; }
+.agency-page .agency-capability-card .agency-card-icon {
+  display:flex;
+  width:48px;
+  height:48px;
+  align-items:center;
+  justify-content:center;
+  margin:0 0 20px;
+  border-radius:13px;
+  background:#E8F2FC;
+  color:#2563EB;
+}
+.agency-page .agency-capability-card .agency-card-icon svg {
+  display:block;
+  width:24px;
+  height:24px;
+}
+.agency-page .agency-capability-card h3 { margin-bottom:10px; }
+
 /* Capabilities: explicit dark surface, placed after generic section rules. */
 .agency-page .agency-capabilities { background:#0B1120; color:#F1F5F9; }
 .agency-page .agency-capabilities h2 { color:#FFF!important; }
@@ -1212,7 +1246,7 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
 }
 </style>
   <div class="agency-page">
-<section class="agency-hero motion-reveal"><div class="agency-container"><div class="agency-hero-copy"><p class="agency-eyebrow">Desarrollo y soporte técnico WordPress para agencias</p><h1>¿Necesitás apoyo técnico para avanzar con proyectos WordPress?</h1><p>Puedo ayudarte con maquetación, implementación de diseños, personalizaciones y soporte técnico en WordPress y WooCommerce. Me integro a tu flujo de trabajo con alcance definido y entregables verificados.</p><div class="agency-hero-actions"><div class="agency-price">Intervenciones puntuales desde $19.000 ARS<small style="display:block;margin-top:8px;font-size:13px;line-height:1.5;color:#9CCBFF;">El presupuesto final depende del alcance y la complejidad de la intervención. Antes de comenzar, definimos qué incluye el trabajo.</small></div><a class="agency-button" href="../contacto/">Consultar un trabajo</a></div></div><div class="agency-visual" aria-hidden="true">
+<section class="agency-hero motion-reveal"><div class="agency-container"><div class="agency-hero-copy"><p class="agency-eyebrow">Desarrollo y soporte técnico WordPress para agencias</p><h1>¿Necesitás apoyo técnico para avanzar con proyectos WordPress?</h1><p>Me integro al flujo de trabajo de tu agencia para implementar diseños, desarrollar ajustes y resolver incidencias en WordPress y WooCommerce. Así podés delegar tareas técnicas concretas y mantener al equipo enfocado en sus prioridades.</p><div class="agency-hero-actions"><div class="agency-price">Intervenciones puntuales desde $19.000 ARS<small style="display:block;margin-top:8px;font-size:13px;line-height:1.5;color:#9CCBFF;">El presupuesto final depende del alcance y la complejidad de la intervención. Antes de comenzar, definimos qué incluye el trabajo.</small></div><a class="agency-button" href="../contacto/">Consultar un trabajo</a></div></div><div class="agency-visual" aria-hidden="true">
   <div class="agency-visual-orbit agency-visual-orbit-one"></div>
   <div class="agency-visual-orbit agency-visual-orbit-two"></div>
   <div class="agency-visual-window">
@@ -1241,12 +1275,12 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
 <article class="agency-card agency-price-card"><h3>Intervenciones puntuales</h3><p class="agency-price-amount">Desde ARS 19.000</p><p>Ajustes CSS, responsive, modificaciones menores y configuraciones sencillas con alcance definido.</p></article>
 <article class="agency-card agency-price-card"><h3>Diagnóstico e intervención WordPress</h3><p class="agency-price-amount">Desde ARS 25.000</p><p>Evaluación técnica y primera intervención acotada, cuando el alcance lo permite.</p></article>
 <article class="agency-card agency-price-card"><h3>WooCommerce</h3><p class="agency-price-amount">Desde ARS 30.000</p><p>Incidencias y ajustes acotados. Checkout, pagos e integraciones complejas se evalúan aparte.</p></article>
-<article class="agency-card agency-price-card"><h3>Desarrollo e integraciones</h3><p class="agency-price-amount">Según alcance</p><p>Funcionalidades e integraciones personalizadas, presupuestadas según los requisitos.</p></article>
+<article class="agency-card agency-price-card"><h3>Desarrollo e integraciones</h3><p class="agency-price-amount">Presupuesto a medida</p><p>Funcionalidades e integraciones personalizadas. Definimos requisitos y presupuesto antes de empezar.</p></article>
 </div>
 <p class="agency-pricing-note">Los valores iniciales no cubren investigación ilimitada ni garantizan la resolución de cualquier incidencia. Si se necesita trabajo adicional, se define y aprueba el presupuesto antes de continuar.</p>
 </div></section>
 <div class="agency-divider agency-divider-dark" aria-hidden="true"><svg viewBox="0 0 1000 100" preserveAspectRatio="none"><path d="M1000,0l-500,98l-500,-98l0,102l1000,0l0,-102Z"></path></svg></div>
-<section class="agency-section agency-capabilities"><div class="agency-container"><div class="motion-reveal"><h2>¿Qué tareas puedo asumir?</h2><p class="agency-lead">Puedo incorporarme a proyectos nuevos o existentes para ejecutar tareas técnicas concretas sin desviar a tu equipo de otras prioridades.</p></div><div class="agency-grid motion-stagger"><div class="agency-card"><h3>Maquetación e implementación</h3><p>Construcción de páginas, implementación de diseños y ajustes responsive con los constructores y herramientas de WordPress.</p></div><div class="agency-card"><h3>Diagnóstico y correcciones</h3><p>Errores, conflictos entre plugins o temas, comportamientos inesperados y ajustes funcionales que requieren revisión técnica.</p></div><div class="agency-card"><h3>WooCommerce</h3><p>Implementación y personalización de productos, catálogo, carrito, checkout y configuraciones de tienda.</p></div><div class="agency-card"><h3>Personalizaciones WordPress</h3><p>Ajustes de estilos y funcionalidades con CSS, PHP o JavaScript cuando el proyecto lo requiere.</p></div><div class="agency-card"><h3>Integraciones y configuración</h3><p>Formularios, APIs, DNS, SSL, Cloudflare, hosting y otras piezas del entorno WordPress.</p></div><div class="agency-card"><h3>Rendimiento y mantenimiento</h3><p>Revisión de problemas de rendimiento, actualizaciones, migraciones y tareas de mantenimiento técnico.</p></div></div></div></section>
+<section class="agency-section agency-capabilities"><div class="agency-container"><div class="motion-reveal"><h2>¿Qué tareas puedo asumir?</h2><p class="agency-lead">Puedo asumir tareas de implementación, corrección y mantenimiento en proyectos WordPress y WooCommerce, desde ajustes de interfaz hasta incidencias técnicas.</p></div><div class="agency-grid motion-stagger"><article class="agency-card agency-capability-card"><div class="agency-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"></rect><path d="M3 9h18M9 9v11"></path></svg></div><h3>Maquetación e implementación</h3><p>Convierto diseños y estructuras aprobadas en páginas WordPress responsive, listas para revisar y publicar.</p></article><article class="agency-card agency-capability-card"><div class="agency-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.7 2.8 17a2 2 0 0 0 1.7 3h15a2 2 0 0 0 1.7-3L13.7 3.7a2 2 0 0 0-3.4 0Z"></path><path d="M12 9v4m0 4h.01"></path></svg></div><h3>Diagnóstico y correcciones</h3><p>Investigo errores, conflictos entre plugins o temas y fallos funcionales para localizar su origen y aplicar una corrección comprobable.</p></article><article class="agency-card agency-capability-card"><div class="agency-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"></path></svg></div><h3>WooCommerce</h3><p>Ajusto catálogo, productos, carrito, checkout y configuración de tienda para mejorar el flujo de compra.</p></article><article class="agency-card agency-capability-card"><div class="agency-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m8 8-4 4 4 4m8-8 4 4-4 4m-3-11-2 14"></path></svg></div><h3>Personalizaciones WordPress</h3><p>Adapto estilos y funcionalidades mediante CSS, PHP o JavaScript según las necesidades del proyecto.</p></article><article class="agency-card agency-capability-card"><div class="agency-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6m0 8v6M2 12h6m8 0h6"></path><circle cx="12" cy="12" r="4"></circle></svg></div><h3>Integraciones y configuración</h3><p>Conecto formularios y APIs, y configuro servicios del entorno como DNS, SSL, Cloudflare y hosting.</p></article><article class="agency-card agency-capability-card"><div class="agency-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3m0 12v3M4.2 7.2l2.1 2.1m11.4 5.4 2.1 2.1M3 12h3m12 0h3M4.2 16.8l2.1-2.1m11.4-5.4 2.1-2.1"></path><circle cx="12" cy="12" r="5"></circle><path d="m12 9 2 3-2 3"></path></svg></div><h3>Rendimiento y mantenimiento</h3><p>Reviso cuellos de botella, actualizaciones, migraciones y tareas de mantenimiento para mantener el sitio estable.</p></article></div></div></section>
 <div class="agency-divider agency-divider-capabilities" aria-hidden="true"><svg viewBox="0 0 1000 100" preserveAspectRatio="none"><path d="M1000,0l-500,98l-500,-98l0,102l1000,0l0,-102Z"></path></svg></div>
 
 <section class="agency-section agency-team-support"><div class="agency-container">
