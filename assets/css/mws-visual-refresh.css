@@ -47,15 +47,3 @@
 @media(max-width:767px){.mws-agency-trigger{min-height:48px;padding:10px 17px;font-size:15px}.mws-agency-menu{width:min(340px,calc(100vw - 32px));max-width:calc(100vw - 32px)}}
 @media(prefers-reduced-motion:reduce){.mws-agency-trigger,.mws-agency-trigger svg,.mws-agency-option,.mws-agency-option>svg{transition:none}.mws-agency-menu{animation:none}}
 
-
-/* Homepage transitions and full-width agency selector target. */
-.mws-hero .kt-row-layout-bottom-sep{height:15px!important}
-.mws-hero .kt-row-layout-bottom-sep svg{display:block;height:15px!important}
-.mws-home-divider{position:relative;z-index:2;width:100%;height:15px;margin-bottom:-15px;overflow:hidden;line-height:0;pointer-events:none}
-.mws-home-divider svg{display:block;width:100%;height:100%}
-.mws-home-divider path{fill:var(--global-palette3,#1A202C)}
-.kb-row-layout-id133_df5a92-08 .kt-row-layout-top-sep{display:none!important}
-.mws-agency-selector{width:min(280px,100%);align-items:stretch}
-.mws-agency-trigger{display:flex;width:100%;justify-content:space-between;text-align:left}
-.mws-agency-trigger>span{flex:1 1 auto;text-align:left;pointer-events:none}
-.mws-agency-trigger>svg{pointer-events:none}
