@@ -1023,33 +1023,6 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
   }
 }
 
-/* Pricing is a light, commercial pause after the dark hero. */
-.agency-page .agency-pricing {
-  background: #F1F5F9;
-  color: #0B1120;
-}
-.agency-page .agency-pricing h2 {
-  color: #0B1120 !important;
-}
-.agency-page .agency-pricing .agency-lead {
-  color: #475569 !important;
-}
-.agency-page .agency-pricing-note {
-  color: #475569 !important;
-}
-
-/* Capabilities return to the dark blue surface; cards retain their contrast. */
-.agency-page .agency-capabilities {
-  background: #0B1120;
-  color: #F1F5F9;
-}
-.agency-page .agency-capabilities h2 {
-  color: #FFFFFF !important;
-}
-.agency-page .agency-capabilities .agency-lead {
-  color: #C5D0E0 !important;
-}
-
 /* Match the following team-support surface without a visible color seam. */
 .agency-page .agency-divider-capabilities {
   color: #E7EFF8;
@@ -1167,16 +1140,21 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
 .agency-page .agency-card-action-secondary:hover { border-color:#3B82C4; background:#EAF3FC; color:#0B3559; }
 @media(max-width:700px) { .agency-page .agency-model-card .agency-card-actions { flex-direction:column; align-items:stretch; } }
 
-/* Pricing: dark section, light cards, two-column rhythm. */
-.agency-page .agency-pricing { background:#0B1120; color:#F1F5F9; }
-.agency-page .agency-pricing h2 { color:#FFF!important; }
-.agency-page .agency-pricing .agency-lead { color:#C5D0E0!important; }
+/* Pricing: light surface, dark typography and contrasting white cards. */
+.agency-page .agency-pricing { background:#F1F5F9; color:#0B1120; }
+.agency-page .agency-pricing h2 { color:#0B1120!important; }
+.agency-page .agency-pricing .agency-lead { color:#475569!important; }
 .agency-page .agency-pricing-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; }
 .agency-page .agency-pricing .agency-price-card { min-height:0; padding:30px; border-color:#DCE5EF; background:#FFF; }
 .agency-page .agency-pricing .agency-price-card h3 { min-height:0; margin-bottom:14px; color:#0B1120!important; font-size:21px; }
 .agency-page .agency-pricing .agency-price-card .agency-price-amount { margin:0 0 12px; color:#174A78!important; font-size:clamp(21px,2.2vw,25px); font-weight:750; line-height:1.25; }
 .agency-page .agency-pricing .agency-price-card p:last-child { color:#475569!important; font-size:16px; line-height:1.65; }
-.agency-page .agency-pricing-note { max-width:900px; margin:26px auto 0; color:#C5D0E0!important; text-align:center; font-size:15px; line-height:1.7; }
+.agency-page .agency-pricing-note { max-width:900px; margin:26px auto 0; color:#475569!important; text-align:center; font-size:15px; line-height:1.7; }
+
+/* Capabilities: explicit dark surface, placed after generic section rules. */
+.agency-page .agency-capabilities { background:#0B1120; color:#F1F5F9; }
+.agency-page .agency-capabilities h2 { color:#FFF!important; }
+.agency-page .agency-capabilities .agency-lead { color:#C5D0E0!important; }
 
 /* Support for existing agency teams: a softer blue-grey surface. */
 .agency-page .agency-team-support { background:#E7EFF8; }
