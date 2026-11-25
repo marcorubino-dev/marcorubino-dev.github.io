@@ -1276,6 +1276,17 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
 }
 
 </style>
+
+<style id="agency-mobile-team-fixes">
+/* Team-support cards: constrain icon boxes and SVGs to the same scale as pricing cards. */
+.agency-page .agency-team-support .agency-model-icon{display:flex!important;flex:0 0 40px;width:40px!important;height:40px!important;min-width:40px;max-width:40px;align-items:center;justify-content:center;margin:0 0 18px;border-radius:11px;background:#E8F2FC;color:#2563EB;}
+.agency-page .agency-team-support .agency-model-icon svg{display:block!important;flex:0 0 21px;width:21px!important;height:21px!important;max-width:21px;max-height:21px;}
+/* No connector rules on mobile: they were reintroduced by a later workflow override. */
+@media(max-width:767px){
+ .agency-page .agency-process:before{display:none!important;content:none!important;}
+ .agency-page .agency-process .agency-step:not(:last-child):after{display:none!important;content:none!important;}
+}
+</style>
 <div class="agency-page">
 <section class="agency-hero motion-reveal"><div class="agency-container"><div class="agency-hero-copy"><p class="agency-eyebrow">WordPress Development and Technical Support for Agencies</p><h1>Need extra WordPress development support?</h1><p>I help agencies with page builds, design implementation, WordPress and WooCommerce customizations, and technical support. I work behind the scenes with clearly defined scope and verified deliverables.</p><div class="agency-hero-actions"><div class="agency-price">One-off WordPress fixes from US$21<small style="display:block;margin-top:8px;font-size:13px;line-height:1.5;color:#9CCBFF;">Final pricing depends on the scope and complexity of the work. Before starting, we define what is included.</small></div><a class="agency-button" href="/contact/">Discuss a project</a></div></div><div class="agency-visual" aria-hidden="true">
   <div class="agency-visual-orbit agency-visual-orbit-one"></div>
