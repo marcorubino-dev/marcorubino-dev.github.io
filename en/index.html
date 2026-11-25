@@ -2351,21 +2351,28 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function positionMenu() {
     menu.classList.remove('opens-up');
+    menu.style.position = 'fixed';
     menu.style.maxHeight = '';
 
     var selectorRect = selector.getBoundingClientRect();
-    var heroRect = hero.getBoundingClientRect();
     var menuHeight = menu.scrollHeight;
     var spacing = 12;
-    var spaceBelow = Math.max(0, heroRect.bottom - selectorRect.bottom - spacing);
-    var spaceAbove = Math.max(0, selectorRect.top - heroRect.top - spacing);
+    var viewportHeight = window.innerHeight;
+    var viewportWidth = window.innerWidth;
+    var spaceBelow = Math.max(0, viewportHeight - selectorRect.bottom - spacing);
+    var spaceAbove = Math.max(0, selectorRect.top - spacing);
+    var opensUp = spaceBelow < Math.min(menuHeight, 220) && spaceAbove > spaceBelow;
+    var available = opensUp ? spaceAbove : spaceBelow;
+    var maxHeight = Math.max(120, Math.min(menuHeight, available));
+    var menuWidth = Math.min(350, viewportWidth - 32);
+    var center = selectorRect.left + selectorRect.width / 2;
+    var left = Math.max(menuWidth / 2 + 16, Math.min(viewportWidth - menuWidth / 2 - 16, center));
 
-    if (spaceBelow >= menuHeight || spaceBelow >= spaceAbove) {
-      menu.style.maxHeight = Math.floor(spaceBelow) + 'px';
-    } else {
-      menu.classList.add('opens-up');
-      menu.style.maxHeight = Math.floor(spaceAbove) + 'px';
-    }
+    menu.classList.toggle('opens-up', opensUp);
+    menu.style.left = left + 'px';
+    menu.style.top = opensUp ? 'auto' : (selectorRect.bottom + spacing) + 'px';
+    menu.style.bottom = opensUp ? (viewportHeight - selectorRect.top + spacing) + 'px' : 'auto';
+    menu.style.maxHeight = Math.floor(maxHeight) + 'px';
   }
 
   function setOpen(open) {
