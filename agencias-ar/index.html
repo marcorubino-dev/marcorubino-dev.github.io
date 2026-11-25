@@ -118,6 +118,13 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   .agency-page .agency-process { grid-template-columns:1fr!important; gap:28px; }
 }
 
+
+/* Improve the Argentina hero eyebrow legibility to match the intended hierarchy. */
+.agency-page .agency-hero .agency-eyebrow { font-size:14px; letter-spacing:.10em; }
+@media(max-width:700px) {
+  .agency-page .agency-hero .agency-eyebrow { font-size:13px; letter-spacing:.08em; }
+}
+
 </style>
 <style id="wp-emoji-styles-inline-css">
 
