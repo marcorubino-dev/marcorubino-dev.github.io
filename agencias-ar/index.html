@@ -106,6 +106,18 @@
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 /*# sourceURL=wp-img-auto-sizes-contain-inline-css */
 
+
+/* Agency landing fixes: prevent theme link decoration and keep the workflow vertical on mobile. */
+.agency-page .agency-button,
+.agency-page .agency-button:link,
+.agency-page .agency-button:visited,
+.agency-page .agency-button:hover,
+.agency-page .agency-button:focus,
+.agency-page .agency-button:active { text-decoration:none!important; }
+@media(max-width:800px) {
+  .agency-page .agency-process { grid-template-columns:1fr!important; gap:28px; }
+}
+
 </style>
 <style id="wp-emoji-styles-inline-css">
 
