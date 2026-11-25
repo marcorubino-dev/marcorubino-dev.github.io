@@ -1431,6 +1431,15 @@ els.forEach(function(el){observer.observe(el);});
     letter-spacing: .08em;
   }
 }
+
+
+/* Mobile section dividers: preserve the chevron depth on narrow screens. */
+@media (max-width: 800px) {
+  .agency-page .agency-divider {
+    height: 32px;
+    margin-top: -32px;
+  }
+}
 </style>
 
 <div class="wp-block-kadence-single-icon kt-svg-style-stacked kt-svg-icon-wrap kt-svg-item-6f34de-d2">
