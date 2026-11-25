@@ -109,7 +109,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 .agency-divider{width:100%;height:20px;margin-top:-20px;line-height:0;overflow:hidden;position:relative;z-index:2;flex-shrink:0}.agency-divider svg{display:block;width:100%;height:100%}.agency-divider path{fill:currentColor}.agency-divider-light{color:#F1F5F9}.agency-divider-dark{color:#0B1120}@media(max-width:800px){.agency-divider{height:20px;margin-top:-20px}}
 
 /* Keep workflow icons inline with their step labels despite inherited span rules. */
-.agency-page .agency-step-title .agency-step-icon { display:inline-flex!important; flex:0 0 22px; width:22px; height:22px; max-width:none; margin:0; vertical-align:middle; }
+.agency-page .agency-step-title .agency-step-icon { display:flex!important; flex:0 0 22px; width:22px; height:22px; max-width:none; margin:0 auto; align-items:center; justify-content:center; color:#7DBBFA; }
 .agency-page .agency-step-title .agency-step-icon svg { display:block; width:20px; height:20px; }
 </style>
 <style id="wp-emoji-styles-inline-css">
@@ -1264,7 +1264,7 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
 .agency-page .agency-process:before { content:""; position:absolute; top:23px; left:10%; right:10%; height:1px; background:rgba(77,163,255,.42); }
 .agency-page .agency-step { position:relative; z-index:1; min-width:0; padding:0 8px; text-align:center; }
 .agency-page .agency-step-number { display:flex; width:46px; height:46px; align-items:center; justify-content:center; margin:0 auto 18px; border:1px solid #4DA3FF; border-radius:50%; background:#245B8E; color:#FFF; font-weight:700; }
-.agency-page .agency-step-title { display:flex; align-items:center; justify-content:center; gap:8px; margin-bottom:8px; color:#FFF!important; font-size:16px; }
+.agency-page .agency-step-title { display:flex; flex-direction:column; align-items:center; justify-content:flex-start; gap:8px; margin-bottom:8px; color:#FFF!important; font-size:16px; }
 .agency-page .agency-step-icon { display:inline-flex; width:22px; height:22px; align-items:center; justify-content:center; color:#7DBBFA; }
 .agency-page .agency-step-icon svg { display:block; width:20px; height:20px; }
 .agency-page .agency-step span:not(.agency-step-icon) { display:block; max-width:190px; margin-inline:auto; color:#C5D0E0!important; font-size:15px; line-height:1.6; }
