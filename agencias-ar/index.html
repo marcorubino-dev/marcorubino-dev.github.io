@@ -1042,10 +1042,6 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
   }
 }
 
-/* Match the following team-support surface without a visible color seam. */
-.agency-page .agency-divider-capabilities {
-  color: #E7EFF8;
-}
 </style>
 
 </head>
@@ -1258,13 +1254,31 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
 .agency-page .agency-final h2 { color:#FFF!important; }
 .agency-page .agency-final p { max-width:680px; margin:0 auto 28px; color:#D7E2F0!important; font-size:17px; line-height:1.7; }
 
-/* Section transitions. */
-/* Divider sizing reverted pending a faithful Home ES geometry match. */
-.agency-page .agency-divider { position:relative; z-index:2; width:100%; height:20px; margin-top:-20px; overflow:hidden; line-height:0; }
-.agency-page .agency-divider svg { display:block; width:100%; height:100%; }
-.agency-page .agency-divider path { fill:currentColor; }
-.agency-page .agency-divider-light { color:#F1F5F9; }
-.agency-page .agency-divider-dark { color:#0B1120; }
+/* Section transitions: match the Home ES chevron geometry and each destination surface. */
+.agency-page .agency-divider {
+  display: block;
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 20px;
+  margin-top: -20px;
+  flex-shrink: 0;
+  line-height: 0;
+  overflow: hidden;
+}
+.agency-page .agency-divider svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.agency-page .agency-divider path {
+  fill: currentColor;
+  stroke: none;
+}
+.agency-page .agency-divider-light { color: #F1F5F9; }
+.agency-page .agency-divider-dark { color: #0B1120; }
+.agency-page .agency-divider-capabilities { color: #E7EFF8; }
 
 @media(max-width:1024px) {
   .agency-page .agency-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
@@ -1441,15 +1455,7 @@ els.forEach(function(el){observer.observe(el);});
 }
 
 
-/* Keep the Kadence divider rhythm consistent across desktop and mobile. */
-@media (max-width: 800px) {
-  .agency-page .agency-divider {
-    height: 20px;
-    margin-top: -20px;
-  }
-}
 
-/* Agency section dividers follow the approved Home ES chevron treatment. */
 </style>
 
 <div class="wp-block-kadence-single-icon kt-svg-style-stacked kt-svg-icon-wrap kt-svg-item-6f34de-d2">
@@ -1557,416 +1563,6 @@ els.forEach(function(el){observer.observe(el);});
 
     }
 
-
-    /* ========================================
-       PROYECTOS
-       ======================================== */
-
-    const projects = [
-        {
-            name: 'PolyCor',
-            stack: 'WordPress · WooCommerce · Performance',
-            description: 'E-commerce, catálogo y desarrollo técnico.',
-            images: [
-                '/wp-content/uploads/2026/09/WooCommerce-Store-Optimization-1024x496.png',
-                '/wp-content/uploads/2026/09/polycor-2-1024x482.png',
-                '/wp-content/uploads/2026/09/polycor-tienda.png',
-                '/wp-content/uploads/2026/09/Captura-de-pantalla-2026-09-22-215412-1024x483.png',
-                '/wp-content/uploads/2026/09/Captura-de-pantalla-2026-09-22-215329-1024x477.png'
-            ]
-        },
-
-        {
-            name: 'Tattoo Carpe',
-            stack: 'WordPress · Elementor',
-            description: 'Sitio para estudio de tatuajes, con perfiles de artistas, galerías y contenido sobre cursos.',
-            images: [
-                '/wp-content/uploads/2026/09/Tattoo-Carpe-1.png',
-                '/wp-content/uploads/2026/09/Tattoo-Carpe-2.png',
-                '/wp-content/uploads/2026/09/Tattoo-Carpe-3.png',
-                '/wp-content/uploads/2026/09/Tattoo-Carpe-4.png',
-                '/wp-content/uploads/2026/09/Tattoo-Carpe-5.png'
-            ]
-        },
-
-        {
-            name: 'Schefferlii',
-            stack: 'WordPress · WooCommerce · WPML',
-            description: 'Soporte técnico, migración de hosting y desarrollo de una solución para gestionar redirecciones multidioma.',
-            images: [
-                '/wp-content/uploads/2026/09/Schefferlii-1.png',
-                '/wp-content/uploads/2026/09/Schefferlii-2.png',
-                '/wp-content/uploads/2026/09/Schefferlii-3.png',
-                '/wp-content/uploads/2026/09/Schefferlii-4.png'
-            ]
-        },
-
-        {
-            name: 'WellForm MD',
-            stack: 'WordPress · Kadence · CPT',
-            description: 'Desarrollo de páginas y contenido estructurado para tratamientos médicos.',
-            images: [
-                '/wp-content/uploads/2026/09/WellformMD-1.png',
-                '/wp-content/uploads/2026/09/WellformMD-2.png',
-                '/wp-content/uploads/2026/09/WellformMD-3.png',
-                '/wp-content/uploads/2026/09/WellformMD-4.png'
-            ]
-        }
-    ];
-
-
-    /* ========================================
-       SELECTORES
-       ======================================== */
-
-    const projectColumns = Array.from(
-        document.querySelectorAll('.portfolio-project')
-    );
-
-    const mainImage = document.querySelector(
-        '.portfolio-main-image img'
-    );
-
-    const thumbnailImages = Array.from(
-        document.querySelectorAll('.portfolio-thumbnail img')
-    );
-
-    const infoColumn = document.querySelector(
-        '.portfolio-info'
-    );
-
-
-    /* ========================================
-       VALIDACIÓN
-       ======================================== */
-
-    if (
-        !mainImage ||
-        !infoColumn ||
-        projectColumns.length !== projects.length
-    ) {
-        console.warn(
-            'Portfolio: no se encontró toda la estructura necesaria.'
-        );
-        return;
-    }
-
-
-    /* ========================================
-       ELEMENTOS DE INFORMACIÓN
-       ======================================== */
-
-    const nameElement = infoColumn.querySelector('h3');
-    const stackElement = infoColumn.querySelector('h4');
-    const descriptionElement = infoColumn.querySelector('p');
-
-
-    /* ========================================
-       ACTUALIZAR IMAGEN
-       ======================================== */
-
-    function updateImage(imageElement, url, alt) {
-
-        if (!imageElement) return;
-
-        imageElement.src = url;
-        imageElement.alt = alt;
-
-        /*
-         * Evitamos que el srcset anterior de WordPress
-         * siga mostrando otra imagen.
-         */
-        imageElement.removeAttribute('srcset');
-        imageElement.removeAttribute('sizes');
-    }
-
-
-    /* ========================================
-       ACTUALIZAR PROYECTO
-       ======================================== */
-
-    function updateProject(projectIndex) {
-
-        const project = projects[projectIndex];
-
-        if (!project) return;
-
-
-        /* ------------------------------------
-           Información del proyecto
-           ------------------------------------ */
-
-        if (nameElement) {
-            nameElement.textContent = project.name;
-        }
-
-        if (stackElement) {
-            stackElement.textContent = project.stack;
-        }
-
-        if (descriptionElement) {
-            descriptionElement.textContent = project.description;
-        }
-
-
-        /* ------------------------------------
-           Imagen principal
-           ------------------------------------ */
-
-        updateImage(
-            mainImage,
-            project.images[0],
-            `${project.name} - vista principal`
-        );
-
-
-        /* ------------------------------------
-           Thumbnails
-           ------------------------------------ */
-
-        thumbnailImages.forEach((image, index) => {
-
-            const imageUrl = project.images[index + 1];
-
-            if (imageUrl) {
-
-                image.parentElement.style.display = '';
-
-                updateImage(
-                    image,
-                    imageUrl,
-                    `${project.name} - imagen ${index + 1}`
-                );
-
-            } else {
-
-                image.parentElement.style.display = 'none';
-
-            }
-
-        });
-
-
-        /* ------------------------------------
-           Thumbnail activo
-           ------------------------------------ */
-
-        thumbnailImages.forEach((image, index) => {
-
-            image.classList.toggle(
-                'is-active',
-                index === 0
-            );
-
-        });
-
-
-        /* ------------------------------------
-           Estado del proyecto
-           ------------------------------------ */
-
-        projectColumns.forEach((column, index) => {
-
-            const heading = column.querySelector('h4');
-
-            if (!heading) return;
-
-            const isActive = index === projectIndex;
-
-            heading.setAttribute(
-                'aria-selected',
-                isActive ? 'true' : 'false'
-            );
-
-            heading.classList.toggle(
-                'is-active',
-                isActive
-            );
-
-        });
-
-    }
-
-
-    /* ========================================
-       SELECCIÓN DE PROYECTOS
-       ======================================== */
-
-    projectColumns.forEach((column, index) => {
-
-        const heading = column.querySelector('h4');
-
-        if (!heading) return;
-
-
-        heading.setAttribute(
-            'role',
-            'button'
-        );
-
-        heading.setAttribute(
-            'tabindex',
-            '0'
-        );
-
-        heading.dataset.projectIndex = index;
-
-
-        /* ------------------------------------
-           Click
-           ------------------------------------ */
-
-        heading.addEventListener(
-            'click',
-            () => {
-                updateProject(index);
-            }
-        );
-
-
-        /* ------------------------------------
-           Teclado
-           ------------------------------------ */
-
-        heading.addEventListener(
-            'keydown',
-            (event) => {
-
-                if (
-                    event.key === 'Enter' ||
-                    event.key === ' '
-                ) {
-
-                    event.preventDefault();
-
-                    updateProject(index);
-
-                }
-
-            }
-        );
-
-    });
-
-
-    /* ========================================
-       SELECCIÓN DE THUMBNAILS
-       ======================================== */
-
-    thumbnailImages.forEach((image, index) => {
-
-        const thumbnailContainer = image.parentElement;
-
-
-        thumbnailContainer.setAttribute(
-            'role',
-            'button'
-        );
-
-        thumbnailContainer.setAttribute(
-            'tabindex',
-            '0'
-        );
-
-
-        const selectImage = () => {
-
-            const projectIndex = projectColumns.findIndex(
-                column => {
-
-                    const heading = column.querySelector('h4');
-
-                    return (
-                        heading &&
-                        heading.getAttribute(
-                            'aria-selected'
-                        ) === 'true'
-                    );
-
-                }
-            );
-
-
-            const project = projects[projectIndex];
-
-
-            if (
-                !project ||
-                !project.images[index + 1]
-            ) {
-                return;
-            }
-
-
-            /* --------------------------------
-               Cambiar imagen principal
-               -------------------------------- */
-
-            updateImage(
-                mainImage,
-                project.images[index + 1],
-                `${project.name} - imagen ${index + 2}`
-            );
-
-
-            /* --------------------------------
-               Cambiar thumbnail activo
-               -------------------------------- */
-
-            thumbnailImages.forEach(
-                (thumbnail, thumbnailIndex) => {
-
-                    thumbnail.classList.toggle(
-                        'is-active',
-                        thumbnailIndex === index
-                    );
-
-                }
-            );
-
-        };
-
-
-        /* ------------------------------------
-           Click
-           ------------------------------------ */
-
-        thumbnailContainer.addEventListener(
-            'click',
-            selectImage
-        );
-
-
-        /* ------------------------------------
-           Teclado
-           ------------------------------------ */
-
-        thumbnailContainer.addEventListener(
-            'keydown',
-            (event) => {
-
-                if (
-                    event.key === 'Enter' ||
-                    event.key === ' '
-                ) {
-
-                    event.preventDefault();
-
-                    selectImage();
-
-                }
-
-            }
-        );
-
-    });
-
-
-    /* ========================================
-       ESTADO INICIAL
-       ======================================== */
-
-    updateProject(0);
 
 });
 
