@@ -1014,6 +1014,48 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
  #mobile-menu > li.menu-item-has-children > button.submenu-toggle svg{transition:transform .2s ease;}
 }
 </style>
+
+<style id="agency-ar-visual-hierarchy">
+/* Argentina landing: section rhythm and desktop hero proportions. */
+@media (min-width: 701px) {
+  .agency-page .agency-hero {
+    padding: clamp(112px, 9vw, 136px) 24px clamp(48px, 5vw, 72px);
+  }
+}
+
+/* Pricing is a light, commercial pause after the dark hero. */
+.agency-page .agency-pricing {
+  background: #F1F5F9;
+  color: #0B1120;
+}
+.agency-page .agency-pricing h2 {
+  color: #0B1120 !important;
+}
+.agency-page .agency-pricing .agency-lead {
+  color: #475569 !important;
+}
+.agency-page .agency-pricing-note {
+  color: #475569 !important;
+}
+
+/* Capabilities return to the dark blue surface; cards retain their contrast. */
+.agency-page .agency-capabilities {
+  background: #0B1120;
+  color: #F1F5F9;
+}
+.agency-page .agency-capabilities h2 {
+  color: #FFFFFF !important;
+}
+.agency-page .agency-capabilities .agency-lead {
+  color: #C5D0E0 !important;
+}
+
+/* Match the following team-support surface without a visible color seam. */
+.agency-page .agency-divider-capabilities {
+  color: #E7EFF8;
+}
+</style>
+
 </head>
 
 <body class="wp-singular page-template-default page page-id-135 wp-custom-logo wp-embed-responsive wp-theme-kadence footer-on-bottom hide-focus-outline link-style-no-underline content-title-style-hide content-width-fullwidth content-style-unboxed content-vertical-padding-hide transparent-header mobile-transparent-header">
@@ -1226,7 +1268,8 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
 <p class="agency-pricing-note">Los valores iniciales no cubren investigación ilimitada ni garantizan la resolución de cualquier incidencia. Si se necesita trabajo adicional, se define y aprueba el presupuesto antes de continuar.</p>
 </div></section>
 <div class="agency-divider agency-divider-dark" aria-hidden="true"><svg viewBox="0 0 1000 100" preserveAspectRatio="none"><path d="M1000,0l-500,98l-500,-98l0,102l1000,0l0,-102Z"></path></svg></div>
-<section class="agency-section"><div class="agency-container"><div class="motion-reveal"><h2>¿Qué tareas puedo asumir?</h2><p class="agency-lead">Puedo incorporarme a proyectos nuevos o existentes para ejecutar tareas técnicas concretas sin desviar a tu equipo de otras prioridades.</p></div><div class="agency-grid motion-stagger"><div class="agency-card"><h3>Maquetación e implementación</h3><p>Construcción de páginas, implementación de diseños y ajustes responsive con los constructores y herramientas de WordPress.</p></div><div class="agency-card"><h3>Diagnóstico y correcciones</h3><p>Errores, conflictos entre plugins o temas, comportamientos inesperados y ajustes funcionales que requieren revisión técnica.</p></div><div class="agency-card"><h3>WooCommerce</h3><p>Implementación y personalización de productos, catálogo, carrito, checkout y configuraciones de tienda.</p></div><div class="agency-card"><h3>Personalizaciones WordPress</h3><p>Ajustes de estilos y funcionalidades con CSS, PHP o JavaScript cuando el proyecto lo requiere.</p></div><div class="agency-card"><h3>Integraciones y configuración</h3><p>Formularios, APIs, DNS, SSL, Cloudflare, hosting y otras piezas del entorno WordPress.</p></div><div class="agency-card"><h3>Rendimiento y mantenimiento</h3><p>Revisión de problemas de rendimiento, actualizaciones, migraciones y tareas de mantenimiento técnico.</p></div></div></div></section>
+<section class="agency-section agency-capabilities"><div class="agency-container"><div class="motion-reveal"><h2>¿Qué tareas puedo asumir?</h2><p class="agency-lead">Puedo incorporarme a proyectos nuevos o existentes para ejecutar tareas técnicas concretas sin desviar a tu equipo de otras prioridades.</p></div><div class="agency-grid motion-stagger"><div class="agency-card"><h3>Maquetación e implementación</h3><p>Construcción de páginas, implementación de diseños y ajustes responsive con los constructores y herramientas de WordPress.</p></div><div class="agency-card"><h3>Diagnóstico y correcciones</h3><p>Errores, conflictos entre plugins o temas, comportamientos inesperados y ajustes funcionales que requieren revisión técnica.</p></div><div class="agency-card"><h3>WooCommerce</h3><p>Implementación y personalización de productos, catálogo, carrito, checkout y configuraciones de tienda.</p></div><div class="agency-card"><h3>Personalizaciones WordPress</h3><p>Ajustes de estilos y funcionalidades con CSS, PHP o JavaScript cuando el proyecto lo requiere.</p></div><div class="agency-card"><h3>Integraciones y configuración</h3><p>Formularios, APIs, DNS, SSL, Cloudflare, hosting y otras piezas del entorno WordPress.</p></div><div class="agency-card"><h3>Rendimiento y mantenimiento</h3><p>Revisión de problemas de rendimiento, actualizaciones, migraciones y tareas de mantenimiento técnico.</p></div></div></div></section>
+<div class="agency-divider agency-divider-capabilities" aria-hidden="true"><svg viewBox="0 0 1000 100" preserveAspectRatio="none"><path d="M1000,0l-500,98l-500,-98l0,102l1000,0l0,-102Z"></path></svg></div>
 
 <section class="agency-section agency-team-support"><div class="agency-container">
 <div class="motion-reveal"><h2>¿Ya tenés un equipo de desarrollo?</h2><p class="agency-lead agency-team-intro">No necesitás reemplazar a tu equipo ni incorporar otro desarrollador de forma permanente. Puedo funcionar como apoyo técnico externo cuando necesitás delegar una tarea concreta, absorber trabajo adicional o resolver una incidencia específica de WordPress y WooCommerce.</p></div>
