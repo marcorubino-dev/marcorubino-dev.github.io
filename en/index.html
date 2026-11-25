@@ -912,6 +912,8 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
 #portfolio .portfolio-project h4:focus-visible{outline:2px solid #4DA3FF;outline-offset:5px;border-radius:3px}
 #portfolio .portfolio-info h3{font-size:clamp(27px,3vw,36px);line-height:1.2;margin-bottom:10px}
 #portfolio .portfolio-info h4{font-size:14px;line-height:1.55;letter-spacing:.035em}
+#portfolio .portfolio-tech-stack{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 16px}
+#portfolio .portfolio-tech-chip{display:inline-flex;align-items:center;min-height:28px;padding:4px 10px;border:1px solid rgba(124,184,240,.28);border-radius:999px;background:rgba(77,163,255,.09);color:#BFD8F0;font-size:12px;font-weight:600;line-height:1.35;letter-spacing:.01em}
 #portfolio .portfolio-info p{font-size:16px;line-height:1.75}
 #portfolio .portfolio-info .portfolio-context{font-size:14px;line-height:1.6}
 #portfolio .portfolio-main-image img{display:block;width:100%;height:auto;border-radius:12px}
@@ -1340,11 +1342,11 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
 
 
 
-<h4 class="kt-adv-heading133_0ea3b8-3b wp-block-kadence-advancedheading has-theme-palette-6-color has-text-color" data-kb-block="kb-adv-heading133_0ea3b8-3b">WordPress · WooCommerce · Performance</h4>
+<div class="portfolio-tech-stack" aria-label="Technologies used"></div>
 
 
 
-<p class="has-theme-palette-8-color has-text-color has-link-color wp-elements-16 wp-block-paragraph">WooCommerce feature development: dynamic filters and category-based brand management.</p>
+<p class="has-theme-palette-8-color has-text-color has-link-color wp-elements-16 wp-block-paragraph">I developed the website and custom WooCommerce functionality, including dynamic filters and brand management linked to product categories to improve catalog navigation.</p>
 <p class="portfolio-context has-theme-palette-6-color has-text-color"><small>Completed project. Website currently offline.</small></p>
 </div></div>
 
@@ -1585,7 +1587,7 @@ const projects = [
     {
         name: 'PolyCor',
         stack: 'WordPress · WooCommerce · XStore · Custom Plugins',
-        description: 'WooCommerce feature development: dynamic filters and category-based brand management.',
+        description: 'I developed the website and custom WooCommerce functionality, including dynamic filters and brand management linked to product categories to improve catalog navigation.',
         context: 'Completed project. Website currently offline.',
         images: [
             '/wp-content/uploads/2026/09/woocommerce-store-optimization-1024x496.png',
@@ -1599,7 +1601,7 @@ const projects = [
     {
         name: 'Tattoo Carpe',
         stack: 'WordPress · Kadence · Kadence Blocks',
-        description: 'Website development for a tattoo studio, including artist profiles, individual galleries, and sections for courses and services.',
+        description: 'I designed and developed the website for a tattoo studio, organizing its artists through individual profiles and galleries. I also built dedicated sections to present courses and services.',
         context: 'Completed project. Website currently offline.',
         images: [
             '/wp-content/uploads/2026/09/tattoo-carpe-1.png',
@@ -1613,7 +1615,7 @@ const projects = [
     {
         name: 'Schefferlii',
         stack: 'WordPress · WooCommerce · WPML · Custom Development',
-        description: 'Technical intervention on an existing multilingual WooCommerce site, including a solution for language-based redirects.',
+        description: 'I provided technical support for a multilingual WooCommerce store, including a hosting migration and a language-based redirect solution to route visitors to the appropriate version of the site.',
         images: [
             '/wp-content/uploads/2026/09/schefferlii-1.png',
             '/wp-content/uploads/2026/09/schefferlii-2.png',
@@ -1625,7 +1627,7 @@ const projects = [
     {
         name: 'WellForm MD',
         stack: 'WordPress · Kadence · Custom Post Types',
-        description: 'Development of treatment pages and structured content using Custom Post Types (CPTs).',
+        description: 'I structured the site content with Custom Post Types and developed dedicated treatment pages. This created a reusable, consistent way to organize the information.',
         images: [
             '/wp-content/uploads/2026/09/wellformmd-1.png',
             '/wp-content/uploads/2026/09/wellformmd-2.png',
@@ -1679,7 +1681,7 @@ const projects = [
        ======================================== */
 
     const nameElement = infoColumn.querySelector('h3');
-    const stackElement = infoColumn.querySelector('h4');
+    const stackElement = infoColumn.querySelector('.portfolio-tech-stack');
     const descriptionElement = infoColumn.querySelector('p:not(.portfolio-context)');
     const contextElement = infoColumn.querySelector('.portfolio-context');
 
@@ -1724,7 +1726,14 @@ const projects = [
         }
 
         if (stackElement) {
-            stackElement.textContent = project.stack;
+            stackElement.replaceChildren(
+                ...project.stack.split(' · ').map(technology => {
+                    const chip = document.createElement('span');
+                    chip.className = 'portfolio-tech-chip';
+                    chip.textContent = technology;
+                    return chip;
+                })
+            );
         }
 
         if (descriptionElement) {
@@ -2189,13 +2198,13 @@ const projects = [
         const mwsPreviousProject = mwsButton(
             'Previous project',
             'mws-project-arrow',
-            '&#8249;'
+            '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m14.5 5.5-6.5 6.5 6.5 6.5"/></svg>'
         );
 
         const mwsNextProject = mwsButton(
             'Next project',
             'mws-project-arrow',
-            '&#8250;'
+            '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9.5 5.5 6.5 6.5-6.5 6.5"/></svg>'
         );
 
         const mwsProjectCounter = document.createElement('span');
