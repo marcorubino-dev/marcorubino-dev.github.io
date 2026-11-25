@@ -1210,9 +1210,71 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
 
 @media(max-width:800px){.agency-grid,.agency-process{grid-template-columns:1fr}.agency-section{padding:64px 20px}.agency-process{gap:0}.agency-step{padding:0 12px 28px}.agency-step:not(:last-child):after{top:auto;bottom:0;left:50%;width:1px;height:28px}.agency-white-label{padding:30px 24px}}
 @media(prefers-reduced-motion:reduce){.agency-page .motion-reveal,.agency-page .motion-stagger>*{opacity:1;transform:none;transition:none}.agency-card,.agency-button{transition:none}}
+/* Pricing section aligned with the Argentina agency landing. */
+.agency-page .agency-pricing { background:#F1F5F9; color:#0B1120; }
+.agency-page .agency-pricing h2 { color:#0B1120!important; }
+.agency-page .agency-pricing .agency-lead { color:#475569!important; }
+.agency-page .agency-pricing-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; }
+.agency-page .agency-pricing .agency-price-card { min-height:0; padding:30px; border:1px solid #DCE5EF; border-radius:10px; background:#FFF; box-shadow:0 8px 24px rgba(15,23,42,.045); }
+.agency-page .agency-pricing .agency-price-card:before { display:none; }
+.agency-page .agency-pricing .agency-price-card h3 { margin:0 0 14px; color:#0B1120!important; font-size:21px; }
+.agency-page .agency-pricing .agency-price-card .agency-price-amount { margin:0 0 12px; color:#174A78!important; font-size:clamp(21px,2.2vw,25px); font-weight:750; line-height:1.25; }
+.agency-page .agency-pricing .agency-price-card p:last-child { color:#475569!important; font-size:16px; line-height:1.65; }
+.agency-page .agency-price-icon { display:flex; align-items:center; justify-content:center; width:40px; height:40px; margin-bottom:18px; border-radius:11px; background:#E8F2FC; color:#2563EB; }
+.agency-page .agency-price-icon svg { display:block; width:21px; height:21px; }
+.agency-page .agency-pricing-note { max-width:900px; margin:26px auto 0; color:#475569!important; text-align:center; font-size:15px; line-height:1.7; }
+@media(max-width:700px) {
+  .agency-page .agency-pricing-grid { grid-template-columns:1fr; }
+  .agency-page .agency-pricing .agency-price-card { padding:26px 24px; }
+}
+
+/* Agency landing fixes: prevent theme link decoration and keep the workflow vertical on mobile. */
+.agency-page .agency-button,
+.agency-page .agency-button:link,
+.agency-page .agency-button:visited,
+.agency-page .agency-button:hover,
+.agency-page .agency-button:focus,
+.agency-page .agency-button:active { text-decoration:none!important; }
+@media(max-width:800px) {
+  .agency-page .agency-process { grid-template-columns:1fr!important; gap:28px; }
+}
+
+
+/* Regional visual parity: capabilities and workflow match the Argentina design system. */
+.agency-page .agency-hero .agency-eyebrow { font-size:14px; letter-spacing:.10em; text-transform:none!important; }
+@media(max-width:700px) { .agency-page .agency-hero .agency-eyebrow { font-size:13px; letter-spacing:.08em; } }
+.agency-page .agency-capabilities { background:#0B1120; color:#F1F5F9; }
+.agency-page .agency-capabilities h2 { color:#FFF!important; }
+.agency-page .agency-capabilities .agency-lead { color:#C5D0E0!important; }
+.agency-page .agency-capabilities .agency-card { display:flex; min-width:0; flex-direction:column; padding:28px; border:1px solid #E2E8F0; border-radius:10px; background:#FFF; color:#1F2937; box-shadow:0 8px 24px rgba(15,23,42,.045); }
+.agency-page .agency-capabilities .agency-card:before { display:none; }
+.agency-page .agency-capabilities .agency-card:hover { border-color:rgba(59,130,196,.42); box-shadow:0 14px 30px rgba(15,23,42,.075); }
+.agency-page .agency-capabilities .agency-card h3 { color:#0B1120!important; }
+.agency-page .agency-capabilities .agency-card p { color:#475569!important; }
+.agency-page .agency-capability-card .agency-card-icon { display:flex; width:48px; height:48px; align-items:center; justify-content:center; margin:0 0 20px; border-radius:13px; background:#E8F2FC; color:#2563EB; }
+.agency-page .agency-capability-card .agency-card-icon svg { display:block; width:24px; height:24px; }
+.agency-page .agency-capability-card h3 { margin-bottom:10px; }
+.agency-page .agency-section.alt { background:#0B1120; color:#FFF; }
+.agency-page .agency-section.alt h2 { color:#FFF!important; }
+.agency-page .agency-section.alt .agency-lead { color:#C5D0E0!important; }
+.agency-page .agency-process { position:relative; display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:20px; margin-top:54px; }
+.agency-page .agency-process:before { content:""; position:absolute; top:23px; left:10%; right:10%; height:1px; background:rgba(77,163,255,.42); }
+.agency-page .agency-step { position:relative; z-index:1; min-width:0; padding:0 8px; text-align:center; }
+.agency-page .agency-step-number { display:flex; width:46px; height:46px; align-items:center; justify-content:center; margin:0 auto 18px; border:1px solid #4DA3FF; border-radius:50%; background:#245B8E; color:#FFF; font-weight:700; }
+.agency-page .agency-step-title { display:flex; align-items:center; justify-content:center; gap:8px; margin-bottom:8px; color:#FFF!important; font-size:16px; }
+.agency-page .agency-step-icon { display:inline-flex; width:22px; height:22px; align-items:center; justify-content:center; color:#7DBBFA; }
+.agency-page .agency-step-icon svg { display:block; width:20px; height:20px; }
+.agency-page .agency-step span:not(.agency-step-icon) { display:block; max-width:190px; margin-inline:auto; color:#C5D0E0!important; font-size:15px; line-height:1.6; }
+@media(max-width:800px) {
+  .agency-page .agency-process { grid-template-columns:1fr!important; gap:28px; }
+  .agency-page .agency-process:before { display:none; }
+  .agency-page .agency-step { padding:0 12px 28px; }
+  .agency-page .agency-step:not(:last-child):after { content:""; position:absolute; top:auto; bottom:0; left:50%; width:1px; height:28px; background:#4DA3FF66; }
+}
+
 </style>
 <div class="agency-page">
-<section class="agency-hero motion-reveal"><div class="agency-container"><div class="agency-hero-copy"><p class="agency-eyebrow">Desarrollo y soporte técnico WordPress para agencias</p><h1>¿Necesitáis apoyo técnico para avanzar con proyectos WordPress?</h1><p>Colaboro en maquetación, implementación de diseños, personalizaciones y soporte técnico en WordPress y WooCommerce. Me integro en vuestro flujo de trabajo con alcance definido y entregables verificados.</p><div class="agency-hero-actions"><div class="agency-price">Intervenciones puntuales desde €19<small style="display:block;margin-top:8px;font-size:13px;line-height:1.5;color:#9CCBFF;">El presupuesto final depende del alcance y la complejidad de la intervención. Antes de empezar, definimos qué incluye el trabajo.</small></div><a class="agency-button" href="../contacto/">Consultar un proyecto</a></div></div><div class="agency-visual" aria-hidden="true">
+<section class="agency-hero motion-reveal"><div class="agency-container"><div class="agency-hero-copy"><p class="agency-eyebrow">Desarrollo y Soporte Técnico WordPress para Agencias</p><h1>¿Necesitáis apoyo técnico para avanzar con proyectos WordPress?</h1><p>Colaboro en maquetación, implementación de diseños, personalizaciones y soporte técnico en WordPress y WooCommerce. Me integro en vuestro flujo de trabajo con alcance definido y entregables verificados.</p><div class="agency-hero-actions"><div class="agency-price">Intervenciones puntuales desde €19<small style="display:block;margin-top:8px;font-size:13px;line-height:1.5;color:#9CCBFF;">El presupuesto final depende del alcance y la complejidad de la intervención. Antes de empezar, definimos qué incluye el trabajo.</small></div><a class="agency-button" href="../contacto/">Consultar un proyecto</a></div></div><div class="agency-visual" aria-hidden="true">
   <div class="agency-visual-orbit agency-visual-orbit-one"></div>
   <div class="agency-visual-orbit agency-visual-orbit-two"></div>
   <div class="agency-visual-window">
@@ -1245,10 +1307,10 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
 </div></section>
 
 <div class="agency-divider agency-divider-light" aria-hidden="true"><svg viewBox="0 0 1000 100" preserveAspectRatio="none"><path d="M1000,0l-500,98l-500,-98l0,102l1000,0l0,-102Z"></path></svg></div>
-<section class="agency-section"><div class="agency-container"><div class="motion-reveal"><h2>¿Qué tareas puedo asumir?</h2><p class="agency-lead">Puedo incorporarme a proyectos nuevos o existentes para ejecutar tareas técnicas concretas sin desviar a vuestro equipo de otras prioridades.</p></div><div class="agency-grid motion-stagger"><div class="agency-card"><h3>Maquetación e implementación</h3><p>Construcción de páginas, implementación de diseños y ajustes responsive con constructores y herramientas de WordPress.</p></div><div class="agency-card"><h3>Diagnóstico y correcciones</h3><p>Errores, conflictos entre plugins o temas, comportamientos inesperados y ajustes funcionales que requieren revisión técnica.</p></div><div class="agency-card"><h3>WooCommerce</h3><p>Implementación y personalización de productos, catálogo, carrito, checkout y configuraciones de tienda.</p></div><div class="agency-card"><h3>Personalizaciones WordPress</h3><p>Ajustes de estilos y funcionalidades con CSS, PHP o JavaScript cuando el proyecto lo requiere.</p></div><div class="agency-card"><h3>Integraciones y configuración</h3><p>Formularios, APIs, DNS, SSL, Cloudflare, hosting y otras piezas del entorno WordPress.</p></div><div class="agency-card"><h3>Rendimiento y mantenimiento</h3><p>Revisión de problemas de rendimiento, actualizaciones, migraciones y tareas de mantenimiento técnico.</p></div></div></div></section>
+<section class="agency-section agency-capabilities"><div class="agency-container"><div class="motion-reveal"><h2>¿Qué tareas puedo asumir?</h2><p class="agency-lead">Puedo incorporarme a proyectos nuevos o existentes para ejecutar tareas técnicas concretas sin desviar a vuestro equipo de otras prioridades.</p></div><div class="agency-grid motion-stagger"><article class="agency-card agency-capability-card"><div class="agency-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"></rect><path d="M3 9h18M9 9v11"></path></svg></div><h3>Maquetación e implementación</h3><p>Construcción de páginas, implementación de diseños y ajustes responsive con constructores y herramientas de WordPress.</p></article><article class="agency-card agency-capability-card"><div class="agency-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.3 3.7 2.8 17a2 2 0 0 0 1.7 3h15a2 2 0 0 0 1.7-3L13.7 3.7a2 2 0 0 0-3.4 0Z"></path><path d="M12 9v4m0 4h.01"></path></svg></div><h3>Diagnóstico y correcciones</h3><p>Errores, conflictos entre plugins o temas, comportamientos inesperados y ajustes funcionales que requieren revisión técnica.</p></article><article class="agency-card agency-capability-card"><div class="agency-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"></path></svg></div><h3>WooCommerce</h3><p>Implementación y personalización de productos, catálogo, carrito, checkout y configuraciones de tienda.</p></article><article class="agency-card agency-capability-card"><div class="agency-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 8-4 4 4 4m8-8 4 4-4 4m-3-11-2 14"></path></svg></div><h3>Personalizaciones WordPress</h3><p>Ajustes de estilos y funcionalidades con CSS, PHP o JavaScript cuando el proyecto lo requiere.</p></article><article class="agency-card agency-capability-card"><div class="agency-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v6m0 8v6M2 12h6m8 0h6"></path><circle cx="12" cy="12" r="4"></circle></svg></div><h3>Integraciones y configuración</h3><p>Formularios, APIs, DNS, SSL, Cloudflare, hosting y otras piezas del entorno WordPress.</p></article><article class="agency-card agency-capability-card"><div class="agency-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v3m0 12v3M4.2 7.2l2.1 2.1m11.4 5.4 2.1 2.1M3 12h3m12 0h3M4.2 16.8l2.1-2.1m11.4-5.4 2.1-2.1"></path><circle cx="12" cy="12" r="5"></circle><path d="m12 9 2 3-2 3"></path></svg></div><h3>Rendimiento y mantenimiento</h3><p>Revisión de problemas de rendimiento, actualizaciones, migraciones y tareas de mantenimiento técnico.</p></article></div></div></section>
 
 <div class="agency-divider agency-divider-dark" aria-hidden="true"><svg viewBox="0 0 1000 100" preserveAspectRatio="none"><path d="M1000,0l-500,98l-500,-98l0,102l1000,0l0,-102Z"></path></svg></div>
-<section class="agency-section alt"><div class="agency-container"><div class="motion-reveal"><h2>Cómo trabajo</h2><p class="agency-lead">No empiezo tocando cosas al azar. Primero intento entender dónde está el problema y qué alcance tiene.</p></div><div class="agency-process motion-stagger"><div class="agency-step"><div class="agency-step-number">01</div><strong>Observar</strong><span>Recibo la incidencia y el contexto.</span></div><div class="agency-step"><div class="agency-step-number">02</div><strong>Aislar</strong><span>Delimito dónde se produce.</span></div><div class="agency-step"><div class="agency-step-number">03</div><strong>Diagnosticar</strong><span>Identifico la causa probable.</span></div><div class="agency-step"><div class="agency-step-number">04</div><strong>Corregir</strong><span>Aplico la solución acordada.</span></div><div class="agency-step"><div class="agency-step-number">05</div><strong>Verificar</strong><span>Compruebo que el resultado funciona.</span></div></div></div></section>
+<section class="agency-section alt"><div class="agency-container"><div class="motion-reveal"><h2>Cómo trabajo</h2><p class="agency-lead">No empiezo tocando cosas al azar. Primero intento entender dónde está el problema y qué alcance tiene.</p></div><div class="agency-process motion-stagger"><div class="agency-step"><div class="agency-step-number">01</div><strong class="agency-step-title"><span class="agency-step-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z"></path><circle cx="12" cy="12" r="2.5"></circle></svg></span>Observar</strong><span>Recibo la incidencia y el contexto.</span></div><div class="agency-step"><div class="agency-step-number">02</div><strong class="agency-step-title"><span class="agency-step-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h6v6H4zM14 14h6v6h-6z"></path><path d="M10 7h4v4M14 11l-4 4"></path></svg></span>Aislar</strong><span>Delimito dónde se produce.</span></div><div class="agency-step"><div class="agency-step-number">03</div><strong class="agency-step-title"><span class="agency-step-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.5 3.5a7 7 0 1 0 0 14 7 7 0 0 0 0-14Z"></path><path d="m16 16 4.5 4.5M10.5 7v4l2.5 1.5"></path></svg></span>Diagnosticar</strong><span>Identifico la causa probable.</span></div><div class="agency-step"><div class="agency-step-number">04</div><strong class="agency-step-title"><span class="agency-step-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 16-.8 4.8L8 20l11-11-4-4L4 16Z"></path><path d="m13.5 6.5 4 4"></path></svg></span>Corregir</strong><span>Aplico la solución acordada.</span></div><div class="agency-step"><div class="agency-step-number">05</div><strong class="agency-step-title"><span class="agency-step-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"></path><circle cx="12" cy="12" r="10"></circle></svg></span>Verificar</strong><span>Compruebo que el resultado funciona.</span></div></div></div></section>
 
 <div class="agency-divider agency-divider-light" aria-hidden="true"><svg viewBox="0 0 1000 100" preserveAspectRatio="none"><path d="M1000,0l-500,98l-500,-98l0,102l1000,0l0,-102Z"></path></svg></div>
 <section class="agency-section"><div class="agency-container"><div class="motion-reveal"><h2>Podemos trabajar white-label</h2><div class="agency-white-label"><p>Si sois una agencia, puedo trabajar como soporte técnico externo detrás de vuestro servicio.</p><ul><li>La comunicación es directamente con vuestro equipo.</li><li>No contacto con vuestro cliente salvo que me lo indiquéis.</li><li>Definimos el alcance antes de empezar.</li><li>Cuando es posible, trabajamos sobre staging antes de producción.</li><li>Podemos empezar con una intervención puntual y continuar si encaja.</li></ul></div></div></div></section>
@@ -1317,35 +1379,6 @@ els.forEach(function(el){observer.observe(el);});
 
 <!-- Facebook -->
 <style>.kt-svg-item-6f34de-d2 .kb-svg-icon-wrap, .kt-svg-style-stacked.kt-svg-item-6f34de-d2 .kb-svg-icon-wrap{color:var(--global-palette1, #3182CE);font-size:20px;background:var(--global-palette3, #1A202C);border-color:var(--global-palette1, #3182CE);border-width:1px;border-radius:50%;padding-top:var(--global-kb-spacing-xs, 1rem);padding-right:var(--global-kb-spacing-xs, 1rem);padding-bottom:var(--global-kb-spacing-xs, 1rem);padding-left:var(--global-kb-spacing-xs, 1rem);}.kt-svg-item-6f34de-d2:hover .kb-svg-icon-wrap{background:var(--global-palette1, #3182CE);border-color:var(--global-palette3, #1A202C);}.kt-svg-item-6f34de-d2:hover .kb-svg-icon-wrap{color:var(--global-palette3, #1A202C);}
-/* Pricing section aligned with the Argentina agency landing. */
-.agency-page .agency-pricing { background:#F1F5F9; color:#0B1120; }
-.agency-page .agency-pricing h2 { color:#0B1120!important; }
-.agency-page .agency-pricing .agency-lead { color:#475569!important; }
-.agency-page .agency-pricing-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; }
-.agency-page .agency-pricing .agency-price-card { min-height:0; padding:30px; border:1px solid #DCE5EF; border-radius:10px; background:#FFF; box-shadow:0 8px 24px rgba(15,23,42,.045); }
-.agency-page .agency-pricing .agency-price-card:before { display:none; }
-.agency-page .agency-pricing .agency-price-card h3 { margin:0 0 14px; color:#0B1120!important; font-size:21px; }
-.agency-page .agency-pricing .agency-price-card .agency-price-amount { margin:0 0 12px; color:#174A78!important; font-size:clamp(21px,2.2vw,25px); font-weight:750; line-height:1.25; }
-.agency-page .agency-pricing .agency-price-card p:last-child { color:#475569!important; font-size:16px; line-height:1.65; }
-.agency-page .agency-price-icon { display:flex; align-items:center; justify-content:center; width:40px; height:40px; margin-bottom:18px; border-radius:11px; background:#E8F2FC; color:#2563EB; }
-.agency-page .agency-price-icon svg { display:block; width:21px; height:21px; }
-.agency-page .agency-pricing-note { max-width:900px; margin:26px auto 0; color:#475569!important; text-align:center; font-size:15px; line-height:1.7; }
-@media(max-width:700px) {
-  .agency-page .agency-pricing-grid { grid-template-columns:1fr; }
-  .agency-page .agency-pricing .agency-price-card { padding:26px 24px; }
-}
-
-/* Agency landing fixes: prevent theme link decoration and keep the workflow vertical on mobile. */
-.agency-page .agency-button,
-.agency-page .agency-button:link,
-.agency-page .agency-button:visited,
-.agency-page .agency-button:hover,
-.agency-page .agency-button:focus,
-.agency-page .agency-button:active { text-decoration:none!important; }
-@media(max-width:800px) {
-  .agency-page .agency-process { grid-template-columns:1fr!important; gap:28px; }
-}
-
 </style>
 
 <div class="wp-block-kadence-single-icon kt-svg-style-stacked kt-svg-icon-wrap kt-svg-item-6f34de-d2">
