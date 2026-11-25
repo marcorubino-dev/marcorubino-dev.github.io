@@ -47,3 +47,7 @@
 @media(max-width:767px){.mws-agency-trigger{min-height:48px;padding:10px 17px;font-size:15px}.mws-agency-menu{width:min(340px,calc(100vw - 32px));max-width:calc(100vw - 32px)}}
 @media(prefers-reduced-motion:reduce){.mws-agency-trigger,.mws-agency-trigger svg,.mws-agency-option,.mws-agency-option>svg{transition:none}.mws-agency-menu{animation:none}}
 
+
+
+/* Mobile hero eyebrow: keep the full EN label inside narrow viewports. */
+@media(max-width:767px){.mws-hero .kt-adv-heading133_4f7b16-c6{box-sizing:border-box;max-width:100%;font-size:11px;letter-spacing:.045em;line-height:1.4;white-space:normal;overflow-wrap:normal;text-wrap:balance}.mws-hero + .mws-offer-section{border-top:0!important;box-shadow:none!important}}
