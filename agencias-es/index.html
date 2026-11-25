@@ -1383,6 +1383,34 @@ els.forEach(function(el){observer.observe(el);});
 
 <!-- Facebook -->
 <style>.kt-svg-item-6f34de-d2 .kb-svg-icon-wrap, .kt-svg-style-stacked.kt-svg-item-6f34de-d2 .kb-svg-icon-wrap{color:var(--global-palette1, #3182CE);font-size:20px;background:var(--global-palette3, #1A202C);border-color:var(--global-palette1, #3182CE);border-width:1px;border-radius:50%;padding-top:var(--global-kb-spacing-xs, 1rem);padding-right:var(--global-kb-spacing-xs, 1rem);padding-bottom:var(--global-kb-spacing-xs, 1rem);padding-left:var(--global-kb-spacing-xs, 1rem);}.kt-svg-item-6f34de-d2:hover .kb-svg-icon-wrap{background:var(--global-palette1, #3182CE);border-color:var(--global-palette3, #1A202C);}.kt-svg-item-6f34de-d2:hover .kb-svg-icon-wrap{color:var(--global-palette3, #1A202C);}
+
+/* Shared eyebrow treatment: match the Argentina reference across all agency pages. */
+.agency-page .agency-hero .agency-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 22px;
+  color: #9CCBFF;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: .10em;
+  line-height: 1.5;
+  opacity: 1;
+  text-transform: none !important;
+}
+.agency-page .agency-hero .agency-eyebrow:before {
+  content: "";
+  width: 22px;
+  height: 2px;
+  background: #4DA3FF;
+  flex: 0 0 auto;
+}
+@media (max-width: 700px) {
+  .agency-page .agency-hero .agency-eyebrow {
+    font-size: 13px;
+    letter-spacing: .08em;
+  }
+}
 </style>
 
 <div class="wp-block-kadence-single-icon kt-svg-style-stacked kt-svg-icon-wrap kt-svg-item-6f34de-d2">
