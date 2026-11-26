@@ -2387,9 +2387,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
   var trigger = selector.querySelector('.mws-agency-trigger');
   var menu = selector.querySelector('.mws-agency-menu');
-  var hero = selector.closest('.mws-hero');
 
-  if (!trigger || !menu || !hero) return;
+  if (!trigger || !menu) return;
+
+  // Keep the popover outside animated/transformed hero ancestors.
+  document.body.appendChild(menu);
+  menu.style.zIndex = '10000';
 
   function positionMenu() {
     menu.classList.remove('opens-up');
@@ -2438,7 +2441,9 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   document.addEventListener('click', function (event) {
-    if (!selector.contains(event.target)) setOpen(false);
+    if (!selector.contains(event.target) && !menu.contains(event.target)) {
+      setOpen(false);
+    }
   });
 
   document.addEventListener('keydown', function (event) {
