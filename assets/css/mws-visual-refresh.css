@@ -1,5 +1,5 @@
 /* MWS homepage hero: restrained visual system, using the site's approved palette */
-.mws-hero{--mws-hero-accent:#3B82C4;--mws-hero-subtitle:#94AFC7;--mws-hero-ink:#111827;position:relative;isolation:isolate;overflow:hidden;color:#fff}
+.mws-hero{--mws-hero-accent:#3B82C4;--mws-hero-subtitle:#94AFC7;--mws-hero-ink:#111827;position:relative;isolation:isolate;overflow:visible;color:#fff}
 .mws-hero>.kt-row-layout-overlay{display:block!important;opacity:.80!important;background:#0b1120!important;mix-blend-mode:normal!important}
 .mws-hero>.kt-row-column-wrap{position:relative;z-index:1;width:100%;max-width:1290px;min-height:680px;margin-inline:auto;padding:clamp(7rem,11vw,9rem) 32px clamp(5rem,8vw,7rem)}
 .mws-hero .kadence-column133_95ce03-0d>.kt-inside-inner-col{display:flex;flex-direction:column;align-items:center;max-width:100%;margin:0;gap:0}
@@ -21,9 +21,9 @@
 @media(prefers-reduced-motion:reduce){.mws-hero-button{transition:none}.mws-hero-button:hover,.mws-hero-button:active{transform:none}}
 
 
-/* Agency market selector: anchored popover, contained within the hero. */
+/* Agency market selector: viewport-aware popover, visually anchored to the hero. */
 .mws-agency-selector{position:relative;z-index:5;display:inline-flex;flex-direction:column;align-items:center;min-width:0}
-.mws-agency-trigger{display:inline-flex;min-height:50px;align-items:center;justify-content:center;gap:.7rem;padding:10px 20px;border:1px solid #3B82C4;border-radius:8px;background:transparent;color:#fff;font-family:inherit;font-size:16px;font-weight:600;line-height:1.2;cursor:pointer;text-decoration:none;transition:background-color .18s ease,color .18s ease,border-color .18s ease,transform .18s ease}
+.mws-agency-trigger{display:inline-flex;min-height:50px;align-items:center;justify-content:center;gap:.35rem;padding:10px 16px;border:1px solid #3B82C4;border-radius:8px;background:transparent;color:#fff;font-family:inherit;font-size:16px;font-weight:600;line-height:1.2;cursor:pointer;text-decoration:none;transition:background-color .18s ease,color .18s ease,border-color .18s ease,transform .18s ease}
 .mws-agency-trigger svg{width:17px;height:17px;flex:0 0 auto;transition:transform .18s ease}
 .mws-agency-trigger:hover,.mws-agency-selector.is-open .mws-agency-trigger{border-color:#3B82C4;background:#3B82C4;color:#111827}
 .mws-agency-selector.is-open .mws-agency-trigger svg{transform:rotate(180deg)}
@@ -46,3 +46,8 @@
 @keyframes mws-agency-menu-in{from{opacity:0}to{opacity:1}}
 @media(max-width:767px){.mws-agency-trigger{min-height:48px;padding:10px 17px;font-size:15px}.mws-agency-menu{width:min(340px,calc(100vw - 32px));max-width:calc(100vw - 32px)}}
 @media(prefers-reduced-motion:reduce){.mws-agency-trigger,.mws-agency-trigger svg,.mws-agency-option,.mws-agency-option>svg{transition:none}.mws-agency-menu{animation:none}}
+
+
+
+/* Mobile hero eyebrow: keep the full EN label inside narrow viewports. */
+@media(max-width:767px){.mws-hero .kt-adv-heading133_4f7b16-c6{box-sizing:border-box;max-width:100%;font-size:11px;letter-spacing:.045em;line-height:1.4;white-space:normal;overflow-wrap:normal;text-wrap:balance}.mws-hero + .mws-offer-section{border-top:0!important;box-shadow:none!important}}
