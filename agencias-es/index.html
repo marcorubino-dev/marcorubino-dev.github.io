@@ -1029,7 +1029,15 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
 .mws-language-switch .mws-language-switch__control > .mws-language-switch__current {
  background:#3B82C4; color:#FFFFFF; cursor:default;
 }
-#mobile-menu > .mws-language-switch { padding-top:10px; padding-bottom:10px; }
+#mobile-menu > .mws-language-switch {
+  width: 100%;
+  justify-content: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+#mobile-menu .mws-language-switch__control {
+  margin-inline: auto;
+}
 #mobile-menu .mws-language-switch .mws-language-switch__control > a,
 #mobile-menu .mws-language-switch .mws-language-switch__control > span {
  min-width:40px; min-height:40px;

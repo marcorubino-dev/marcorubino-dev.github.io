@@ -786,8 +786,13 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
   cursor: default;
 }
 #mobile-menu > .mws-language-switch {
+  width: 100%;
+  justify-content: center;
   padding-top: 10px;
   padding-bottom: 10px;
+}
+#mobile-menu .mws-language-switch__control {
+  margin-inline: auto;
 }
 #mobile-menu .mws-language-switch .mws-language-switch__control > a,
 #mobile-menu .mws-language-switch .mws-language-switch__control > span {
@@ -1185,13 +1190,13 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
 
 <section class="mws-offer-section" id="servicios" aria-labelledby="mws-services-title">
   <div class="mws-offer-container">
-    <header class="mws-offer-heading">
+    <header class="mws-offer-heading motion-stagger">
       <p class="mws-offer-eyebrow">SOPORTE TÉCNICO WORDPRESS</p>
       <h2 id="mws-services-title">¿Qué necesitás resolver?</h2>
       <p>Trabajo sobre sitios WordPress y WooCommerce para corregir problemas, mejorar su funcionamiento y desarrollar lo que necesitan.</p>
     </header>
 
-    <div class="mws-service-grid">
+    <div class="mws-service-grid motion-stagger">
       <article class="mws-service-card">
         <div class="mws-service-topline">
           <span class="mws-service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14.5 6.5a4.5 4.5 0 0 0-5.9 5.9l-5.4 5.4a2 2 0 0 0 2.8 2.8l5.4-5.4a4.5 4.5 0 0 0 5.9-5.9l-2.8 2.8-2.8-2.8 2.8-2.8Z"/></svg></span>
@@ -1236,13 +1241,13 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
     <section class="mws-engagement" aria-labelledby="mws-engagement-title">
       <div class="mws-engagement-layout">
         <div class="mws-engagement-main">
-          <div class="mws-engagement-heading">
+          <div class="mws-engagement-heading motion-stagger">
             <p class="mws-offer-eyebrow">CÓMO PODEMOS TRABAJAR</p>
             <h2 id="mws-engagement-title">Hablemos de lo que necesitás resolver.</h2>
             <p>Cada proyecto se evalúa según el problema, el alcance y las condiciones del trabajo. Antes de avanzar, definimos qué se necesita y cómo abordarlo.</p>
           </div>
         </div>
-        <div class="mws-engagement-details">
+        <div class="mws-engagement-details motion-stagger">
           <p class="mws-engagement-note">Toda intervención parte de un alcance acordado: qué se va a revisar, qué tareas incluye y cómo se comprobará el resultado. Si aparece trabajo adicional, se explica y se presupuesta antes de continuar.</p>
           <a class="mws-engagement-link" href="/contacto/">Contame qué necesitás resolver <span aria-hidden="true">→</span></a>
         </div>
@@ -2508,9 +2513,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
   var trigger = selector.querySelector('.mws-agency-trigger');
   var menu = selector.querySelector('.mws-agency-menu');
-  var hero = selector.closest('.mws-hero');
 
-  if (!trigger || !menu || !hero) return;
+  if (!trigger || !menu) return;
+
+  // Keep the popover outside animated/transformed hero ancestors.
+  document.body.appendChild(menu);
+  menu.style.zIndex = '10000';
 
   function positionMenu() {
     menu.classList.remove('opens-up');
@@ -2524,9 +2532,10 @@ document.addEventListener('DOMContentLoaded', function () {
     var viewportWidth = window.innerWidth;
     var spaceBelow = Math.max(0, viewportHeight - selectorRect.bottom - spacing);
     var spaceAbove = Math.max(0, selectorRect.top - spacing);
-    var opensUp = spaceBelow < Math.min(menuHeight, 220) && spaceAbove > spaceBelow;
+    var isMobile = window.matchMedia('(max-width: 767px)').matches;
+    var opensUp = isMobile || (spaceBelow < Math.min(menuHeight, 220) && spaceAbove > spaceBelow);
     var available = opensUp ? spaceAbove : spaceBelow;
-    var maxHeight = Math.max(120, Math.min(menuHeight, available));
+    var maxHeight = Math.min(menuHeight, available);
     var menuWidth = Math.min(350, viewportWidth - 32);
     var center = selectorRect.left + selectorRect.width / 2;
     var left = Math.max(menuWidth / 2 + 16, Math.min(viewportWidth - menuWidth / 2 - 16, center));
@@ -2559,7 +2568,9 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   document.addEventListener('click', function (event) {
-    if (!selector.contains(event.target)) setOpen(false);
+    if (!selector.contains(event.target) && !menu.contains(event.target)) {
+      setOpen(false);
+    }
   });
 
   document.addEventListener('keydown', function (event) {
