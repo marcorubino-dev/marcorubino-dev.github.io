@@ -664,6 +664,13 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
  .mws-language-switch .mws-language-switch__control > a,
  .mws-language-switch .mws-language-switch__control > span { transition:none; }
 }
+
+/* Keep the language selector aligned to the right in the mobile drawer. */
+#mobile-menu > .mws-language-switch {
+  width: 100%;
+  box-sizing: border-box;
+  justify-content: flex-end;
+}
 </style>
 <style id="mws-contact-polish-en">
 /* Contact: align the form with the site's dark service-card palette */
