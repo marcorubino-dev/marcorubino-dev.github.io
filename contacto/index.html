@@ -687,6 +687,13 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
   min-width: 40px;
   min-height: 40px;
 }
+/* Center the process eyebrow on narrow screens. */
+@media (max-width: 767px) {
+  #inner-wrap .wp-block-kadence-advancedheading.kt-adv-heading135_b62f90-ab {
+    text-align: center !important;
+  }
+}
+
 /* Contact hero: keep the heading clear of the absolutely positioned mobile header. */
 @media (max-width: 1024px) {
   #inner-wrap .kb-row-layout-id135_c77d13-50 > .kt-row-column-wrap {
